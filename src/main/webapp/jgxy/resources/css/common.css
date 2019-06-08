@@ -1,0 +1,88 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a,a:hover,a:focus,a:visited,a:active { text-decoration:none; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body{background-image:url("../images/index_bg3.png");background-position: left top;background-size: cover;background-color: #f8f8f8;background-color: #EDFFFF;background-repeat: no-repeat;position: relative;}
+.index_bg{width: 100%;position: absolute;z-index: 0;left: 0;top: 0;}
+.index_wrapper{width: 1100px;margin: 0 auto;    position: relative;}
+@font-face {
+        font-family: 'hwxk';
+        src: url('../font/hwxk.ttf');
+        src: url('../font/hwxk.ttf') format('embedded-opentype'),
+        url('../font/hwxk.ttf') format('woff'),
+        url('../font/hwxk.ttf') format('truetype'),
+        url('../font/hwxk.ttf') format('svg');
+       
+        /*src: url('fonts/alexbrush-regular-webfont.eot');*/
+        /*src: url('fonts/alexbrush-regular-webfont.eot?#iefix') format('embedded-opentype'),*/
+        /*url('fonts/alexbrush-regular-webfont.woff') format('woff'),*/
+        /*url('fonts/alexbrush-regular-webfont.ttf') format('truetype'),*/
+        /*url('fonts/alexbrush-regular-webfont.svg#alex_brushregular') format('svg');*/
+        font-weight: normal;
+        font-style: normal;
+
+}
+.head_wrapper{padding-top: 1em;}
+/*school_logo_wrapper*/
+.school_logo_wrapper{margin-top: 1em;}
+/*.school_logo_wrapper .school_logo{width: 84px;height: 84px;margin-right: 15px;}*/
+.school_logo_wrapper .school_logo{height: 100px;margin-right: 15px;}
+.school_logo_wrapper .school_name{font-size: 20px;font-weight: bold;}
+.school_logo_wrapper .school_name_second{font-size: 12px;text-transform:uppercase;margin: 2px 0;/*font-family: "qingyuan";*/font-weight: bold;}
+.school_logo_wrapper .school_name_tips{}
+/*head_right_wrapper*/
+.head_right_wrapper{color: #0b4782;margin-top: 0em;}
+.head_right_wrapper .right_text_wrapper{color: #0b4782;font-size: 18px;font-weight: bold;}
+.head_right_wrapper .right_text_wrapper .big_font{font-size: 30px;/*color:#fff;*/font-family:hwxk;/*text-shadow: 0 0 3px #0b4782;*/}
+.head_right_wrapper .right_text_wrapper_2{font-size: 28px;font-weight: bold;}
+.head_right_wrapper .right_text_wrapper_3{font-size: 12px;}
+.head_right_wrapper .right_text_wrapper_4{font-size: 14px;}
+/*search_wrapper*/
+.search_wrapper{/*background: #fff;border-color: #CCDDE4;border-width: 3px;border-style: solid;border-top: none;border-bottom-width: 4px;*/padding: 10px;border-radius: 0 0 5px 5px;display: flex;}
+.search_wrapper .search_text{color: #0b4782;line-height: 34px;margin: 0 1em;}
+.search_wrapper .search_input{width: 200px;display: inline;margin-right: 20px;background: rgba(255,255,255,0.5);}
+.search_wrapper .search_btn{display: flex;justify-items: center;align-items: center;}
+.search_wrapper .search_btn .search_img{width: 20px;display: block;margin: 0 auto;}
+/*nav_fixed_wrapper*/.nav_fixed_wrapper{margin-top: 0em;}
+.nav_wrapper{background: -webkit-linear-gradient(bottom,#0f72ae 0%,#1174af 25%, #0c82bf 50%, #0c8fd0 75%, #03a6ee 100%);background: -webkit-linear-gradient(bottom,#0f72ae 0%,#1174af 25%, #0c82bf 50%, #0c8fd0 75%, #03a6ee 100%);background: -o-linear-gradient(bottom,#0f72ae 0%,#1174af 25%, #0c82bf 50%, #0c8fd0 75%, #03a6ee 100%);background: -moz-linear-gradient(bottom,#0f72ae 0%,#1174af 25%, #0c82bf 50%, #0c8fd0 75%, #03a6ee 100%);background: linear-gradient(bottom,#0f72ae 0%,#1174af 25%, #0c82bf 50%, #0c8fd0 75%, #03a6ee 100%);border-radius: 5px 5px 0 0;border: 2px solid #1095CD;border-bottom-color: #033F81;}
+.nav_wrapper .nav_ul{display: flex;}
+.nav_wrapper .nav_ul .nav_ul_li{flex: 1;padding: 10px 0;position: relative;transition: all 0.5s linear;}
+.nav_wrapper .nav_ul .nav_ul_li:hover{background: #fff;}
+.nav_wrapper .nav_ul .nav_ul_li:hover a:before{display: none;}
+.nav_wrapper .nav_ul .nav_ul_li:hover a{color: #0e8cc9;}
+.nav_wrapper .nav_ul .nav_ul_li a{display: block;color: #fff;padding: 0 0px;text-align: center;position: relative;outline: none;}
+.nav_wrapper .nav_ul .nav_ul_li a .nav_name{display: block;font-size: 14px;}
+.nav_wrapper .nav_ul .nav_ul_li a .nav_tips{display: block;font-size: 12px;display: none;}
+.nav_wrapper .nav_ul .nav_ul_li:last-child a:before{display: none;}
+.nav_wrapper .nav_ul .nav_ul_li a:before{content: '';width: 1px;height: 30px;position: absolute;right: 0;background: -webkit-linear-gradient(bottom,#079ce1 0%,rgba(255,255,255,0.6) 50%, #079ce1 100%);background: -webkit-linear-gradient(bottom,#079ce1 0%, rgba(255,255,255,0.6) 50%, #079ce1 100%);background: -o-linear-gradient(bottom,#079ce1 0%, rgba(255,255,255,0.6) 50%, #079ce1 100%);background: -moz-linear-gradient(bottom,#079ce1 0%, rgba(255,255,255,0.6) 50%, #079ce1 100%);background: linear-gradient(bottom,#079ce1 0%, rgba(255,255,255,0.6) 50%, #079ce1 100%);}
+/*footer_wrapper*/.footer_wrapper{ border-top: 3px solid #2a9cd8;padding: 15px 0;text-align: center;color: #0b4782;margin-top: 1em;line-height: 30px;}
+.footer_wrapper p{}
+@media screen and (min-width: 1201px) { 
+.index_wrapper {width: 1200px}  
+} 
+/* css注释：设置了浏览器宽度不小于1201px时 abc 显示1200px宽度 */ 
+ 
+@media screen and (max-width: 1200px) { 
+.index_wrapper {width: 900px}  
+} 
+/* 设置了浏览器宽度不大于1200px时 abc 显示900px宽度 */ 
+ 
+@media screen and (max-width: 901px) { 
+.index_wrapper {width: 200px;}  
+} 
+/* 设置了浏览器宽度不大于901px时 abc 显示200px宽度 */ 
+ 
+@media screen and (max-width: 500px) { 
+.index_wrapper {width: 100px;}  
+} 
