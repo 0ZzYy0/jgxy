@@ -72,6 +72,10 @@ public class JgxyReceptionController {
 			JgxySysMenu x = new JgxySysMenu();
 			x.setId(jgxySysMenuId);
 			jgxyNote.setJgxySysMenu(x);
+			
+			//用来取出菜单名
+			JgxySysMenu jsm = jgxySysMenuService.get(jgxySysMenuId);
+			request.setAttribute("jgxySysMenuName", jsm.getName());
 		}
 
 		// 根据标题名称搜索

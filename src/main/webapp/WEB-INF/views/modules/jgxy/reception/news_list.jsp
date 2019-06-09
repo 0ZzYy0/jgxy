@@ -485,7 +485,7 @@ a:hover{color:blue;}
 				<c:if test="${jgxyNoteList ne null }">
 					<div class="news_list_1" id="jgxyNoteListDiv">
 						<p class="news_list_tittle clearfix">
-							<span>学院新闻</span>
+							<span>${jgxySysMenuName}</span>
 						</p>
 						<table id="table1" class="table no-margin">
 							<thead>
@@ -520,7 +520,7 @@ a:hover{color:blue;}
 				<c:if test="${jgxyNote ne null }">
 					<div class="news_info" id="jgxyNoteInfoDiv">
 						<p class="news_list_tittle clearfix">
-							<span>学院新闻</span>
+							<span>${jgxyNote.jgxySysMenu.name}</span>
 						</p>
 						<ul class="news_list">
 							<li class="single_news_wrapper">

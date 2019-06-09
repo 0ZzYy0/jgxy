@@ -80,7 +80,7 @@
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="javascript:void(0);">
+                <a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=5259940120822480279">
                     <span class="nav_name">继续教育</span>
                     <span class="nav_tips">Education</span>
                 </a>
