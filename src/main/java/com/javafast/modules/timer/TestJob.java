@@ -9,11 +9,11 @@ import com.javafast.api.sms.utils.SmsUtils;
 @Component
 public class TestJob {
 
-    private Logger logger = Logger.getLogger(TestJob.class);
+   /* private Logger logger = Logger.getLogger(TestJob.class);
 
-    /**
+    *//**
      * 每30分钟执行一次
-     */
+     *//*
     @Scheduled(cron = "0 0/30 * * * ?")
     public void test() {
 
@@ -38,6 +38,6 @@ public class TestJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 }
