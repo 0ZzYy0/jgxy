@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta name="decorator" content="default"/>
-	<title>警官学院新闻发布平台登录</title>
+	<title>黑龙江省司法警官职业学院新闻发布平台</title>
   	<meta name="description" content="警官学院新闻发布平台">
   	<meta name="keywords" content="警官学院新闻发布平台">
   	<style type="text/css">
@@ -43,7 +43,7 @@
 	 
     <div class="signinpanel">
     	<div class="login-logo">
-		     警官学院新闻发布平台 
+		    黑龙江省司法警官职业学院新闻发布平台
 		</div>
 		<sys:message content="${message}"/>	
         <div class="row">
@@ -79,10 +79,8 @@
         <div class="signup-footer">
         
             <div class="">
-                &copy; copyright 2019 警官学院新闻发布平台 
+                &copy; copyright 2019 黑龙江省司法警官职业学院
             </div>
-            <br>
-             <p class="login-box-msg">快速演示账号/密码：admin/admin</p>
         </div>
     </div>
 

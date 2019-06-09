@@ -24,27 +24,27 @@
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/index.css" rel="stylesheet" type="text/css" />
 <style>
 #certify {
-	width: 100%;
+	width: 100% !important;
 }
 
 #certify .swiper-slide {
-	height: auto;
+	height: auto !important;
 }
 
 #certify .swiper-slide p {
-	display: none;
+	display: none !important;
 }
 
 #certify .swiper-pagination {
-	display: none;
+	display: none !important;
 }
 
 #certify .swiper-button-prev {
-	display: none;
+	display: none !important;
 }
 
 #certify .swiper-button-next {
-	display: none;
+	display: none !important;
 }
 </style>
 </head>
@@ -431,23 +431,19 @@
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify01.jpg" width="520" height="310" />
-							<p class="">非常难得又值钱的认证证书</p>
+							<!-- <p class="">非常难得又值钱的认证证书</p> -->
 						</div>
 						<div class="swiper-slide">
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify02.jpg" width="520" height="310" />
-							<p class="">深圳市优秀互联网企业认定证书</p>
 						</div>
 						<div class="swiper-slide">
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify03.jpg" width="520" height="310" />
-							<p class="">质量管理体系认证荣誉证书</p>
 						</div>
 						<div class="swiper-slide">
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify04.jpg" width="520" height="310" />
-							<p class="">计算机软件著作权登记证书</p>
 						</div>
 						<div class="swiper-slide">
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify05.jpg" width="520" height="310" />
-							<p class="">增值电信业务经营许可证</p>
 						</div>
 					</div>
 				</div>

@@ -106,7 +106,7 @@
 		}
 	</style>
 </head>
-<body class="theme-green-white main-menu-animated">
+<body class="theme-blue-flare main-menu-animated">
 <div class="z-loading-wrap">
      <div class="spinner">
        <img src="${ctxStatic}/assets/images/loading2.gif" />
@@ -170,7 +170,7 @@
 						
 						<ul class="nav navbar-nav pull-right right-navbar-nav">
 							
-							<li><a href="#" onclick="toShowThemeDiv()" title="切换样式"><i class="fa fa-dashboard"></i></a></li>
+							<!-- <li><a href="#" onclick="toShowThemeDiv()" title="切换样式"><i class="fa fa-dashboard"></i></a></li> -->
 <%-- 							<li><a href="${ctx}/iim/myCalendar" target="mainFrame" title="我的日程"><i class="fa fa-calendar-o"></i></a></li>
 							<li><a href="${ctx }/oa/oaNotify/self" target="mainFrame" title="通知公告"><i class="fa fa-bell-o"></i><c:if test="${count > 0}"><span class="badge badge-success">${count}</span></c:if></a></li>
 							<li><a href="${ctx}/iim/mailBox/list?orderBy=sendtime desc" target="mainFrame" title="内部消息"><i class="fa fa-envelope-o"></i><c:if test="${noReadCount > 0}"><span class="badge badge-success">${noReadCount}</span></c:if></a></li>
