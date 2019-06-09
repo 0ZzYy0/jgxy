@@ -27,14 +27,6 @@
 <script src="${pageContext.request.contextPath}/jgxy/resources/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/jgxy/resources/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
 
-
-<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminTLE/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminTLE/bower_components/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminTLE/bower_components/Ionicons/css/ionicons.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminTLE/bower_components/jvectormap/jquery-jvectormap.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminTLE/dist/css/AdminLTE.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminTLE/dist/css/skins/_all-skins.min.css">
-
 <style>
 .news_list_wrapper {
 	padding: 15px;
@@ -406,10 +398,6 @@
 	{
 	margin-left: 2em;
 }
-a:link {color: black;}
-a:visited {color: black}
-a:hover {color: blue}
-a:active {color: black}
 </style>
 </head>
 <body>
@@ -439,6 +427,62 @@ a:active {color: black}
 						</a> <a href="javascript:void(0);" class="quick_access_btn clearfix"> <img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_6.png" alt="" class="quick_access_btn_img"> <span class="quick_access_btn_text">继续教育</span>
 						</a>
 
+					</div>
+				</div>
+
+				<div class="right_part_wrapper" style="margin-bottom: 30px;">
+					<div class="right_part_tittle">
+						<p class="right_part_name">友情链接</p>
+					</div>
+					<div class="friendship_link_wrapper">
+						<div class="friendship_link_content">
+							<a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a>
+							<ul class="friendship_link_ul hide">
+								<li class="friendship_link_li friendship_link_content"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a>
+									<ul class="friendship_link_ul hide">
+										<li class="friendship_link_li friendship_link_content"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a>
+											<ul class="friendship_link_ul hide">
+												<li class="friendship_link_li friendship_link_content"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+												<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+												<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+												<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+											</ul></li>
+										<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+										<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+										<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+									</ul></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
+							</ul>
+						</div>
+						<div class="friendship_link_content">
+							<a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a>
+							<ul class="friendship_link_ul hide">
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a></li>
+							</ul>
+						</div>
+						<div class="friendship_link_content">
+							<a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a>
+							<ul class="friendship_link_ul hide">
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a></li>
+							</ul>
+						</div>
+						<div class="friendship_link_content">
+							<a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a>
+							<ul class="friendship_link_ul hide">
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a></li>
+								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 
@@ -481,37 +525,28 @@ a:active {color: black}
 					<p class="news_list_tittle clearfix">
 						<span>学院新闻</span>
 					</p>
-					<div class="box-body">
-						<div class="table-responsive">
-							<table id="table1" class="table no-margin">
-								<thead>
-									<tr class="row">
-										<td></td>
-										<td></td>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${jgxyNoteList}" var="jgxyNote">
-										<tr class="row">
-											<td class="col-sm-9">
-												<a href="javascript:void(0);" onclick="showInfo('${jgxyNote.id}')" class="single_news hover_before">
-													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 25)}...</span> 
-													</c:if>
-													<c:if test="${fn:length(jgxyNote.title) le 10}">
-														<span class="news_tittle">${jgxyNote.title}</span> 
-													</c:if>
-												</a>
-											</td>
-											<td class="col-sm-3">
-												<span class="label label-info" ><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
-											</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-						</div>
-					</div>
+					<table id="table1" class="table table-hover ">
+						<thead>
+							<tr class="row">
+								<td></td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${jgxyNoteList}" var="jgxyNote">
+								<tr class="row">
+									<td class="col-sm-9">
+										<a href="javascript:void(0);" onclick="showInfo('${jgxyNote.id}')" class="single_news hover_before">
+											<span class="news_tittle">${jgxyNote.title}</span> 
+										</a>
+									</td>
+									<td class="col-sm-3">
+										<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>
 
 				<!--新闻详情-->
@@ -631,7 +666,7 @@ a:active {color: black}
 		    	 $("#jgxyNoteTitle").html("");
 		    	 $("#jgxyNoteTitle").append(data.title);
 		    	 $("#jgxyNoteCreateDate").html("");
-		    	 $("#jgxyNoteCreateDate").append("发布时间 : "+data.createDate.substring(0,10));
+		    	 $("#jgxyNoteCreateDate").append("发布时间:"+data.createDate.substring(0,));
 		    	 $("#jgxyNoteContents").html("");
 		    	 $("#jgxyNoteContents").append(data.contents);
 		     },
