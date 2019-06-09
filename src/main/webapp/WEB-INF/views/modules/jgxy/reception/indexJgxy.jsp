@@ -25,10 +25,7 @@
 <style>
 #certify {
 	width: 100% !important;
-}
-
-#certify .swiper-slide {
-	height: auto !important;
+	height: 310px;
 }
 
 #certify .swiper-slide p {
