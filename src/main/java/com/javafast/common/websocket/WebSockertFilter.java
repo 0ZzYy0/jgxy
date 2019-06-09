@@ -27,7 +27,7 @@ public class WebSockertFilter implements Filter {
 	 * 初始化
 	 */
 	public void init(FilterConfig fc) throws ServletException {
-		this.startWebsocketChatServer();
+		//this.startWebsocketChatServer();
 		// this.startWebsocketOnline();
 	}
 
