@@ -156,9 +156,7 @@
 						<div class="tab-content">
 							<div id="tab-1" class="tab-pane active">
 								<ul class="news_list">
-									<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
-										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
-										<c:if test="${jgxyNote.jgxySysMenu.id eq '71864634419527302'}">
+									<c:forEach items="${jgxyNoteJXDT}" var="jgxyNote" varStatus="status">
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
@@ -171,15 +169,13 @@
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
-										</c:if>
 									</c:forEach>
 								</ul>
 							</div>
 							<div id="tab-2" class="tab-pane">
 								<ul class="news_list">
-									<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
+									<c:forEach items="${jgxyNoteKYZX}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
-										<c:if test="${jgxyNote.jgxySysMenu.id eq '1517093218844555186'}">
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
@@ -192,7 +188,6 @@
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
-										</c:if>
 									</c:forEach>
 								</ul>
 							</div>
@@ -219,9 +214,7 @@
 						<div class="tab-content">
 							<div id="tab-3" class="tab-pane active">
 								<ul class="news_list">
-									<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
-										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
-										<c:if test="${jgxyNote.jgxySysMenu.id eq '2664446703223844603'}">
+									<c:forEach items="${jgxyNoteGZXY}" var="jgxyNote" varStatus="status">
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
@@ -235,7 +228,6 @@
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
-										</c:if>
 									</c:forEach>
 								</ul>
 							</div>
@@ -274,9 +266,8 @@
 						<div class="tab-content">
 							<div id="tab-6" class="tab-pane active">
 								<ul class="news_list">
-									<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
+									<c:forEach items="${jgxyNoteXXGK}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
-										<c:if test="${jgxyNote.jgxySysMenu.id eq '7868304688644257636'}">
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
@@ -289,15 +280,13 @@
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
-										</c:if>
 									</c:forEach>
 								</ul>
 							</div>
 							<div id="tab-7" class="tab-pane">
 								<ul class="news_list">
-									<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
+									<c:forEach items="${jgxyNoteGSGG}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
-										<c:if test="${jgxyNote.jgxySysMenu.id eq '1406319674601422774'}">
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
@@ -310,7 +299,6 @@
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
-										</c:if>
 									</c:forEach>
 								</ul>
 							</div>

@@ -2,6 +2,7 @@ package com.javafast.modules.jgxy.web;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +65,9 @@ public class JgxyReceptionController {
 
 		String jgxyNoteTitle = null;
 		if (request.getParameter("jgxyNoteTitle") != null) {
-			//jgxyNoteTitle = new String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"), "UTF-8");
+			// jgxyNoteTitle = new
+			// String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"),
+			// "UTF-8");
 			jgxyNoteTitle = java.net.URLDecoder.decode(request.getParameter("jgxyNoteTitle"));
 		}
 
@@ -72,8 +75,8 @@ public class JgxyReceptionController {
 			JgxySysMenu x = new JgxySysMenu();
 			x.setId(jgxySysMenuId);
 			jgxyNote.setJgxySysMenu(x);
-			
-			//用来取出菜单名
+
+			// 用来取出菜单名
 			JgxySysMenu jsm = jgxySysMenuService.get(jgxySysMenuId);
 			request.setAttribute("jgxySysMenuName", jsm.getName());
 		}
@@ -108,10 +111,48 @@ public class JgxyReceptionController {
 		jis.setIsRelease("1");
 		List<JgxyImgSchool> jiList1 = jgxyImgSchoolService.findList(jis);
 
+		// 给新闻分类
+		// 每个类别最多5条,学院新闻12条
+
+		List<JgxyNote> jgxyNoteJXDT = new ArrayList<>();
+		List<JgxyNote> jgxyNoteKYZX = new ArrayList<>();
+		List<JgxyNote> jgxyNoteGZXY = new ArrayList<>();
+		List<JgxyNote> jgxyNoteXXGK = new ArrayList<>();
+		List<JgxyNote> jgxyNoteGSGG = new ArrayList<>();
+
+		// 新闻种类暂时按照 id 来对比
+		for (JgxyNote jn : jgxyNoteList) {
+			if (jn.getJgxySysMenu().getId().equals("71864634419527302")) {
+				if (jgxyNoteJXDT.size() < 5) {
+					jgxyNoteJXDT.add(jn);
+				}
+			} else if (jn.getJgxySysMenu().getId().equals("1517093218844555186")) {
+				if (jgxyNoteKYZX.size() < 5) {
+					jgxyNoteKYZX.add(jn);
+				}
+			} else if (jn.getJgxySysMenu().getId().equals("2664446703223844603")) {
+				if (jgxyNoteGZXY.size() < 5) {
+					jgxyNoteGZXY.add(jn);
+				}
+			} else if (jn.getJgxySysMenu().getId().equals("7868304688644257636")) {
+				if (jgxyNoteXXGK.size() < 5) {
+					jgxyNoteXXGK.add(jn);
+				}
+			} else if (jn.getJgxySysMenu().getId().equals("1406319674601422774")) {
+				if (jgxyNoteGSGG.size() < 5) {
+					jgxyNoteGSGG.add(jn);
+				}
+			}
+		}
 		request.setAttribute("jiList", jiList);
 		request.setAttribute("jiList1", jiList1);
 		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
-		request.setAttribute("jgxyNoteList", jgxyNoteList);
+		request.setAttribute("jgxyNoteList", jgxyNoteList.subList(0, 12));
+		request.setAttribute("jgxyNoteJXDT", jgxyNoteJXDT);
+		request.setAttribute("jgxyNoteKYZX", jgxyNoteKYZX);
+		request.setAttribute("jgxyNoteGZXY", jgxyNoteGZXY);
+		request.setAttribute("jgxyNoteXXGK", jgxyNoteXXGK);
+		request.setAttribute("jgxyNoteGSGG", jgxyNoteGSGG);
 		return "modules/jgxy/reception/indexJgxy";
 	}
 
@@ -126,10 +167,10 @@ public class JgxyReceptionController {
 		if (jgxyNote == null) {
 			jgxyNote = new JgxyNote();
 		}
-		
+
 		// 获取菜单
 		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
-		
+
 		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
 		request.setAttribute("jgxyNote", jgxyNote);
 		return "modules/jgxy/reception/news_list";
