@@ -115,7 +115,7 @@
 							<a href="javascript:void(0);" class="single_news hover_before">
 								<span class="news_points"></span>
 								<c:if test="${fn:length(jgxyNote.title) gt 10}">
-									<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+									<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 								</c:if>
 								<c:if test="${fn:length(jgxyNote.title) le 10}">
 									<span class="news_tittle">${jgxyNote.title}</span> 
@@ -163,7 +163,7 @@
 												<a href="javascript:void(0);" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -184,7 +184,7 @@
 												<a href="javascript:void(0);" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -226,7 +226,7 @@
 												<a href="javascript:void(0);" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}" >${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -281,7 +281,7 @@
 												<a href="javascript:void(0);" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -302,7 +302,7 @@
 												<a href="javascript:void(0);" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
