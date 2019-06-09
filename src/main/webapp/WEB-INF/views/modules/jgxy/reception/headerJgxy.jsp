@@ -105,8 +105,8 @@
 var cctx = "${ctx}";
 function toList(){
 	var title = $("#jnsc").val();
-	console.log("title");
-	window.location.href=cctx+"/jgxy/jgxyReception/list?jgxyNoteTitle="+encodeURIComponent(title);
+	//console.log(title);
+	window.location.href=cctx+"/jgxy/jgxyReception/list?jgxyNoteTitle="+encodeURI(title);//encodeURIComponent(title)
 }
 
 </script>

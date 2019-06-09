@@ -257,7 +257,7 @@
 	width: 100%;
 	text-align: center;
 	margin-bottom: 15px;
-	font-size: 18px;
+	font-size: 14px;
 	color: #808080;
 }
 
@@ -438,7 +438,7 @@ a:hover{color:blue;}
 				</div>
 				<div class="right_part_wrapper">
 					<div class="right_part_tittle">
-						<p class="right_part_name">自助查询</p>
+						<p class="right_part_name">资讯导航</p>
 						<p class="right_part_tips">Self help query</p>
 					</div>
 

@@ -64,7 +64,8 @@ public class JgxyReceptionController {
 
 		String jgxyNoteTitle = null;
 		if (request.getParameter("jgxyNoteTitle") != null) {
-			jgxyNoteTitle = new String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"), "UTF-8");
+			//jgxyNoteTitle = new String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"), "UTF-8");
+			jgxyNoteTitle = java.net.URLDecoder.decode(request.getParameter("jgxyNoteTitle"));
 		}
 
 		if (jgxySysMenuId != null && !jgxySysMenuId.equals("")) {
