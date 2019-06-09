@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8"%>   
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <div class="head_wrapper clearfix">
     <div class="school_logo_wrapper pull-left clearfix">
 
@@ -28,8 +29,8 @@
         <!--<div class="right_text_wrapper_4">又红又专</div>-->
         <div class="search_wrapper">
             <!--<span class="search_text">局内搜索：</span>-->
-            <input type="text" class="search_input form-control" placeholder="局内搜索"/>
-            <a href="javascript:void(0);" class="search_btn">
+            <input id="jnsc" type="text" class="search_input form-control" placeholder="局内搜索"/>
+            <a href="javascript:void(0);" onclick="toList()" class="search_btn">
                 <img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_search.png" alt="" class="search_img"/>
             </a>    
         </div>
@@ -97,5 +98,14 @@
             <!--</li>-->
         </ul>
     </div>
-    
 </div>
+
+<script type="text/javascript">
+var cctx = "${ctx}";
+function toList(){
+	var title = $("#jnsc").val();
+	console.log("title");
+	window.location.href=cctx+"/jgxy/jgxyReception/list?jgxyNoteTitle="+encodeURIComponent(title);
+}
+
+</script>

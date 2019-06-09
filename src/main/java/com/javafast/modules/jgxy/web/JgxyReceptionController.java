@@ -1,5 +1,7 @@
 package com.javafast.modules.jgxy.web;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,19 +42,20 @@ public class JgxyReceptionController {
 	@RequestMapping(value = "getNote", method = RequestMethod.POST)
 	public List<JgxyNote> getNote() {
 		List<JgxyNote> dataList = jgxyNoteService.findList(new JgxyNote());
-		System.out.println(dataList.size());
-		System.out.println("-----------------------");
 		return dataList;
 	}
 
 	@RequestMapping(value = "list")
-	public String list(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) {
-
+	public String list(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
 		// 获取菜单
 		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
 		JgxyNote jgxyNote = new JgxyNote();
 
 		String jgxySysMenuId = (String) request.getParameter("jgxySysMenuId");
+
+		String jgxyNoteTitle =	new String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"),"UTF-8");
+		//jgxyNoteTitle = URLDecoder.decode(jgxyNoteTitle, "UTF-8");
 
 		if (jgxySysMenuId != null && !jgxySysMenuId.equals("")) {
 
@@ -61,6 +64,12 @@ public class JgxyReceptionController {
 
 			jgxyNote.setJgxySysMenu(x);
 		}
+
+		// 根据标题名称搜索
+		if (jgxyNoteTitle != null && !jgxyNoteTitle.equals("")) {
+			jgxyNote.setTitle(jgxyNoteTitle);
+		}
+
 		// 获取新闻
 		List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jgxyNote);
 
@@ -72,14 +81,11 @@ public class JgxyReceptionController {
 	@RequestMapping(value = "index")
 	public String index(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) {
 
-		Map<String, List> dataMap = new HashMap<>();
-
 		// 获取菜单
 		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
 
 		// 获取全部新闻
 		List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(new JgxyNote());
-		
 
 		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
 		request.setAttribute("jgxyNoteList", jgxyNoteList);
@@ -88,12 +94,12 @@ public class JgxyReceptionController {
 
 	@ResponseBody
 	@RequestMapping(value = "get", method = RequestMethod.POST)
-	public JgxyNote get(@RequestParam(required=false) String id) {
+	public JgxyNote get(@RequestParam(required = false) String id) {
 		JgxyNote entity = null;
-		if (StringUtils.isNotBlank(id)){
+		if (StringUtils.isNotBlank(id)) {
 			entity = jgxyNoteService.get(id);
 		}
-		if (entity == null){
+		if (entity == null) {
 			entity = new JgxyNote();
 		}
 		return entity;

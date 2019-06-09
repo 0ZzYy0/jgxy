@@ -521,30 +521,26 @@
 			</div>
 			<div class="col-sm-8 news_list_wrapper">
 				<!--新闻列表-->
-				<div class="news_list_1">
+				<div class="news_list_1" id="jgxyNoteListDiv">
 					<p class="news_list_tittle clearfix">
 						<span>学院新闻</span>
 					</p>
-					<table id="table1" class="table table-bordered table-striped table-hover text-center">
+					<table id="table1" class="table table-hover ">
 						<thead>
-							<tr role="row">
-								<th>所属栏目</th>
-								<th>文章名称</th>
-								<th>发布日期</th>
+							<tr class="row">
+								<td></td>
+								<td></td>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${jgxyNoteList}" var="jgxyNote">
-								<tr>
-									<td>
-										<span class="news_tittle">${jgxyNote.jgxySysMenu.name}</span> 
-									</td>
-									<td>
+								<tr class="row">
+									<td class="col-sm-9">
 										<a href="javascript:void(0);" onclick="showInfo('${jgxyNote.id}')" class="single_news hover_before">
 											<span class="news_tittle">${jgxyNote.title}</span> 
 										</a>
 									</td>
-									<td>
+									<td class="col-sm-3">
 										<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
 									</td>
 								</tr>
@@ -554,20 +550,20 @@
 				</div>
 
 				<!--新闻详情-->
-				<div class="news_info hide">
+				<div class="news_info hide" id="jgxyNoteInfoDiv">
 					<p class="news_list_tittle clearfix">
 						<span>学院新闻</span>
 					</p>
 					<ul class="news_list">
 						<li class="single_news_wrapper">
 							<div href="javascript:void(0);" class="single_news">
-								<div class="news_tittle">关于单独招生、提前批次视力复检并领取录取通知书的通知</div>
-								<div class="news_time">发布日期:2018-8-27</div>
-								<div class="news_tips text-center">通知</div>
-								<div class="news_content">2018年单独招生、提前批次签订视力协议的考生，请考生本人于9月6日到我院1号楼107教室进行视力复检，视力合格后方能领取录取通知书，领取录取通知书后正常办理入学手续。</div>
+								<div class="news_tittle" id="jgxyNoteTitle"></div>
+								<div class="news_time" id="jgxyNoteCreateDate"></div>
+								<div class="news_content">
+									<p class="form-control-static" id="jgxyNoteContents"></p>
+								</div>
 							</div>
 						</li>
-
 					</ul>
 				</div>
 			</div>
@@ -614,7 +610,7 @@
 				});
 		$('#table1').DataTable({
 			"lengthChange": false,
-			"searching": true,
+			"searching": false,
 			"ordering": false,
 			"info": false,
 			"autoWidth": false,
@@ -665,7 +661,14 @@
 		     dataType : 'json',
 		     data: {"id":id} ,
 		     success : function(data) {
-		         console.log(data);
+		    	 $("#jgxyNoteInfoDiv").removeClass("hide");
+		    	 $("#jgxyNoteListDiv").addClass("hide");
+		    	 $("#jgxyNoteTitle").html("");
+		    	 $("#jgxyNoteTitle").append(data.title);
+		    	 $("#jgxyNoteCreateDate").html("");
+		    	 $("#jgxyNoteCreateDate").append("发布时间:"+data.createDate.substring(0,));
+		    	 $("#jgxyNoteContents").html("");
+		    	 $("#jgxyNoteContents").append(data.contents);
 		     },
 		     error : function() {
 		         alert("出错");
