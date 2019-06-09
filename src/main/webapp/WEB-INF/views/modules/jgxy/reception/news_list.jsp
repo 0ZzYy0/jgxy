@@ -27,6 +27,11 @@
 <script src="${pageContext.request.contextPath}/jgxy/resources/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/jgxy/resources/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminLTE/ionicons.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminLTE/jquery-jvectormap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminLTE/AdminLTE.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/AdminLTE/_all-skins.min.css">
+
 <style>
 .news_list_wrapper {
 	padding: 15px;
@@ -398,6 +403,8 @@
 	{
 	margin-left: 2em;
 }
+a:link{ color:black;}
+a:hover{color:blue;}
 </style>
 </head>
 <body>
@@ -429,65 +436,7 @@
 
 					</div>
 				</div>
-
-				<div class="right_part_wrapper" style="margin-bottom: 30px;">
-					<div class="right_part_tittle">
-						<p class="right_part_name">友情链接</p>
-					</div>
-					<div class="friendship_link_wrapper">
-						<div class="friendship_link_content">
-							<a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a>
-							<ul class="friendship_link_ul hide">
-								<li class="friendship_link_li friendship_link_content"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a>
-									<ul class="friendship_link_ul hide">
-										<li class="friendship_link_li friendship_link_content"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a>
-											<ul class="friendship_link_ul hide">
-												<li class="friendship_link_li friendship_link_content"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-												<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-												<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-												<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-											</ul></li>
-										<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-										<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-										<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-									</ul></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a></li>
-							</ul>
-						</div>
-						<div class="friendship_link_content">
-							<a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a>
-							<ul class="friendship_link_ul hide">
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a></li>
-							</ul>
-						</div>
-						<div class="friendship_link_content">
-							<a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a>
-							<ul class="friendship_link_ul hide">
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a></li>
-							</ul>
-						</div>
-						<div class="friendship_link_content">
-							<a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a>
-							<ul class="friendship_link_ul hide">
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a></li>
-								<li class="friendship_link_li"><a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
 				<div class="right_part_wrapper">
-
 					<div class="right_part_tittle">
 						<p class="right_part_name">自助查询</p>
 						<p class="right_part_tips">Self help query</p>
@@ -497,10 +446,22 @@
 						<c:forEach items="${jgxySysMenuList}" var="jgxySysMenu">
 							<c:if test="${jgxySysMenu.parentId eq '0'}">
 								<div class="selfHelp_query_content">
-									<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu.id}" class="selfHelp_query clearfix">
-										<span class="selfHelp_query_text">${jgxySysMenu.name}</span>
-										<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
-									</a>
+								
+								<!--关于学院概况的单独处理
+									如果id是学院概况菜单的id则跳转到指定的详情页,
+									如果不是则正常生成跳转到列表的菜单 -->
+									<c:if test="${jgxySysMenu.id eq '6181818762216150313'}">
+										<a href="${ctx}/jgxy/jgxyReception/get?id=6100105655406495785" class="selfHelp_query clearfix">
+											<span class="selfHelp_query_text">${jgxySysMenu.name}</span>
+											<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
+										</a>
+									</c:if>
+									<c:if test="${jgxySysMenu.id ne '6181818762216150313'}">
+										<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu.id}" class="selfHelp_query clearfix">
+											<span class="selfHelp_query_text">${jgxySysMenu.name}</span>
+											<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
+										</a>
+									</c:if>
 									<ul class="selfHelp_query_ul ">
 										<c:forEach items="${jgxySysMenuList}" var="jgxySysMenu1">
 											<c:if test="${jgxySysMenu1.parentId eq jgxySysMenu.id}">
@@ -521,51 +482,59 @@
 			</div>
 			<div class="col-sm-8 news_list_wrapper">
 				<!--新闻列表-->
-				<div class="news_list_1" id="jgxyNoteListDiv">
-					<p class="news_list_tittle clearfix">
-						<span>学院新闻</span>
-					</p>
-					<table id="table1" class="table table-hover ">
-						<thead>
-							<tr class="row">
-								<td></td>
-								<td></td>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${jgxyNoteList}" var="jgxyNote">
+				<c:if test="${jgxyNoteList ne null }">
+					<div class="news_list_1" id="jgxyNoteListDiv">
+						<p class="news_list_tittle clearfix">
+							<span>学院新闻</span>
+						</p>
+						<table id="table1" class="table no-margin">
+							<thead>
 								<tr class="row">
-									<td class="col-sm-9">
-										<a href="javascript:void(0);" onclick="showInfo('${jgxyNote.id}')" class="single_news hover_before">
-											<span class="news_tittle">${jgxyNote.title}</span> 
-										</a>
-									</td>
-									<td class="col-sm-3">
-										<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
-									</td>
+									<td></td>
+									<td></td>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-
+							</thead>
+							<tbody>
+								<c:forEach items="${jgxyNoteList}" var="jgxyNote">
+									<tr class="row">
+										<td class="col-sm-9">
+											<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
+												<c:if test="${fn:length(jgxyNote.title) gt 20}">
+													<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 20)}...</span> 
+												</c:if>
+												<c:if test="${fn:length(jgxyNote.title) le 20}">
+													<span class="news_tittle">${jgxyNote.title}</span> 
+												</c:if>
+											</a>
+										</td>
+										<td class="col-sm-3">
+											<span class="label label-info"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</c:if>
 				<!--新闻详情-->
-				<div class="news_info hide" id="jgxyNoteInfoDiv">
-					<p class="news_list_tittle clearfix">
-						<span>学院新闻</span>
-					</p>
-					<ul class="news_list">
-						<li class="single_news_wrapper">
-							<div href="javascript:void(0);" class="single_news">
-								<div class="news_tittle" id="jgxyNoteTitle"></div>
-								<div class="news_time" id="jgxyNoteCreateDate"></div>
-								<div class="news_content">
-									<p class="form-control-static" id="jgxyNoteContents"></p>
+				<c:if test="${jgxyNote ne null }">
+					<div class="news_info" id="jgxyNoteInfoDiv">
+						<p class="news_list_tittle clearfix">
+							<span>学院新闻</span>
+						</p>
+						<ul class="news_list">
+							<li class="single_news_wrapper">
+								<div href="javascript:void(0);" class="single_news">
+									<div class="news_tittle" id="jgxyNoteTitle">${jgxyNote.title}</div>
+									<div class="news_time" id="jgxyNoteCreateDate">发布日期 : <fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></div>
+									<div class="news_content">
+										<p class="form-control-static" id="jgxyNoteContents">${jgxyNote.contents}</p>
+									</div>
 								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
+							</li>
+						</ul>
+					</div>
+				</c:if>
 			</div>
 		</div>
 
@@ -654,26 +623,7 @@
 	}
 	
 	function showInfo(id){
-		$.ajax({
-		     url : "${ctx}/jgxy/jgxyReception/get",
-		     type : "POST",
-		     async : true,//或false,是否异步
-		     dataType : 'json',
-		     data: {"id":id} ,
-		     success : function(data) {
-		    	 $("#jgxyNoteInfoDiv").removeClass("hide");
-		    	 $("#jgxyNoteListDiv").addClass("hide");
-		    	 $("#jgxyNoteTitle").html("");
-		    	 $("#jgxyNoteTitle").append(data.title);
-		    	 $("#jgxyNoteCreateDate").html("");
-		    	 $("#jgxyNoteCreateDate").append("发布时间:"+data.createDate.substring(0,));
-		    	 $("#jgxyNoteContents").html("");
-		    	 $("#jgxyNoteContents").append(data.contents);
-		     },
-		     error : function() {
-		         alert("出错");
-		     }
-		});
+
 	}
 </script>
 </html>

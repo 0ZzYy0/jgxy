@@ -61,8 +61,7 @@ public class JgxyReceptionController {
 		JgxyNote jgxyNote = new JgxyNote();
 
 		String jgxySysMenuId = (String) request.getParameter("jgxySysMenuId");
-		
-		
+
 		String jgxyNoteTitle = null;
 		if (request.getParameter("jgxyNoteTitle") != null) {
 			jgxyNoteTitle = new String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"), "UTF-8");
@@ -95,13 +94,12 @@ public class JgxyReceptionController {
 
 		// 获取全部新闻
 		List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(new JgxyNote());
-		
-		JgxyImg ji =new JgxyImg();
+
+		JgxyImg ji = new JgxyImg();
 		ji.setIsRelease("1");
 		List<JgxyImg> jiList = jgxyImgService.findList(ji);
 
-
-		JgxyImgSchool jis =new JgxyImgSchool();
+		JgxyImgSchool jis = new JgxyImgSchool();
 		jis.setIsRelease("1");
 		List<JgxyImgSchool> jiList1 = jgxyImgSchoolService.findList(jis);
 
@@ -112,17 +110,24 @@ public class JgxyReceptionController {
 		return "modules/jgxy/reception/indexJgxy";
 	}
 
-	@ResponseBody
-	@RequestMapping(value = "get", method = RequestMethod.POST)
-	public JgxyNote get(@RequestParam(required = false) String id) {
-		JgxyNote entity = null;
+	// 新闻详情
+	@RequestMapping(value = "get")
+	public String get(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) {
+		String id = (String) request.getParameter("id");
+		JgxyNote jgxyNote = null;
 		if (StringUtils.isNotBlank(id)) {
-			entity = jgxyNoteService.get(id);
+			jgxyNote = jgxyNoteService.get(id);
 		}
-		if (entity == null) {
-			entity = new JgxyNote();
+		if (jgxyNote == null) {
+			jgxyNote = new JgxyNote();
 		}
-		return entity;
+		
+		// 获取菜单
+		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
+		
+		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
+		request.setAttribute("jgxyNote", jgxyNote);
+		return "modules/jgxy/reception/news_list";
 	}
 
 }

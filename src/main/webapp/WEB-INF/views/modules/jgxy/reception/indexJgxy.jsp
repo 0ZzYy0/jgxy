@@ -112,12 +112,12 @@
 				<ul class="news_list">
 					<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
 						<li class="single_news_wrapper">
-							<a href="javascript:void(0);" class="single_news hover_before">
+							<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 								<span class="news_points"></span>
-								<c:if test="${fn:length(jgxyNote.title) gt 10}">
-									<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+								<c:if test="${fn:length(jgxyNote.title) gt 15}">
+									<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 15)}...</span> 
 								</c:if>
-								<c:if test="${fn:length(jgxyNote.title) le 10}">
+								<c:if test="${fn:length(jgxyNote.title) le 15}">
 									<span class="news_tittle">${jgxyNote.title}</span> 
 								</c:if>
 								<c:if test="${status.index lt 3}">
@@ -160,10 +160,10 @@
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 										<c:if test="${jgxyNote.jgxySysMenu.id eq '71864634419527302'}">
 											<li class="single_news_wrapper">
-												<a href="javascript:void(0);" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -181,10 +181,10 @@
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 										<c:if test="${jgxyNote.jgxySysMenu.id eq '1517093218844555186'}">
 											<li class="single_news_wrapper">
-												<a href="javascript:void(0);" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -223,10 +223,10 @@
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 										<c:if test="${jgxyNote.jgxySysMenu.id eq '2664446703223844603'}">
 											<li class="single_news_wrapper">
-												<a href="javascript:void(0);" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -278,10 +278,10 @@
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 										<c:if test="${jgxyNote.jgxySysMenu.id eq '7868304688644257636'}">
 											<li class="single_news_wrapper">
-												<a href="javascript:void(0);" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -299,10 +299,10 @@
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 										<c:if test="${jgxyNote.jgxySysMenu.id eq '1406319674601422774'}">
 											<li class="single_news_wrapper">
-												<a href="javascript:void(0);" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
+														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
 													</c:if>
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
@@ -393,13 +393,10 @@
 				</div>
 			</div>
 			<div class="col-sm-4 right_part_wrapper">
-
 				<div class="right_part_tittle">
 					<p class="right_part_name">自助查询</p>
 					<p class="right_part_tips">Self help query</p>
 				</div>
-
-
 				<div class="selfHelp_query_wrapper">
 					<a href="http://www.hljsfjy.org.cn/zs/news.php?nclass=%D7%A8%C9%FD%B1%BE" target="_blank" class="selfHelp_query clearfix">
 						<span class="selfHelp_query_text">专升本</span>

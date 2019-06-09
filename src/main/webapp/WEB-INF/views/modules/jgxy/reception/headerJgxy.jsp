@@ -47,7 +47,8 @@
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="http://www.hljsfjy.org.cn/zs/intro.php" target="_blank">
+            	<!-- 学院概况直接跳转详情,写死了文章的id -->
+                <a href="${ctx}/jgxy/jgxyReception/get?id=6100105655406495785">
                     <span class="nav_name">学院概况</span>
                     <span class="nav_tips">College</span>
                 </a>
@@ -67,7 +68,7 @@
 
 
             <li class="nav_ul_li">
-                <a href="javascript:void(0);">
+                <a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=3946981313027664138">
                     <span class="nav_name">学风建设</span>
                     <span class="nav_tips">Build</span>
                 </a>
