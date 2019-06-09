@@ -53,15 +53,16 @@ public class JgxyReceptionController {
 		JgxyNote jgxyNote = new JgxyNote();
 
 		String jgxySysMenuId = (String) request.getParameter("jgxySysMenuId");
-
-		String jgxyNoteTitle =	new String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"),"UTF-8");
-		//jgxyNoteTitle = URLDecoder.decode(jgxyNoteTitle, "UTF-8");
+		
+		
+		String jgxyNoteTitle = null;
+		if (request.getParameter("jgxyNoteTitle") != null) {
+			jgxyNoteTitle = new String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"), "UTF-8");
+		}
 
 		if (jgxySysMenuId != null && !jgxySysMenuId.equals("")) {
-
 			JgxySysMenu x = new JgxySysMenu();
 			x.setId(jgxySysMenuId);
-
 			jgxyNote.setJgxySysMenu(x);
 		}
 

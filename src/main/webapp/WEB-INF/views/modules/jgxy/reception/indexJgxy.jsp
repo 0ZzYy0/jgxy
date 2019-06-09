@@ -132,7 +132,7 @@
 						<span class="other_news_tittle_big">教科研</span>
 						<span class="">工作</span>
 
-						<a href="javascript:void(0);" class="more_info_btn pull-right">
+						<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=3910232656710862337" class="more_info_btn pull-right">
 							<span>更多</span>
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 						</a>
@@ -198,7 +198,7 @@
 						<span class="other_news_tittle_big">工作</span>
 						<span class="">动态</span>
 
-						<a href="javascript:void(0);" class="more_info_btn pull-right">
+						<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=8292706150830458832" class="more_info_btn pull-right">
 							<span>更多</span>
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 						</a>
@@ -246,7 +246,7 @@
 					<span class="other_news_tittle_big">通知</span>
 					<span class="">公告</span>
 
-					<a href="javascript:void(0);" class="more_info_btn pull-right">
+					<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=1105405848443694891" class="more_info_btn pull-right">
 						<span>更多</span>
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 					</a>
