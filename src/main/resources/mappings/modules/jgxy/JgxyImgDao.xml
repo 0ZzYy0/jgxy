@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javafast.modules.jgxy.dao.JgxyImgDao">
+    
+	<sql id="jgxyImgColumns">
+		a.id AS "id",
+		a.is_release AS "isRelease",
+		a.img_path AS "imgPath",
+		a.img_title AS "imgTitle",
+		a.img_type AS "imgType",
+		a.sort AS "sort",
+		a.remark AS "remark"
+	</sql>
+	
+	<sql id="jgxyImgJoins">
+	</sql>
+    
+	<select id="get" resultType="JgxyImg">
+		SELECT 
+			<include refid="jgxyImgColumns"/>
+		FROM jgxy_img a
+		<include refid="jgxyImgJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="JgxyImg">
+		SELECT 
+			<include refid="jgxyImgColumns"/>
+		FROM jgxy_img a
+		<include refid="jgxyImgJoins"/>
+		<where>
+			
+			<if test="imgTitle != null and imgTitle != ''">
+				AND a.img_title = #{imgTitle}
+			</if>
+			<if test="imgType != null and imgType != ''">
+				AND a.img_type = #{imgType}
+			</if>
+			<if test="isRelease != null and isRelease != ''">
+				AND a.is_release = #{isRelease}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="JgxyImg">
+		SELECT 
+			<include refid="jgxyImgColumns"/>
+		FROM jgxy_img a
+		<include refid="jgxyImgJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO jgxy_img(
+			id,
+			is_release,
+			img_path,
+			img_title,
+			img_type,
+			sort,
+			remark
+		) VALUES (
+			#{id},
+			#{isRelease},
+			#{imgPath},
+			#{imgTitle},
+			#{imgType},
+			#{sort},
+			#{remark}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE jgxy_img SET
+						is_release = #{isRelease},
+			img_path = #{imgPath},
+			img_title = #{imgTitle},
+			sort = #{sort},
+			remark = #{remark}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		DELETE FROM jgxy_img
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="JgxyImg" statementType="STATEMENT">
+		select * FROM jgxy_img  where ${propertyName} = '${value}'
+	</select>
+
+</mapper>

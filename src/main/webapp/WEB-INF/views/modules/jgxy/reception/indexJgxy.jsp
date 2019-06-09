@@ -64,30 +64,40 @@
 				<div id="myCarousel" class="carousel slide">
 					<!-- 轮播（Carousel）指标 -->
 					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
+						<c:forEach items="${jiList}" var="ji" varStatus="status">
+							<c:if test="${status.index == 0}">
+								<li data-target="#myCarousel" data-slide-to="${status.index}" class="active"></li>
+							</c:if>
+							<c:if test="${status.index > 0}">
+								<li data-target="#myCarousel" data-slide-to="${status.index}"></li>
+							</c:if>
+						</c:forEach>
 					</ol>
 					<!-- 轮播（Carousel）项目 -->
 					<div class="carousel-inner">
-						<div class="item active">
+					
+					<c:forEach items="${jiList}" var="ji" varStatus="status">
+						<c:if test="${status.index == 0}">
+							<div class="item active">
+								<a href="javascript:void(0);">
+									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" alt="">
+								</a>
+							</div>
+						</c:if>
+						<c:if test="${status.index > 0}">
+							<div class="item">
+								<a href="javascript:void(0);">
+									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" alt="">
+								</a>
+							</div>
+						</c:if>
+					</c:forEach>
+						<!-- <div class="item active">
 							<a href="javascript:void(0);">
 								<img src="${pageContext.request.contextPath}/jgxy/resources/images/banner_img_1.jpg" alt="First slide">
-								<!-- <div class="carousel-caption">优美的校园环境  完善的教学设施  雄厚的师资力量  独具一格的涉警专业</div> -->
+								<div class="carousel-caption">优美的校园环境  完善的教学设施  雄厚的师资力量  独具一格的涉警专业</div>
 							</a>
-						</div>
-						<div class="item">
-							<a href="javascript:void(0);">
-								<img src="${pageContext.request.contextPath}/jgxy/resources/images/banner_img_2.jpg" alt="Second slide">
-								<!-- <div class="carousel-caption">优美的校园环境  完善的教学设施  雄厚的师资力量  独具一格的涉警专业</div>-->
-							</a>
-						</div>
-						<div class="item">
-							<a href="javascript:void(0);">
-								<img src="${pageContext.request.contextPath}/jgxy/resources/images/banner_img_3.jpg" alt="Third slide">
-								<!-- <div class="carousel-caption">优美的校园环境  完善的教学设施  雄厚的师资力量  独具一格的涉警专业</div>-->
-							</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -426,22 +436,12 @@
 			<div id="certify" class="col-sm-12 fadeInUp">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify01.jpg" width="520" height="310" />
-							<!-- <p class="">非常难得又值钱的认证证书</p> -->
-						</div>
-						<div class="swiper-slide">
-							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify02.jpg" width="520" height="310" />
-						</div>
-						<div class="swiper-slide">
-							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify03.jpg" width="520" height="310" />
-						</div>
-						<div class="swiper-slide">
-							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify04.jpg" width="520" height="310" />
-						</div>
-						<div class="swiper-slide">
-							<img src="${pageContext.request.contextPath}/jgxy/resources/images/certify05.jpg" width="520" height="310" />
-						</div>
+						<c:forEach items="${jiList1}" var="ji" varStatus="status">
+							<div class="swiper-slide">
+								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" width="520" height="310" />
+								<!-- <p class="">非常难得又值钱的认证证书</p> -->
+							</div>
+					</c:forEach>
 					</div>
 				</div>
 				<div class="swiper-pagination"></div>

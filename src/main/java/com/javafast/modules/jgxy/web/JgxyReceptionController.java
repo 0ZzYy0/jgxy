@@ -19,8 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javafast.common.utils.StringUtils;
+import com.javafast.modules.jgxy.service.JgxyImgSchoolService;
+import com.javafast.modules.jgxy.service.JgxyImgService;
 import com.javafast.modules.jgxy.service.JgxyNoteService;
 import com.javafast.modules.jgxy.service.JgxySysMenuService;
+import com.javafast.modules.jgxy.entity.JgxyImg;
+import com.javafast.modules.jgxy.entity.JgxyImgSchool;
 import com.javafast.modules.jgxy.entity.JgxyNote;
 import com.javafast.modules.jgxy.entity.JgxySysMenu;
 
@@ -37,6 +41,10 @@ public class JgxyReceptionController {
 	private JgxyNoteService jgxyNoteService;
 	@Autowired
 	private JgxySysMenuService jgxySysMenuService;
+	@Autowired
+	private JgxyImgService jgxyImgService;
+	@Autowired
+	private JgxyImgSchoolService jgxyImgSchoolService;
 
 	@ResponseBody
 	@RequestMapping(value = "getNote", method = RequestMethod.POST)
@@ -87,7 +95,18 @@ public class JgxyReceptionController {
 
 		// 获取全部新闻
 		List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(new JgxyNote());
+		
+		JgxyImg ji =new JgxyImg();
+		ji.setIsRelease("1");
+		List<JgxyImg> jiList = jgxyImgService.findList(ji);
 
+
+		JgxyImgSchool jis =new JgxyImgSchool();
+		jis.setIsRelease("1");
+		List<JgxyImgSchool> jiList1 = jgxyImgSchoolService.findList(jis);
+
+		request.setAttribute("jiList", jiList);
+		request.setAttribute("jiList1", jiList1);
 		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
 		request.setAttribute("jgxyNoteList", jgxyNoteList);
 		return "modules/jgxy/reception/indexJgxy";
