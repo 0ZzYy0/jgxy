@@ -112,7 +112,7 @@
 				<ul class="news_list">
 					<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
 						<li class="single_news_wrapper">
-							<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
+							<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 								<span class="news_points"></span>
 								<c:if test="${fn:length(jgxyNote.title) gt 15}">
 									<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 15)}...</span> 
@@ -123,7 +123,7 @@
 								<c:if test="${status.index lt 3}">
 									<span class="news_state">[New]</span> 
 								</c:if>
-								<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+								<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 							</a>
 						</li>
 					</c:forEach>
@@ -158,7 +158,7 @@
 								<ul class="news_list">
 									<c:forEach items="${jgxyNoteJXDT}" var="jgxyNote" varStatus="status">
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
 														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
@@ -166,7 +166,7 @@
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
 													</c:if>
-													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
 									</c:forEach>
@@ -177,7 +177,7 @@
 									<c:forEach items="${jgxyNoteKYZX}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
 														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
@@ -185,7 +185,7 @@
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
 													</c:if>
-													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
 									</c:forEach>
@@ -216,7 +216,7 @@
 								<ul class="news_list">
 									<c:forEach items="${jgxyNoteGZXY}" var="jgxyNote" varStatus="status">
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
 														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
@@ -225,7 +225,7 @@
 														<span class="news_tittle">${jgxyNote.title}</span> 
 													</c:if>
 
-													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
 									</c:forEach>
@@ -269,7 +269,7 @@
 									<c:forEach items="${jgxyNoteXXGK}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
 														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
@@ -277,7 +277,7 @@
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
 													</c:if>
-													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
 									</c:forEach>
@@ -288,7 +288,7 @@
 									<c:forEach items="${jgxyNoteGSGG}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
 													<c:if test="${fn:length(jgxyNote.title) gt 10}">
 														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
@@ -296,7 +296,7 @@
 													<c:if test="${fn:length(jgxyNote.title) le 10}">
 														<span class="news_tittle">${jgxyNote.title}</span> 
 													</c:if>
-													<span class="news_time"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
 									</c:forEach>

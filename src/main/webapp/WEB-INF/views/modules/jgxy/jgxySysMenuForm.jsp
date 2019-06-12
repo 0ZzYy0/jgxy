@@ -50,13 +50,21 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label class="col-sm-4 control-label">上级分类：</label>
+						<label class="col-sm-4 control-label">菜单类别：</label>
 						<div class="col-sm-8">
 							<sys:treeselect id="parent" name="parent.id" value="${jgxySysMenu.parent.id}" labelName="parent.name" labelValue="${jgxySysMenu.parent.name}"
 								title="上级分类" url="/jgxy/jgxySysMenu/treeData" extId="${jgxySysMenu.id}" cssClass="form-control" allowClear="true"/>
 						</div>
 					</div>
 				</div>
+			    <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">上级分类：</label>
+                        <div class="col-sm-8">
+                            <form:radiobuttons path="menuType" items="${fns:getDictList('menuType')}" itemLabel="label" itemValue="value" htmlEscape="false" class="i-checks"/>
+                        </div>
+                    </div>
+                </div>
 			</div>
 			<div class="row">
 				<div class="col-sm-6">

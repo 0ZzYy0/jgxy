@@ -14,7 +14,8 @@
 		a.update_date AS "updateDate",
 		a.remarks AS "remarks",
 		a.del_flag AS "delFlag",
-		a.account_id AS "accountId"
+		a.account_id AS "accountId",
+		a.menu_type AS "menuType"
 	</sql>
 	
 	<sql id="jgxySysMenuJoins">
@@ -92,7 +93,8 @@
 			update_date,
 			remarks,
 			del_flag,
-			account_id
+			account_id,
+			menu_type
 		) VALUES (
 			#{id},
 			#{parent.id},
@@ -105,7 +107,8 @@
 			#{updateDate},
 			#{remarks},
 			#{delFlag},
-			#{accountId}
+			#{accountId},
+			#{menuType}
 		)
 	</insert>
 	
@@ -117,7 +120,8 @@
 			sort = #{sort},
 			update_by = #{updateBy.id},
 			update_date = #{updateDate},
-			remarks = #{remarks}
+			remarks = #{remarks},
+			menu_type = #{menuType}
 		WHERE id = #{id}
 	</update>
 	

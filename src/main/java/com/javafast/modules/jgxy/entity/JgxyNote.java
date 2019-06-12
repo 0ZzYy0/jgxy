@@ -1,9 +1,11 @@
 package com.javafast.modules.jgxy.entity;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.javafast.modules.jgxy.entity.JgxySysMenu;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
-
 import com.javafast.common.persistence.DataEntity;
 import com.javafast.common.utils.excel.annotation.ExcelField;
 
@@ -18,6 +20,8 @@ public class JgxyNote extends DataEntity<JgxyNote> {
 	private JgxySysMenu jgxySysMenu;		// 备注信息
 	private String title;		// 标题
 	private String contents;		// 内容
+	private Date releaseDate;		//可以调整的发布时间
+	private String clickThroughput; //点击量
 	
 	public JgxyNote() {
 		super();
@@ -56,9 +60,30 @@ public class JgxyNote extends DataEntity<JgxyNote> {
 		this.contents = contents;
 	}
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@NotNull(message="发布日期不能为空")
+	@ExcelField(title="发布日期", align=2, sort=6)
+	public Date getReleaseDate() {
+		return releaseDate;
+	}
+
+	@ExcelField(title="点击量", align=2, sort=3)
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
+	public String getClickThroughput() {
+		return clickThroughput;
+	}
+
+	public void setClickThroughput(String clickThroughput) {
+		this.clickThroughput = clickThroughput;
+	}
+
 	@Override
 	public String toString() {
-		return "JgxyNote [jgxySysMenu=" + jgxySysMenu + ", title=" + title + ", contents=" + contents + "]";
+		return "JgxyNote [jgxySysMenu=" + jgxySysMenu + ", title=" + title + ", contents=" + contents + ", releaseDate=" + releaseDate
+				+ ", clickThroughput=" + clickThroughput + "]";
 	}
 	
 }

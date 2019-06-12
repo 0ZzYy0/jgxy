@@ -60,9 +60,10 @@
 					<thead>
 						<tr>
 							<th><input type="checkbox" class="i-checks"></th>
-							<th class="sort-column a.update_date">更新时间</th>
 							<th class="sort-column a.remarks">文章分类</th>
 							<th class="sort-column a.title">标题</th>
+							<th class="sort-column a.click_throughput">点击量</th>
+							<th class="sort-column a.release_Date">发布时间</th>
 							<th>操作</th>
 						</tr>
 					</thead>
@@ -71,15 +72,17 @@
 						<tr>
 							<td><input type="checkbox" id="${jgxyNote.id}" class="i-checks"></td>
 							<td>
-								<a href="${ctx}/jgxy/jgxyNote/view?id=${jgxyNote.id}" title="查看">
-								<fmt:formatDate value="${jgxyNote.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
-							</a></td>
-							<td>
 								${jgxyNote.jgxySysMenu.name}
 							</td>
 							<td>
 								${jgxyNote.title}
 							</td>
+							<td>
+                                ${jgxyNote.clickThroughput}
+                            </td>
+                            <td>
+                                <fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/>
+                            </td>
 							<td>
 								<shiro:hasPermission name="jgxy:jgxyNote:view">
 									<a href="${ctx}/jgxy/jgxyNote/view?id=${jgxyNote.id}" class="btn btn-info btn-xs" title="查看"><i class="fa fa-search-plus"></i> 查看</a>

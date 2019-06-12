@@ -5,6 +5,7 @@
 	<sql id="jgxyNoteColumns">
 		a.id AS "id",
 		a.create_by AS "createBy.id",
+		a.release_date AS "releaseDate",
 		a.create_date AS "createDate",
 		a.update_by AS "updateBy.id",
 		a.update_date AS "updateDate",
@@ -13,7 +14,8 @@
 		t.parent_ids AS "jgxySysMenu.parent_ids",
 		a.del_flag AS "delFlag",
 		a.title AS "title",
-		a.contents AS "contents"
+		a.contents AS "contents",
+		a.click_throughput AS "clickThroughput"
 	</sql>
 	
 	<sql id="jgxyNoteJoins">
@@ -51,7 +53,7 @@
 				ORDER BY ${page.orderBy}
 			</when>
 			<otherwise>
-				ORDER BY a.update_date DESC
+				ORDER BY a.release_Date DESC
 			</otherwise>
 		</choose>
 	</select>
@@ -69,7 +71,7 @@
 				ORDER BY ${page.orderBy}
 			</when>
 			<otherwise>
-				ORDER BY a.update_date DESC
+				ORDER BY a.release_date DESC
 			</otherwise>
 		</choose>
 	</select>
@@ -78,33 +80,40 @@
 		INSERT INTO jgxy_note(
 			id,
 			create_by,
+			release_date,
 			create_date,
 			update_by,
 			update_date,
 			remarks,
 			del_flag,
 			title,
-			contents
+			contents,
+			click_throughput
 		) VALUES (
 			#{id},
 			#{createBy.id},
+			#{releaseDate},
 			#{createDate},
 			#{updateBy.id},
 			#{updateDate},
 			#{jgxySysMenu.id},
 			#{delFlag},
 			#{title},
-			#{contents}
+			#{contents},
+			#{clickThroughput}
 		)
 	</insert>
 
 	<update id="update">
 		UPDATE jgxy_note SET
-						update_by = #{updateBy.id},
+		    release_Date = #{releaseDate},
+		    update_date = #{updateDate},
+			update_by = #{updateBy.id},
 			update_date = #{updateDate},
 			remarks = #{jgxySysMenu.id},
 			title = #{title},
-			contents = #{contents}
+			contents = #{contents},
+			click_throughput = #{clickThroughput}
 		WHERE id = #{id}
 	</update>
 

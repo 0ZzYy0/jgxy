@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -57,40 +59,62 @@ public class JgxyReceptionController {
 	@RequestMapping(value = "list")
 	public String list(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
-		// 获取菜单
+
 		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
-		JgxyNote jgxyNote = new JgxyNote();
-
+		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
+		
+		//获取菜单id
 		String jgxySysMenuId = (String) request.getParameter("jgxySysMenuId");
-
+		//获取新闻标题
 		String jgxyNoteTitle = null;
 		if (request.getParameter("jgxyNoteTitle") != null) {
-			// jgxyNoteTitle = new
-			// String(request.getParameter("jgxyNoteTitle").getBytes("ISO8859-1"),
-			// "UTF-8");
 			jgxyNoteTitle = java.net.URLDecoder.decode(request.getParameter("jgxyNoteTitle"));
 		}
-
-		if (jgxySysMenuId != null && !jgxySysMenuId.equals("")) {
+		
+		if(jgxySysMenuId != null && !jgxySysMenuId.equals("")){
+			JgxySysMenu jsm = jgxySysMenuService.get(jgxySysMenuId);
+			String menuType = jsm.getMenuType();
+			
+			//菜单类型为新闻详细且有文章的时候
+			if(menuType != null && menuType.equals("2")){
+				//取出菜单id 
+				JgxyNote jn = new JgxyNote();
+				jn.setJgxySysMenu(jsm);
+				
+				List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jn);
+				
+				if(jgxyNoteList != null && jgxyNoteList.size() > 0){
+					jn = jgxyNoteList.get(0);
+					addClickThroughput(jn);
+					request.setAttribute("jgxyNote", jn);
+					return "modules/jgxy/reception/news_list";
+				}
+			}
+			
 			JgxySysMenu x = new JgxySysMenu();
 			x.setId(jgxySysMenuId);
+			
+			JgxyNote jgxyNote = new JgxyNote();
 			jgxyNote.setJgxySysMenu(x);
 
-			// 用来取出菜单名
-			JgxySysMenu jsm = jgxySysMenuService.get(jgxySysMenuId);
+			// 取出菜单名称
 			request.setAttribute("jgxySysMenuName", jsm.getName());
-		}
 
-		// 根据标题名称搜索
-		if (jgxyNoteTitle != null && !jgxyNoteTitle.equals("")) {
+			// 获取新闻
+			List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jgxyNote);
+			request.setAttribute("jgxyNoteList", jgxyNoteList);
+		}
+		
+		if(jgxyNoteTitle != null && !jgxyNoteTitle.equals("")){
+			JgxyNote jgxyNote = new JgxyNote();
 			jgxyNote.setTitle(jgxyNoteTitle);
+			
+			// 获取新闻列表
+			List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jgxyNote);
+
+			request.setAttribute("jgxyNoteList", jgxyNoteList);
 		}
-
-		// 获取新闻
-		List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jgxyNote);
-
-		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
-		request.setAttribute("jgxyNoteList", jgxyNoteList);
+		
 		return "modules/jgxy/reception/news_list";
 	}
 
@@ -163,6 +187,7 @@ public class JgxyReceptionController {
 		JgxyNote jgxyNote = null;
 		if (StringUtils.isNotBlank(id)) {
 			jgxyNote = jgxyNoteService.get(id);
+			addClickThroughput(jgxyNote);
 		}
 		if (jgxyNote == null) {
 			jgxyNote = new JgxyNote();
@@ -174,6 +199,40 @@ public class JgxyReceptionController {
 		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
 		request.setAttribute("jgxyNote", jgxyNote);
 		return "modules/jgxy/reception/news_list";
+	}
+	
+	
+	// 更新点击量 点击量+1
+	public void addClickThroughput(JgxyNote jgxyNote){
+		int clickThroughput;
+		// 如果不是整整数 则默认为0
+		if (isMatches(jgxyNote.getClickThroughput())) {
+			clickThroughput = Integer.parseInt(jgxyNote.getClickThroughput());
+		} else {
+			clickThroughput = 0;
+		}
+		jgxyNote.setClickThroughput(String.valueOf(++clickThroughput));
+		jgxyNoteService.save(jgxyNote);
+	}
+	
+	
+	
+	//判断一个字符串 是否为正整数
+	public boolean isMatches(String bot) {
+		if (bot != null && !bot.equals("")) {
+			boolean flag = false;
+			String regex = "^[1-9]+[0-9]*$";
+			// ^[1-9]+\\d*$
+			Pattern p = Pattern.compile(regex);
+			Matcher m = p.matcher(bot);
+			if (m.find()) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 
 }

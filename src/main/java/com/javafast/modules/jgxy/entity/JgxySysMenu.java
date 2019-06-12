@@ -17,6 +17,7 @@ public class JgxySysMenu extends TreeEntity<JgxySysMenu> {
 	private String parentIds;		// 所有父级编号
 	private String name;		// 菜单名称
 	private Integer sort;		// 排序
+	private String menuType;
 	
 	public JgxySysMenu() {
 		super();
@@ -64,4 +65,18 @@ public class JgxySysMenu extends TreeEntity<JgxySysMenu> {
 	public String getParentId() {
 		return parent != null && parent.getId() != null ? parent.getId() : "0";
 	}
+
+	public String getMenuType() {
+		return menuType;
+	}
+
+	public void setMenuType(String menuType) {
+		this.menuType = menuType;
+	}
+
+	@Override
+	public String toString() {
+		return "JgxySysMenu [parent=" + parent + ", parentIds=" + parentIds + ", name=" + name + ", sort=" + sort + ", menuType=" + menuType + "]";
+	}
+	
 }

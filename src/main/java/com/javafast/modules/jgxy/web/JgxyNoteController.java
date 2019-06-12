@@ -1,6 +1,8 @@
 package com.javafast.modules.jgxy.web;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +21,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.javafast.modules.jgxy.entity.JgxySysMenu;
+
 import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Length;
 
 import com.google.common.collect.Lists;
@@ -73,20 +77,36 @@ public class JgxyNoteController extends BaseController {
 	@RequiresPermissions("jgxy:jgxyNote:list")
 	@RequestMapping(value = {"list", ""})
 	public String list(JgxyNote jgxyNote, HttpServletRequest request, HttpServletResponse response, Model model) {
+
 		
-		System.out.println(jgxyNote);
-		System.out.println(jgxyNote);
-		System.out.println(jgxyNote);
-		System.out.println(jgxyNote);
-		System.out.println(jgxyNote);
-		System.out.println(jgxyNote);
+		String menuType = (String)request.getParameter("jgxySysMenu.menuType");
+		if (menuType == null || menuType.equals("1")) {
+			//menuType == 1  为新闻列表
+			Page<JgxyNote> page = jgxyNoteService.findPage(new Page<JgxyNote>(request, response), jgxyNote);
+			model.addAttribute("page", page);
+			return "modules/jgxy/jgxyNoteList";
+		} else {
+			//menuType == 2 为新闻详细
+			//取出菜单id 
+			String jgxySysMenuId = (String)request.getParameter("jgxySysMenu.id");
+
+			JgxyNote jn = new JgxyNote();
+			JgxySysMenu jsm = new JgxySysMenu();
+			jsm.setId(jgxySysMenuId);
+			jn.setJgxySysMenu(jsm);
+			
+			List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jn);
+			
+			if(jgxyNoteList == null || jgxyNoteList.size() == 0){
+				return "modules/jgxy/jgxyNoteForm";
+			}else{
+				jn = jgxyNoteList.get(0);
+				model.addAttribute("jgxyNote", jn);
+				return "modules/jgxy/jgxyNoteView";
+			}
+		}
 		
-		System.err.println(jgxyNoteService.get("5818734516028687000"));
-		System.err.println(jgxyNoteService.get("5818734516028687000"));
-		System.err.println(jgxyNoteService.get("5818734516028687000"));
-		Page<JgxyNote> page = jgxyNoteService.findPage(new Page<JgxyNote>(request, response), jgxyNote); 
-		model.addAttribute("page", page);
-		return "modules/jgxy/jgxyNoteList";
+		
 	}
 
 	/**
@@ -105,11 +125,6 @@ public class JgxyNoteController extends BaseController {
 	@RequiresPermissions(value={"jgxy:jgxyNote:view","jgxy:jgxyNote:add","jgxy:jgxyNote:edit"},logical=Logical.OR)
 	@RequestMapping(value = "aaaaaa")
 	public String aaaaaa(JgxyNote jgxyNote, Model model) {
-		System.out.println("-----------------------------------------");
-		System.out.println("-----------------------------------------");
-		System.out.println("-----------------------------------------");
-		System.out.println("-----------------------------------------");
-		System.out.println("-----------------------------------------");
 		return "modules/jgxy/jgxyNoteForm";
 	}
 	
@@ -123,7 +138,6 @@ public class JgxyNoteController extends BaseController {
 		return "modules/jgxy/jgxyNoteView";
 	}
 	
-
 	/**
 	 * 保存文章
 	 */
@@ -139,7 +153,18 @@ public class JgxyNoteController extends BaseController {
 			if(!jgxyNote.getIsNewRecord()){//编辑表单保存				
 				JgxyNote t = jgxyNoteService.get(jgxyNote.getId());//从数据库取出记录的值
 				MyBeanUtils.copyBeanNotNull2Bean(jgxyNote, t);//将编辑表单中的非NULL值覆盖数据库记录中的值
-				jgxyNoteService.save(t);//保存
+					
+					
+					int clickThroughput ;
+					//如果不是整整数 则默认为0
+					if(isMatches(t.getClickThroughput())){
+						clickThroughput = Integer.parseInt(t.getClickThroughput());
+					}else{
+						clickThroughput = 0;
+					}
+					t.setClickThroughput(String.valueOf(++clickThroughput));
+					
+					jgxyNoteService.save(t);//保存
 			}else{//新增表单保存
 				jgxyNoteService.save(jgxyNote);//保存
 			}
@@ -253,4 +278,21 @@ public class JgxyNoteController extends BaseController {
         return "modules/jgxy/jgxyNoteSelectList";
 	}
 	
+	//判断一个字符串 是否为正整数
+	public boolean isMatches(String bot) {
+		if (bot != null && !bot.equals("")) {
+			boolean flag = false;
+			String regex = "^[1-9]+[0-9]*$";
+			// ^[1-9]+\\d*$
+			Pattern p = Pattern.compile(regex);
+			Matcher m = p.matcher(bot);
+			if (m.find()) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 }

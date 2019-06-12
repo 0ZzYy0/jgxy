@@ -144,6 +144,7 @@ public class JgxySysMenuController extends BaseController {
 				map.put("id", e.getId());
 				map.put("pId", e.getParentId());
 				map.put("name", e.getName());
+				map.put("menuType", e.getMenuType());
 				mapList.add(map);
 			}
 		}

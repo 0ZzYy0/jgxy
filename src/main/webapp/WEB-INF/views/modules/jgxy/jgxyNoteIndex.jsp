@@ -45,7 +45,7 @@
 		var setting = {data:{simpleData:{enable:true,idKey:"id",pIdKey:"pId",rootPId:'0'}},
 			callback:{onClick:function(event, treeId, treeNode){
 					var id = treeNode.id == '0' ? '' :treeNode.id;
-					$('#listContent').attr("src","${ctx}/jgxy/jgxyNote/list?jgxySysMenu.id="+id+"&jgxySysMenu.parentIds="+treeNode.pIds);
+					$('#listContent').attr("src","${ctx}/jgxy/jgxyNote/list?jgxySysMenu.id="+id+"&jgxySysMenu.parentIds="+treeNode.pIds+"&jgxySysMenu.menuType="+treeNode.menuType);
 				}
 			}
 		};

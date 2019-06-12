@@ -51,19 +51,30 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="view-group">
-						<label class="col-sm-4 control-label">更新时间：</label>
+						<label class="col-sm-4 control-label">发布时间：</label>
 						<div class="col-sm-8">
 							<p class="form-control-static">
-							<fmt:formatDate value="${jgxyNote.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+							<fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/>
+							<%-- <fmt:formatDate value="${jgxyNote.updateDate}" pattern="yyyy-MM-dd HH:mm:ss"/> --%>
 							</p>
 						</div>
 					</div>
 				</div>
+				<div class="col-sm-6">
+                    <div class="view-group">
+                        <label class="col-sm-4 control-label">点击量：</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static">
+                            ${jgxyNote.clickThroughput}
+                            </p>
+                        </div>
+                    </div>
+                </div>
 			</div>
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-12">
 					<div class="view-group">
-						<label class="col-sm-4 control-label">内容：</label>
+						<label class="col-sm-2 control-label">内容：</label>
 						<div class="col-sm-8">
 							<p class="form-control-static">
 							${jgxyNote.contents}

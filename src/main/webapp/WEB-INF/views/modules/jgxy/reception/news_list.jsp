@@ -498,7 +498,7 @@ a:hover{color:blue;}
 								<c:forEach items="${jgxyNoteList}" var="jgxyNote">
 									<tr class="row">
 										<td class="col-sm-9">
-											<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}" class="single_news hover_before">
+											<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 												<c:if test="${fn:length(jgxyNote.title) gt 20}">
 													<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 20)}...</span> 
 												</c:if>
@@ -508,7 +508,7 @@ a:hover{color:blue;}
 											</a>
 										</td>
 										<td class="col-sm-3">
-											<span class="label label-info"><fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></span>
+											<span class="label label-info"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 										</td>
 									</tr>
 								</c:forEach>
@@ -526,7 +526,9 @@ a:hover{color:blue;}
 							<li class="single_news_wrapper">
 								<div href="javascript:void(0);" class="single_news">
 									<div class="news_tittle" id="jgxyNoteTitle">${jgxyNote.title}</div>
-									<div class="news_time" id="jgxyNoteCreateDate">发布日期 : <fmt:formatDate value="${jgxyNote.createDate}" pattern="yyyy-MM-dd"/></div>
+									<div class="news_time" id="jgxyNotereleaseDate">
+                                                                                                        发布日期 : <fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/>&nbsp&nbsp&nbsp&nbsp浏览次数 : ${jgxyNote.clickThroughput}
+									</div>
 									<div class="news_content">
 										<p class="form-control-static" id="jgxyNoteContents">${jgxyNote.contents}</p>
 									</div>

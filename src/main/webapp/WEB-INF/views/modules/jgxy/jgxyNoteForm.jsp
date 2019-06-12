@@ -67,6 +67,32 @@
                 </div>
 			</div>
 			<div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><font color="red">*</font> 发布日期：</label>
+                        <div class="col-sm-8">
+                            <div class="input-group date datepicker">
+                                <input name="releaseDate" path="releaseDate" type="text" readonly="readonly" class="form-control" 
+                                    value="<fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/>" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:true});" >
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"> 点击量：</label>
+                        <div class="col-sm-8">
+                            <form:input path="clickThroughput" htmlEscape="false" maxlength="50" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group">
 						<label class="col-sm-2 control-label"> 内容：</label>
@@ -77,7 +103,6 @@
 					</div>
 				</div>
 			</div>
-		
 			<div class="hr-line-dashed"></div>
 			<div class="row">
 				<div class="col-sm-12">
