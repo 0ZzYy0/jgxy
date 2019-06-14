@@ -5,6 +5,7 @@
 	<sql id="jgxySysMenuColumns">
 		a.id AS "id",
 		a.parent_id AS "parent.id",
+		a.parent_id AS "parentId",
 		a.parent_ids AS "parentIds",
 		a.name AS "name",
 		a.sort AS "sort",
@@ -51,6 +52,9 @@
 					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
 					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
 			</if>
+			<if test="id != null and id != ''">
+                AND (a.id = #{id} or a.parent_ids like concat('%',#{id},'%'))
+            </if>
 		</where>
 		ORDER BY a.sort ASC
 	</select>

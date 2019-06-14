@@ -11,6 +11,7 @@
 		a.update_date AS "updateDate",
 		a.remarks AS "jgxySysMenu.id",
 		t.name AS "jgxySysMenu.name",
+		t.parent_id AS "jgxySysMenu.parentId",
 		t.parent_ids AS "jgxySysMenu.parent_ids",
 		a.del_flag AS "delFlag",
 		a.title AS "title",

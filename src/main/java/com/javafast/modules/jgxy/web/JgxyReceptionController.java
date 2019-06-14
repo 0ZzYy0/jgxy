@@ -55,25 +55,33 @@ public class JgxyReceptionController {
 		List<JgxyNote> dataList = jgxyNoteService.findList(new JgxyNote());
 		return dataList;
 	}
-
+	
 	@RequestMapping(value = "list")
 	public String list(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) throws UnsupportedEncodingException {
+		//解决 偶尔的乱码
 		request.setCharacterEncoding("UTF-8");
-
-		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
-		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
 		
-		//获取菜单id
+		
+		//根据菜单id 获取新闻列表(一般情况下是点击了首页的菜单和"更多"按钮)
 		String jgxySysMenuId = (String) request.getParameter("jgxySysMenuId");
-		//获取新闻标题
-		String jgxyNoteTitle = null;
-		if (request.getParameter("jgxyNoteTitle") != null) {
-			jgxyNoteTitle = java.net.URLDecoder.decode(request.getParameter("jgxyNoteTitle"));
-		}
-		
 		if(jgxySysMenuId != null && !jgxySysMenuId.equals("")){
+			
 			JgxySysMenu jsm = jgxySysMenuService.get(jgxySysMenuId);
 			String menuType = jsm.getMenuType();
+			
+			
+			//获取菜单列表
+			String jgxySysMenuPId = (String) request.getParameter("jgxySysMenuPId");
+			if(jgxySysMenuId != null && !jgxySysMenuId.equals("")){
+				if(jgxySysMenuPId != null && !jgxySysMenuPId.equals("")){
+					jgxySysMenu.setId(jgxySysMenuPId);
+				}else{
+					jgxySysMenu.setId(jgxySysMenuId);
+				}
+			}
+			List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
+			request.setAttribute("jgxySysMenuList", jgxySysMenuList);
+			
 			
 			//菜单类型为新闻详细且有文章的时候
 			if(menuType != null && menuType.equals("2")){
@@ -94,6 +102,7 @@ public class JgxyReceptionController {
 			JgxySysMenu x = new JgxySysMenu();
 			x.setId(jgxySysMenuId);
 			
+			
 			JgxyNote jgxyNote = new JgxyNote();
 			jgxyNote.setJgxySysMenu(x);
 
@@ -103,18 +112,35 @@ public class JgxyReceptionController {
 			// 获取新闻
 			List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jgxyNote);
 			request.setAttribute("jgxyNoteList", jgxyNoteList);
-		}
-		
-		if(jgxyNoteTitle != null && !jgxyNoteTitle.equals("")){
-			JgxyNote jgxyNote = new JgxyNote();
-			jgxyNote.setTitle(jgxyNoteTitle);
-			
-			// 获取新闻列表
-			List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jgxyNote);
 
-			request.setAttribute("jgxyNoteList", jgxyNoteList);
+			return "modules/jgxy/reception/news_list";
 		}
 		
+		
+		//根据搜索获得新闻列表
+		if (request.getParameter("jgxyNoteTitle") != null) {
+			String jgxyNoteTitle = java.net.URLDecoder.decode(request.getParameter("jgxyNoteTitle"));
+			if(!jgxyNoteTitle.equals("")){
+				JgxyNote jgxyNote = new JgxyNote();
+				jgxyNote.setTitle(jgxyNoteTitle);
+				
+				// 获取新闻列表
+				List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jgxyNote);
+
+				request.setAttribute("jgxyNoteList", jgxyNoteList);
+				
+				return "modules/jgxy/reception/news_list";
+			}
+		}
+		
+		//如果 走到这里说明没有 
+		//jgxyNoteTitle  和    jgxySysMenuId
+		//那么肯定是点击 首页最大的 "更多"  进来的,所以 列出所有菜单和新闻
+		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(new JgxySysMenu());
+		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
+		// 获取新闻
+		request.setAttribute("jgxySysMenuName", "学院新闻");
+		request.setAttribute("jgxyNoteList", jgxyNoteService.findList(new JgxyNote()));
 		return "modules/jgxy/reception/news_list";
 	}
 
@@ -187,6 +213,7 @@ public class JgxyReceptionController {
 		JgxyNote jgxyNote = null;
 		if (StringUtils.isNotBlank(id)) {
 			jgxyNote = jgxyNoteService.get(id);
+			jgxySysMenu.setId(jgxyNote.getJgxySysMenu().getParentId());
 			addClickThroughput(jgxyNote);
 		}
 		if (jgxyNote == null) {

@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=7868304688644257636">
+                <a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=7868304688644257636&jgxySysMenuPId=1105405848443694891">
                     <span class="nav_name">信息公开</span>
                     <span class="nav_tips">Info</span>
                 </a>

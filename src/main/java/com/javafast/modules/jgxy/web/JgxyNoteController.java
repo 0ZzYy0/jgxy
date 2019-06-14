@@ -162,7 +162,7 @@ public class JgxyNoteController extends BaseController {
 					}else{
 						clickThroughput = 0;
 					}
-					t.setClickThroughput(String.valueOf(++clickThroughput));
+					t.setClickThroughput(String.valueOf(clickThroughput));
 					
 					jgxyNoteService.save(t);//保存
 			}else{//新增表单保存

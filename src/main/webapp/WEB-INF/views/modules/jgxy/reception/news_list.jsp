@@ -446,27 +446,16 @@ a:hover{color:blue;}
 						<c:forEach items="${jgxySysMenuList}" var="jgxySysMenu">
 							<c:if test="${jgxySysMenu.parentId eq '0'}">
 								<div class="selfHelp_query_content">
-								
-								<!--关于学院概况的单独处理
-									如果id是学院概况菜单的id则跳转到指定的详情页,
-									如果不是则正常生成跳转到列表的菜单 -->
-									<c:if test="${jgxySysMenu.id eq '6181818762216150313'}">
-										<a href="${ctx}/jgxy/jgxyReception/get?id=6100105655406495785" class="selfHelp_query clearfix">
-											<span class="selfHelp_query_text">${jgxySysMenu.name}</span>
-											<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
-										</a>
-									</c:if>
-									<c:if test="${jgxySysMenu.id ne '6181818762216150313'}">
-										<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu.id}" class="selfHelp_query clearfix">
-											<span class="selfHelp_query_text">${jgxySysMenu.name}</span>
-											<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
-										</a>
-									</c:if>
+									<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu.id}" class="selfHelp_query clearfix">
+										<span class="selfHelp_query_text">${jgxySysMenu.name}</span>
+										<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
+									</a>
 									<ul class="selfHelp_query_ul ">
 										<c:forEach items="${jgxySysMenuList}" var="jgxySysMenu1">
 											<c:if test="${jgxySysMenu1.parentId eq jgxySysMenu.id}">
 												<li class="selfHelp_query_li selfHelp_query_content">
-													<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu1.id}" class="selfHelp_query clearfix">
+												<!-- end用来表示节点末梢 -->
+													<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu1.id}&jgxySysMenuPId=${jgxySysMenu1.parentId}" class="selfHelp_query clearfix">
 														<span class="selfHelp_query_text">${jgxySysMenu1.name}</span>
 														<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
 													</a>
