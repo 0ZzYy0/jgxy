@@ -62,7 +62,7 @@
 .friendship_link_wrapper .friendship_link:hover{background: #0e8cc9;color: #fff;}
 .friendship_link_wrapper .friendship_link:last-child{border-bottom:none;}
 /*main_part_3_wrapepr*/
-.main_part_3_wrapepr{display: flex;}
+.main_part_3_wrapepr{display: flex;position: relative;z-index: 99;}
 /*selfHelp_query_wrapper*/
 .selfHelp_query_wrapper{background: #fff;padding: 14px 10px;}
 .selfHelp_query_wrapper .selfHelp_query{display: block;color: #0e8cc9;padding: 10px 2em;font-size: 16px;transition: all 0.5s linear;border-radius: 5px;}
@@ -79,3 +79,23 @@
 .quick_access_btn_wrapper .quick_access_btn .quick_access_btn_text{}
 
 .quick_access_wrapper .other_news_tittle{border-bottom: 2px solid #EEF3F4;padding-bottom: 1em;}
+/*friendship_link_content*/
+.friendship_link_content{ display: block;width: 100%;float: left;padding: 5px 0em;font-size: 16px;font-style: italic;color: #0e8cc9;transition: all 0.5s linear;border-radius: 5px;border: 1px solid #B4B4B2;text-align: center;}
+.friendship_link_content .friendship_link{display: block;}
+/*select-menu*/
+.select-menu {cursor: pointer;width: 100%;float: left;}
+.select-menu-div{position: relative;border: 1px solid #ddd;line-height: 30px;border-radius: 5px;}
+.select-menu-input{padding-left: 8px;border: 0;display:block;cursor: pointer;user-select: none;width: 100%;}
+.select-menu-i{position: absolute;right: 6px;}
+.select-menu-i.fa-up{top: -13px;}
+.select-menu-i.fa-down{top: 14px;}
+.select-menu-i.fa:before{content: '';width: 0;height: 0;border-style: solid;margin: 40px auto;position: relative;}
+.select-menu-i.fa-up:before{border-width:0 10px 10px;border-color: transparent transparent #9a9a9a;}
+.select-menu-i.fa-down:before{border-width: 10px 10px 0;border-color: #9a9a9a transparent transparent;}
+.select-menu-ul{margin-top: 50px;list-style: none;opacity: 0;display: none;width: 93%;text-align: left;border: 1px solid #ddd;background: #fff;position: absolute;z-index: 1;border-radius: 5px;}
+.select-menu-ul-show{display: block;margin-top: 5px;opacity: 1;}
+.select-menu-ul-hide{display: none;margin-top: 50px;opacity: 0;}
+.select-menu-ul li{padding: 2% 0 2% 8px;line-height: 24px;}
+.select-menu-ul li a{display: block;}
+.select-this{background: #0F8CC9;}
+.select-this a{color:#fff;}

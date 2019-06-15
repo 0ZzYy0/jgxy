@@ -169,6 +169,7 @@ public class JgxyReceptionController {
 		List<JgxyNote> jgxyNoteGZXY = new ArrayList<>();
 		List<JgxyNote> jgxyNoteXXGK = new ArrayList<>();
 		List<JgxyNote> jgxyNoteGSGG = new ArrayList<>();
+		List<JgxyNote> jgxyNoteXFJS = new ArrayList<>();
 
 		// 新闻种类暂时按照 id 来对比
 		for (JgxyNote jn : jgxyNoteList) {
@@ -192,6 +193,10 @@ public class JgxyReceptionController {
 				if (jgxyNoteGSGG.size() < 5) {
 					jgxyNoteGSGG.add(jn);
 				}
+			} else if (jn.getJgxySysMenu().getId().equals("3946981313027664138")) {
+				if (jgxyNoteXFJS.size() < 5) {
+					jgxyNoteXFJS.add(jn);
+				}
 			}
 		}
 		request.setAttribute("jiList", jiList);
@@ -203,6 +208,7 @@ public class JgxyReceptionController {
 		request.setAttribute("jgxyNoteGZXY", jgxyNoteGZXY);
 		request.setAttribute("jgxyNoteXXGK", jgxyNoteXXGK);
 		request.setAttribute("jgxyNoteGSGG", jgxyNoteGSGG);
+		request.setAttribute("jgxyNoteXFJS", jgxyNoteXFJS);
 		return "modules/jgxy/reception/indexJgxy";
 	}
 

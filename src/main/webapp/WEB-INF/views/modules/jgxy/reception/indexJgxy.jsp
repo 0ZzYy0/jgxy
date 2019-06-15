@@ -253,10 +253,10 @@
 				<div class="col-sm-12">
 					<div class="tabs-container">
 						<ul class="nav nav-tabs">
-							<li class="active">
+							<!-- <li>
 								<a data-toggle="tab" href="#tab-6" aria-expanded="true">信息公开</a>
-							</li>
-							<li>
+							</li>-->
+							<li class="active">
 								<a data-toggle="tab" href="#tab-7" aria-expanded="false">公示公告</a>
 							</li>
 							<!-- <li>
@@ -264,10 +264,10 @@
                                 </li> -->
 						</ul>
 						<div class="tab-content">
-							<div id="tab-6" class="tab-pane active">
+										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
+							<!-- <div id="tab-6" class="tab-pane active">
 								<ul class="news_list">
 									<c:forEach items="${jgxyNoteXXGK}" var="jgxyNote" varStatus="status">
-										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
@@ -282,8 +282,8 @@
 											</li>
 									</c:forEach>
 								</ul>
-							</div>
-							<div id="tab-7" class="tab-pane">
+							</div>-->
+							<div id="tab-7" class="tab-pane active">
 								<ul class="news_list">
 									<c:forEach items="${jgxyNoteGSGG}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
@@ -341,14 +341,14 @@
 				</div>
 
 				<div class="quick_access_btn_wrapper clearfix">
-					<a href="javascript:void(0);" class="quick_access_btn clearfix">
+					<!-- <a href="javascript:void(0);" class="quick_access_btn clearfix">
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_1.png" alt="" class="quick_access_btn_img">
 						<span class="quick_access_btn_text">校园风采</span>
 					</a>
 					<a href="javascript:void(0);" class="quick_access_btn clearfix">
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_2.png" alt="" class="quick_access_btn_img">
 						<span class="quick_access_btn_text">校园视频</span>
-					</a>
+					</a>-->
 					<a href="http://www.hljsfjy.org.cn/zs/search.php" target="_blank" class="quick_access_btn clearfix">
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_3.png" alt="" class="quick_access_btn_img">
 						<span class="quick_access_btn_text">录取查询</span>
@@ -366,27 +366,71 @@
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_6.png" alt="" class="quick_access_btn_img">
 						<span class="quick_access_btn_text">继续教育</span>
 					</a>
+					<div class="select-menu">
+							<div class="select-menu-div">
+								<input id="No1" readonly="" class="select-menu-input" value="友情链接">
+								<i class="fa fa-down select-menu-i"></i>
+							</div>
+							<ul class="select-menu-ul">
+								<li class="friendship_link_hide select-this">
+									<a href="http://www.hljsf.gov.cn/" target="_blank"  class="friendship_link">黑龙江省司法厅</a>
+								</li>
+								<li class="friendship_link_hide">
+									<a href="https://gaokao.chsi.com.cn/" target="_blank"  class="friendship_link">教育部阳光高考信息平台</a>
+								</li>
+								<li class="friendship_link_hide">
+									<a href="http://www.hljzfxy.org.cn/" target="_blank"  class="friendship_link">黑龙江政法管理干部学院</a>
+								</li>
+								<li class="friendship_link_hide">
+									<a href="https://www.lzk.hl.cn/" target="_blank"  class="friendship_link">黑龙江招生考试信息港</a>
+								</li>
+							</ul>
+						</div>
+						
+						<!--2019.06.13-->
+						<script type="text/javascript">
+							/*~~~~~~~~~~~~~~~~~~~~~~~~*2019.06.13~~~~~~~~~~~~~~~~~*/
+							// 仿select显示隐藏
+							$('#No1').on('click',function(){
+								var 	this_ = $(this),
+										sib_i = this_.siblings('.select-menu-i');
+								if(sib_i.hasClass('fa-down')){
+									sib_i.removeClass('fa-down').addClass('fa-up');
+									$('.select-menu-ul').animate({'display':'block','margin-top':'5px','opacity':'1'},500).show();
+								}else if(sib_i.hasClass('fa-up')){
+									sib_i.removeClass('fa-up').addClass('fa-down');
+									$('.select-menu-ul').animate({'display':'none','margin-top':'50px','opacity':'0'},500).hide();
+								}
+							});
 
+							$('.select-menu .friendship_link').on('click',function () {
+								$('#No1').trigger('click');
+							});
+							/*~~~~~~~~~~~~~~~~~~~~~~~~*2019.06.13~~~~~~~~~~~~~~~~~*/
+						</script>
 				</div>
 			</div>
 			<div class="col-sm-4 right_part_wrapper">
 				<div class="right_part_tittle">
-					<p class="right_part_name">友情链接</p>
-				</div>
-				<div class="friendship_link_wrapper">
-					<a href="http://www.hljsf.gov.cn/" target="_blank" class="friendship_link">黑龙江省司法厅</a>
-					<a href="https://gaokao.chsi.com.cn/" target="_blank" class="friendship_link">教育部阳光高考信息平台</a>
-					<a href="http://www.hljzfxy.org.cn/" target="_blank" class="friendship_link">黑龙江政法管理干部学院</a>
-					<a href="https://www.lzk.hl.cn/" target="_blank" class="friendship_link">黑龙江招生考试信息港</a>
-				</div>
-			</div>
-			<div class="col-sm-4 right_part_wrapper">
-				<div class="right_part_tittle">
-					<p class="right_part_name">自助查询</p>
+					<p class="right_part_name">学风建设</p>
 					<p class="right_part_tips">Self help query</p>
 				</div>
-				<div class="selfHelp_query_wrapper">
-					<a href="http://www.hljsfjy.org.cn/zs/news.php?nclass=%D7%A8%C9%FD%B1%BE" target="_blank" class="selfHelp_query clearfix">
+				<div class="friendship_link_wrapper">
+				
+					<c:forEach items="${jgxyNoteXFJS}" var="jgxyNote" varStatus="status">
+						<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="friendship_link">
+							<c:if test="${fn:length(jgxyNote.title) gt 10}">
+								${fn:substring(jgxyNote.title, 0, 10)}...
+							</c:if>
+							<c:if test="${fn:length(jgxyNote.title) le 10}">
+								${jgxyNote.title}
+							</c:if>
+						</a>
+					</c:forEach>
+				</div>
+				<!--<div class="selfHelp_query_wrapper">
+				
+					 <a href="http://www.hljsfjy.org.cn/zs/news.php?nclass=%D7%A8%C9%FD%B1%BE" target="_blank" class="selfHelp_query clearfix">
 						<span class="selfHelp_query_text">专升本</span>
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
 					</a>
@@ -402,6 +446,17 @@
 						<span>在线咨询</span>
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
 					</a>
+				</div> -->
+			</div>
+			<div class="col-sm-4 right_part_wrapper">
+				<div class="right_part_tittle">
+					<p class="right_part_name">精品课</p>
+				</div>
+				<div class="friendship_link_wrapper">
+					<!-- <a href="http://www.hljsf.gov.cn/" target="_blank" class="friendship_link">黑龙江省司法厅</a>
+					<a href="https://gaokao.chsi.com.cn/" target="_blank" class="friendship_link">教育部阳光高考信息平台</a>
+					<a href="http://www.hljzfxy.org.cn/" target="_blank" class="friendship_link">黑龙江政法管理干部学院</a>
+					<a href="https://www.lzk.hl.cn/" target="_blank" class="friendship_link">黑龙江招生考试信息港</a> -->
 				</div>
 			</div>
 		</div>

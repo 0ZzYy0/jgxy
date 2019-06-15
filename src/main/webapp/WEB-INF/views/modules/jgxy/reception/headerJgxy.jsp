@@ -3,7 +3,7 @@
 <div class="head_wrapper clearfix">
     <div class="school_logo_wrapper pull-left clearfix">
 
-        <img src="${pageContext.request.contextPath}/jgxy/resources/images/school_logo3.png" alt="" class="school_logo pull-left">
+        <img src="${pageContext.request.contextPath}/jgxy/resources/images/school_logo4.png" alt="" class="school_logo pull-left">
         <!--<img src="${pageContext.request.contextPath}/jgxy/resources/images/school_logo.png" alt="" class="school_logo pull-left">-->
         <!--<p class="school_name">黑龙江司法警官职业学院</p>-->
         <!--<p class="school_name_second">The Professional Judicial Police College of Heilongjiang</p>-->
