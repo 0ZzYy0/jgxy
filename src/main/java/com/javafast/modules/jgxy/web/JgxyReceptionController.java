@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.javafast.common.persistence.Page;
 import com.javafast.common.utils.StringUtils;
 import com.javafast.modules.jgxy.service.JgxyImgSchoolService;
 import com.javafast.modules.jgxy.service.JgxyImgService;
@@ -143,7 +144,7 @@ public class JgxyReceptionController {
 		request.setAttribute("jgxyNoteList", jgxyNoteService.findList(new JgxyNote()));
 		return "modules/jgxy/reception/news_list";
 	}
-
+	
 	@RequestMapping(value = "index")
 	public String index(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) {
 
@@ -151,8 +152,9 @@ public class JgxyReceptionController {
 		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
 
 		// 获取全部新闻
-		List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(new JgxyNote());
-
+		// 每个类别最多5条,学院新闻12条
+		Page<JgxyNote> page = jgxyNoteService.findPage(new Page<JgxyNote>(1,12), new JgxyNote());
+		
 		JgxyImg ji = new JgxyImg();
 		ji.setIsRelease("1");
 		List<JgxyImg> jiList = jgxyImgService.findList(ji);
@@ -161,48 +163,39 @@ public class JgxyReceptionController {
 		jis.setIsRelease("1");
 		List<JgxyImgSchool> jiList1 = jgxyImgSchoolService.findList(jis);
 
-		// 给新闻分类
-		// 每个类别最多5条,学院新闻12条
-
-		List<JgxyNote> jgxyNoteJXDT = new ArrayList<>();
-		List<JgxyNote> jgxyNoteKYZX = new ArrayList<>();
-		List<JgxyNote> jgxyNoteGZXY = new ArrayList<>();
-		List<JgxyNote> jgxyNoteXXGK = new ArrayList<>();
-		List<JgxyNote> jgxyNoteGSGG = new ArrayList<>();
-		List<JgxyNote> jgxyNoteXFJS = new ArrayList<>();
-
+		//用来做条件
+		JgxySysMenu jsm = new JgxySysMenu();
+		JgxyNote jn = new JgxyNote();
+		
 		// 新闻种类暂时按照 id 来对比
-		for (JgxyNote jn : jgxyNoteList) {
-			if (jn.getJgxySysMenu().getId().equals("71864634419527302")) {
-				if (jgxyNoteJXDT.size() < 5) {
-					jgxyNoteJXDT.add(jn);
-				}
-			} else if (jn.getJgxySysMenu().getId().equals("1517093218844555186")) {
-				if (jgxyNoteKYZX.size() < 5) {
-					jgxyNoteKYZX.add(jn);
-				}
-			} else if (jn.getJgxySysMenu().getId().equals("2664446703223844603")) {
-				if (jgxyNoteGZXY.size() < 5) {
-					jgxyNoteGZXY.add(jn);
-				}
-			} else if (jn.getJgxySysMenu().getId().equals("7868304688644257636")) {
-				if (jgxyNoteXXGK.size() < 5) {
-					jgxyNoteXXGK.add(jn);
-				}
-			} else if (jn.getJgxySysMenu().getId().equals("1406319674601422774")) {
-				if (jgxyNoteGSGG.size() < 5) {
-					jgxyNoteGSGG.add(jn);
-				}
-			} else if (jn.getJgxySysMenu().getId().equals("3946981313027664138")) {
-				if (jgxyNoteXFJS.size() < 5) {
-					jgxyNoteXFJS.add(jn);
-				}
-			}
-		}
+		jsm.setId("71864634419527302");
+		jn.setJgxySysMenu(jsm);
+		List<JgxyNote> jgxyNoteJXDT = jgxyNoteService.findPage(new Page<JgxyNote>(1,5), jn).getList();
+		
+		jsm.setId("1517093218844555186");
+		jn.setJgxySysMenu(jsm);
+		List<JgxyNote> jgxyNoteKYZX = jgxyNoteService.findPage(new Page<JgxyNote>(1,5), jn).getList();
+		
+		jsm.setId("2664446703223844603");
+		jn.setJgxySysMenu(jsm);
+		List<JgxyNote> jgxyNoteGZXY = jgxyNoteService.findPage(new Page<JgxyNote>(1,5), jn).getList();
+		
+		jsm.setId("7868304688644257636");
+		jn.setJgxySysMenu(jsm);
+		List<JgxyNote> jgxyNoteXXGK = jgxyNoteService.findPage(new Page<JgxyNote>(1,5), jn).getList();
+		
+		jsm.setId("1406319674601422774");
+		jn.setJgxySysMenu(jsm);
+		List<JgxyNote> jgxyNoteGSGG = jgxyNoteService.findPage(new Page<JgxyNote>(1,5), jn).getList();
+		
+		jsm.setId("3946981313027664138");
+		jn.setJgxySysMenu(jsm);
+		List<JgxyNote> jgxyNoteXFJS = jgxyNoteService.findPage(new Page<JgxyNote>(1,5), jn).getList();
+
 		request.setAttribute("jiList", jiList);
 		request.setAttribute("jiList1", jiList1);
 		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
-		request.setAttribute("jgxyNoteList", jgxyNoteList.subList(0, 12));
+		request.setAttribute("jgxyNoteList", page.getList());
 		request.setAttribute("jgxyNoteJXDT", jgxyNoteJXDT);
 		request.setAttribute("jgxyNoteKYZX", jgxyNoteKYZX);
 		request.setAttribute("jgxyNoteGZXY", jgxyNoteGZXY);
