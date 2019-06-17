@@ -453,10 +453,7 @@
 					<p class="right_part_name">精品课</p>
 				</div>
 				<div class="friendship_link_wrapper">
-					<!-- <a href="http://www.hljsf.gov.cn/" target="_blank" class="friendship_link">黑龙江省司法厅</a>
-					<a href="https://gaokao.chsi.com.cn/" target="_blank" class="friendship_link">教育部阳光高考信息平台</a>
-					<a href="http://www.hljzfxy.org.cn/" target="_blank" class="friendship_link">黑龙江政法管理干部学院</a>
-					<a href="https://www.lzk.hl.cn/" target="_blank" class="friendship_link">黑龙江招生考试信息港</a> -->
+					<img src="${pageContext.request.contextPath}/jgxy/resources/images/jingpinkecheng.jpg" style="width: 100%" alt="" class="icon_more">
 				</div>
 			</div>
 		</div>
