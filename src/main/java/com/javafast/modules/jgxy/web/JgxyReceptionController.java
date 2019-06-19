@@ -215,7 +215,12 @@ public class JgxyReceptionController {
 		JgxyNote jgxyNote = null;
 		if (StringUtils.isNotBlank(id)) {
 			jgxyNote = jgxyNoteService.get(id);
-			jgxySysMenu.setId(jgxyNote.getJgxySysMenu().getParentId());
+			if(jgxyNote.getJgxySysMenu().getParentId() == null || "0".equals(jgxyNote.getJgxySysMenu().getParentId())){
+				jgxySysMenu.setId(jgxyNote.getJgxySysMenu().getId());
+			}else{
+				jgxySysMenu.setId(jgxyNote.getJgxySysMenu().getParentId());
+			}
+			
 			addClickThroughput(jgxyNote);
 		}
 		if (jgxyNote == null) {

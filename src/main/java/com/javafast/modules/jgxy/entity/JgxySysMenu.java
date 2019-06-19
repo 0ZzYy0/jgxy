@@ -7,26 +7,23 @@ import com.javafast.common.persistence.TreeEntity;
 
 /**
  * 菜单(树结构)Entity
- * 
  * @author javafast
- * @version 2019-06-06
+ * @version 2019-06-20
  */
 public class JgxySysMenu extends TreeEntity<JgxySysMenu> {
-
+	
 	private static final long serialVersionUID = 1L;
-	private JgxySysMenu parent; // 上级分类
-	private String id;
-	private String parentId;
-	private String parentIds; // 所有父级编号
-	private String name; // 菜单名称
-	private Integer sort; // 排序
-	private String menuType;
-
+	private JgxySysMenu parent;		// 上级分类
+	private String parentIds;		// 所有父级编号
+	private String name;		// 菜单名称
+	private Integer sort;		// 排序
+	private String menuType;		// 菜单类型
+	
 	public JgxySysMenu() {
 		super();
 	}
 
-	public JgxySysMenu(String id) {
+	public JgxySysMenu(String id){
 		super(id);
 	}
 
@@ -38,8 +35,8 @@ public class JgxySysMenu extends TreeEntity<JgxySysMenu> {
 	public void setParent(JgxySysMenu parent) {
 		this.parent = parent;
 	}
-
-	@Length(min = 0, max = 1000, message = "所有父级编号长度必须介于 0 和 1000 之间")
+	
+	@Length(min=0, max=1000, message="所有父级编号长度必须介于 0 和 1000 之间")
 	public String getParentIds() {
 		return parentIds;
 	}
@@ -47,8 +44,8 @@ public class JgxySysMenu extends TreeEntity<JgxySysMenu> {
 	public void setParentIds(String parentIds) {
 		this.parentIds = parentIds;
 	}
-
-	@Length(min = 1, max = 50, message = "菜单名称长度必须介于 1 和 50 之间")
+	
+	@Length(min=1, max=50, message="菜单名称长度必须介于 1 和 50 之间")
 	public String getName() {
 		return name;
 	}
@@ -56,7 +53,7 @@ public class JgxySysMenu extends TreeEntity<JgxySysMenu> {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public Integer getSort() {
 		return sort;
 	}
@@ -64,11 +61,8 @@ public class JgxySysMenu extends TreeEntity<JgxySysMenu> {
 	public void setSort(Integer sort) {
 		this.sort = sort;
 	}
-
-	public String getParentId() {
-		return parentId;
-	}
-
+	
+	@Length(min=0, max=30, message="菜单类型长度必须介于 0 和 30 之间")
 	public String getMenuType() {
 		return menuType;
 	}
@@ -76,24 +70,15 @@ public class JgxySysMenu extends TreeEntity<JgxySysMenu> {
 	public void setMenuType(String menuType) {
 		this.menuType = menuType;
 	}
-
-	public void setParentId(String parentId) {
-		this.parentId = parentId;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+	
+	public String getParentId() {
+		return parent != null && parent.getId() != null ? parent.getId() : "0";
 	}
 
 	@Override
 	public String toString() {
-		return "JgxySysMenu [parent=" + parent + ", id=" + id + ", parentId=" + parentId + ", parentIds=" + parentIds + ", name=" + name + ", sort="
-				+ sort + ", menuType=" + menuType + "]";
+		return "JgxySysMenu [parent=" + parent + ", parentIds=" + parentIds + ", name=" + name + ", sort=" + sort + ", menuType=" + menuType + "]";
 	}
-
-
+	
+	
 }

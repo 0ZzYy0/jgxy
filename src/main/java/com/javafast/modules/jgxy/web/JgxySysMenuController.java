@@ -29,7 +29,7 @@ import com.javafast.modules.jgxy.service.JgxySysMenuService;
 /**
  * 菜单(树结构)Controller
  * @author javafast
- * @version 2019-06-06
+ * @version 2019-06-20
  */
 @Controller
 @RequestMapping(value = "${adminPath}/jgxy/jgxySysMenu")

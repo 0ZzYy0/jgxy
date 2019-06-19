@@ -7,7 +7,7 @@ import com.javafast.modules.jgxy.entity.JgxySysMenu;
 /**
  * 菜单(树结构)DAO接口
  * @author javafast
- * @version 2019-06-06
+ * @version 2019-06-20
  */
 @MyBatisDao
 public interface JgxySysMenuDao extends TreeDao<JgxySysMenu> {
