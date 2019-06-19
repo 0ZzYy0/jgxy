@@ -127,8 +127,11 @@ public class JgxyReceptionController {
 				
 				// 获取新闻列表
 				List<JgxyNote> jgxyNoteList = jgxyNoteService.findList(jgxyNote);
-
 				request.setAttribute("jgxyNoteList", jgxyNoteList);
+				
+				// 获取菜单列表
+				List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(new JgxySysMenu());
+				request.setAttribute("jgxySysMenuList", jgxySysMenuList);
 				
 				return "modules/jgxy/reception/news_list";
 			}

@@ -679,6 +679,19 @@
 			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/spring-fast2.0.jar</systemPath>
 		</dependency>
 		
+		<!-- ueditor -->
+		<dependency>
+		    <groupId>com.gitee.qdbp.thirdparty</groupId>
+		    <artifactId>ueditor</artifactId>
+		    <version>1.4.3.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20180813</version>
+		</dependency>
+		
 
 		<!-- 自定义jar依赖包 <dependency> <groupId>com.javafast</groupId> <artifactId>test-core</artifactId> 
 			<version>1.0</version> <scope>system</scope> <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/test-core-1.0.jar</systemPath> 
