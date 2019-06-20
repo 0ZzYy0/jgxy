@@ -194,6 +194,11 @@ public class JgxyReceptionController {
 		jsm.setId("3946981313027664138");
 		jn.setJgxySysMenu(jsm);
 		List<JgxyNote> jgxyNoteXFJS = jgxyNoteService.findPage(new Page<JgxyNote>(1,5), jn).getList();
+		
+
+		jsm.setId("4672773914173395715");
+		jn.setJgxySysMenu(jsm);
+		List<JgxyNote> jgxyNoteDJGZ = jgxyNoteService.findPage(new Page<JgxyNote>(1,5), jn).getList();
 
 		request.setAttribute("jiList", jiList);
 		request.setAttribute("jiList1", jiList1);
@@ -205,6 +210,7 @@ public class JgxyReceptionController {
 		request.setAttribute("jgxyNoteXXGK", jgxyNoteXXGK);
 		request.setAttribute("jgxyNoteGSGG", jgxyNoteGSGG);
 		request.setAttribute("jgxyNoteXFJS", jgxyNoteXFJS);
+		request.setAttribute("jgxyNoteDJGZ", jgxyNoteDJGZ);
 		return "modules/jgxy/reception/indexJgxy";
 	}
 

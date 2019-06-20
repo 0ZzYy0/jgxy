@@ -65,7 +65,7 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="form-group">
-			            	<label class="col-sm-4 control-label"><font color="red">*</font>归属公司</label>
+			            	<label class="col-sm-4 control-label"><font color="red">*</font>归属机构</label>
 			            	 <div class="col-sm-8">
 			                       <sys:treeselect id="company" name="company.id" value="${user.company.id}" labelName="company.name" labelValue="${user.company.name}"
 									title="公司" url="/sys/office/treeData?type=1" cssClass="form-control required"/>
@@ -255,9 +255,8 @@
 	<div class="alert alert-info alert-dismissable">
     	<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
         	提示和建议：<br>
-        	1、请填写正确的手机号码，方便忘记密码时通过短信验证码重置密码<br>
-        	2、管理员拥有所有权限，请勿随意修改，以免造成丢失操作权限<br>
-        	3、“冻结”的用户依然属于有效用户，只是不允许该用户登录，数据等都不变
+        	1、管理员拥有所有权限，请勿随意修改，以免造成丢失操作权限<br>
+        	2、“冻结”的用户依然属于有效用户，只是不允许该用户登录，数据等都不变
      </div>
 </div>
 </body>

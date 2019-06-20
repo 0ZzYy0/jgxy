@@ -48,7 +48,7 @@
 			        <table:batchRow url="${ctx}/sys/user/synQywxAll" name="synQywxAll" title="同步到企业微信" id="contentTable" label="同步到企业微信" icon="fa-folder-open-o"></table:batchRow>
 			        --%>
 			        <shiro:hasPermission name="sys:user:add">
-			        <a class="btn btn-white btn-sm" href="${ctx}/sys/user/loadQywxSystem" title="同步企业微信"><i class="fa fa-repeat"></i> 同步企业微信</a>
+			        <!-- <a class="btn btn-white btn-sm" href="${ctx}/sys/user/loadQywxSystem" title="同步企业微信"><i class="fa fa-repeat"></i> 同步企业微信</a> -->
 			        <a class="btn btn-success btn-sm" href="${ctx}/sys/user/form" title="新建用户"><i class="fa fa-plus"></i> 新建用户</a>
 			        </shiro:hasPermission>
 				</div>
@@ -77,13 +77,14 @@
 						<span>手机：</span>
 						<form:input path="mobile" htmlEscape="false" maxlength="50" class=" form-control input-small"/>
 					 </div>
-					 <div class="form-group">
+					 
+					 <!-- <div class="form-group">
 						<span>同步企业微信：</span>
 						<form:select path="bindWx" cssClass="form-control">
 							<form:option value="" label=""/>
 							<form:options items="${fns:getDictList('yes_no')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
 						</form:select>
-					 </div>
+					 </div>-->
 					 <div class="form-group">
 						<button class="btn btn-white btn-sm" onclick="search()"><i class="fa fa-search"></i> 查询</button>
 						<button class="btn btn-white btn-sm" onclick="resetSearch()"><i class="fa fa-refresh"></i> 重置</button>
@@ -103,7 +104,7 @@
 							<th width="100px">手机</th>
 							<th>部门</th>
 							<th width="80px">状态</th>
-							<th width="80px">企业微信</th>
+							<!-- <th width="80px">企业微信</th>-->
 							<th width="120px">操作</th>
 						</tr>
 					</thead>
@@ -120,17 +121,17 @@
 								<c:if test="${user.loginFlag == 1}"><span class="text-success">激活</span></c:if>
 								<c:if test="${user.loginFlag == 0}"><span class="text-warning">冻结</span></c:if>
 							</td>
-							<td>
+							<!-- <td>
 								<c:if test="${user.bindWx == 1}"><span class="text-success">已同步</span></c:if>
 								<c:if test="${user.bindWx == 2}"><span class="text-warning">已禁用</span></c:if>
 								<c:if test="${user.bindWx == 4}"><span class="text-muted">未同步</span></c:if>
-							</td>
+							</td>-->
 							<td>
 								<shiro:hasPermission name="sys:user:edit">
 									<a href="${ctx}/sys/user/form?id=${user.id}" class="" title="修改">修改</a>
 								</shiro:hasPermission>
 								<shiro:hasPermission name="sys:user:del">
-									<a href="#" onclick="openDialog('工作交接', '${ctx}/sys/user/overForm?id=${user.id}','500px', '300px','officeContent')" class="" title="工作交接">交接</a>
+									<%-- <a href="#" onclick="openDialog('工作交接', '${ctx}/sys/user/overForm?id=${user.id}','500px', '300px','officeContent')" class="" title="工作交接">交接</a> --%>
 									<a href="${ctx}/sys/user/delete?id=${user.id}" onclick="return confirmx('重要提示：你将要删除用户：${user.name}。（如果已开通企业微信，请先在企业微信管理后台中删除此员工）', this.href)" class="" title="删除">删除</a>
 								</shiro:hasPermission>
 							</td>
@@ -141,12 +142,12 @@
 				<table:page page="${page}"></table:page>
 			</div>
 			
-			<div class="alert alert-info alert-dismissable">
+			<!-- <div class="alert alert-info alert-dismissable">
 		    	<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
 		        	提示和建议：<br>
 		        	1、删除用户之前请把用户负责的所有客户/机会/合同等交接给新用户。<br>
 		        	2、如果已开通企业微信，请在企业微信邀请用户加入即可。
-		     </div>	
+		     </div>	-->
 		</div>
 	</div>
 	

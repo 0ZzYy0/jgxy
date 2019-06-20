@@ -151,7 +151,7 @@
 			                 	<form:select path="sysData" class="form-control ">
 									<form:options items="${fns:getDictList('yes_no')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
 								</form:select>
-								<span class="help-inline">“是”代表此数据只有超级管理员能进行修改，“否”则表示拥有角色修改人员的权限都能进行修改</span>
+								<!-- <span class="help-inline">“是”代表此数据只有超级管理员能进行修改，“否”则表示拥有角色修改人员的权限都能进行修改</span> -->
 			                 </div>
 			            </div>
 		            </div>
@@ -170,7 +170,7 @@
 										<%-- <form:option value="9">按明细设置</form:option>--%>
 									</form:select>
 									
-									<span class="help-inline">如果需要查看公司所有数据，设置为“所有数据”；如果需要上级查看下属的数据，设置为“部门数据 .</span>
+									<!-- <span class="help-inline">如果需要查看所有数据，设置为“所有数据”；如果需要上级查看下属的数据，设置为“部门数据 .</span> -->
 			                 </div>
 			            </div>
 		            </div>
@@ -215,13 +215,13 @@
 			</form:form>
 		</div>
 	</div>
-	<div class="alert alert-info alert-dismissable">
+<!-- 	<div class="alert alert-info alert-dismissable">
     	<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
         	提示和建议：<br>
         	1、【老总管理】权限，可以使用所有功能模块，并且可以查看全公司的数据<br>
         	2、【部门领导】可以查看该部门人员数据<br>
         	3、【一般员工】只能查看自己的数据，相互不能查看
-     </div>
+     </div> -->
 </div>
 
 </body>

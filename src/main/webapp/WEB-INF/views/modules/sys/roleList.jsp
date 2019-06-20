@@ -16,8 +16,6 @@
 	    		<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
 	        	提示和建议：<br>
 	        	1、添加完新角色，请点击该记录的[权限设置]图标进入授权页面设置权限.<br>
-	        	2、[权限设置]用于功能模块的分配授权，如：“销售”可以管理客户、机会、服务等模块.<br>
-				3、如果需要上级查看下属的资料，请到角色编辑中，把【数据范围】设置为“部门数据”或“所有数据”即可 .
 	     	</div>
 			<sys:message content="${message}"/>
 			

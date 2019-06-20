@@ -390,7 +390,7 @@
 				</div>
 				<div class="friendship_link_wrapper">
 				
-					<c:forEach items="${jgxyNoteXFJS}" var="jgxyNote" varStatus="status">
+					<c:forEach items="${jgxyNoteDJGZ}" var="jgxyNote" varStatus="status">
 						<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="friendship_link">
 							${jgxyNote.title}
 						</a>
