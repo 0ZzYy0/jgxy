@@ -43,6 +43,8 @@
 #certify .swiper-button-next {
 	display: none !important;
 }
+
+#certify .swiper-slide{height: auto;margin: 0 1%;}
 </style>
 </head>
 <body>
@@ -114,12 +116,7 @@
 						<li class="single_news_wrapper">
 							<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 								<span class="news_points"></span>
-								<c:if test="${fn:length(jgxyNote.title) gt 15}">
-									<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 15)}...</span> 
-								</c:if>
-								<c:if test="${fn:length(jgxyNote.title) le 15}">
-									<span class="news_tittle">${jgxyNote.title}</span> 
-								</c:if>
+								<span class="news_tittle">${jgxyNote.title}</span> 
 								<c:if test="${status.index lt 3}">
 									<span class="news_state">[New]</span> 
 								</c:if>
@@ -160,12 +157,7 @@
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
-													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
-													</c:if>
-													<c:if test="${fn:length(jgxyNote.title) le 10}">
-														<span class="news_tittle">${jgxyNote.title}</span> 
-													</c:if>
+													<span class="news_tittle">${jgxyNote.title}</span> 
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
@@ -179,12 +171,7 @@
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
-													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
-													</c:if>
-													<c:if test="${fn:length(jgxyNote.title) le 10}">
-														<span class="news_tittle">${jgxyNote.title}</span> 
-													</c:if>
+													<span class="news_tittle">${jgxyNote.title}</span> 
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
@@ -208,7 +195,7 @@
 					<div class="tabs-container">
 						<ul class="nav nav-tabs">
 							<li class="active">
-								<a data-toggle="tab" href="#tab-3" aria-expanded="true">工作新闻</a>
+								<a data-toggle="tab" href="#tab-3" aria-expanded="true">工作信息</a>
 							</li>
 						</ul>
 						<div class="tab-content">
@@ -218,12 +205,7 @@
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
-													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
-													</c:if>
-													<c:if test="${fn:length(jgxyNote.title) le 10}">
-														<span class="news_tittle">${jgxyNote.title}</span> 
-													</c:if>
+													<span class="news_tittle">${jgxyNote.title}</span> 
 
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
@@ -290,12 +272,7 @@
 											<li class="single_news_wrapper">
 												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 													<span class="news_points"></span>
-													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
-													</c:if>
-													<c:if test="${fn:length(jgxyNote.title) le 10}">
-														<span class="news_tittle">${jgxyNote.title}</span> 
-													</c:if>
+													<span class="news_tittle">${jgxyNote.title}</span> 
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
@@ -334,21 +311,21 @@
 
 		<!--main_part_3_wrapepr-->
 		<div class="main_part main_part_3_wrapepr fadeInUp" style="visibility: hidden; animation-name: none;">
-			<div class="col-sm-4 quick_access_wrapper other_news_list_wrapper">
+			<!-- <div class="col-sm-4 quick_access_wrapper other_news_list_wrapper">
 				<div class="other_news_tittle">
 					<span class="other_news_tittle_big">快速</span>
 					<span class="">入口</span>
 				</div>
 
 				<div class="quick_access_btn_wrapper clearfix">
-					<!-- <a href="javascript:void(0);" class="quick_access_btn clearfix">
+					<a href="javascript:void(0);" class="quick_access_btn clearfix">
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_1.png" alt="" class="quick_access_btn_img">
 						<span class="quick_access_btn_text">校园风采</span>
 					</a>
 					<a href="javascript:void(0);" class="quick_access_btn clearfix">
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_2.png" alt="" class="quick_access_btn_img">
 						<span class="quick_access_btn_text">校园视频</span>
-					</a>-->
+					</a>
 					<a href="http://www.hljsfjy.org.cn/zs/search.php" target="_blank" class="quick_access_btn clearfix">
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_3.png" alt="" class="quick_access_btn_img">
 						<span class="quick_access_btn_text">录取查询</span>
@@ -387,10 +364,7 @@
 							</ul>
 						</div>
 						
-						<!--2019.06.13-->
 						<script type="text/javascript">
-							/*~~~~~~~~~~~~~~~~~~~~~~~~*2019.06.13~~~~~~~~~~~~~~~~~*/
-							// 仿select显示隐藏
 							$('#No1').on('click',function(){
 								var 	this_ = $(this),
 										sib_i = this_.siblings('.select-menu-i');
@@ -406,25 +380,33 @@
 							$('.select-menu .friendship_link').on('click',function () {
 								$('#No1').trigger('click');
 							});
-							/*~~~~~~~~~~~~~~~~~~~~~~~~*2019.06.13~~~~~~~~~~~~~~~~~*/
 						</script>
 				</div>
-			</div>
+			</div>-->
 			<div class="col-sm-4 right_part_wrapper">
 				<div class="right_part_tittle">
-					<p class="right_part_name">学风建设</p>
+					<p class="right_part_name">党建工作</p>
 					<p class="right_part_tips">Self help query</p>
 				</div>
 				<div class="friendship_link_wrapper">
 				
 					<c:forEach items="${jgxyNoteXFJS}" var="jgxyNote" varStatus="status">
 						<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="friendship_link">
-							<c:if test="${fn:length(jgxyNote.title) gt 10}">
-								${fn:substring(jgxyNote.title, 0, 10)}...
-							</c:if>
-							<c:if test="${fn:length(jgxyNote.title) le 10}">
-								${jgxyNote.title}
-							</c:if>
+							${jgxyNote.title}
+						</a>
+					</c:forEach>
+				</div>
+			</div>
+			<div class="col-sm-4 right_part_wrapper">
+				<div class="right_part_tittle">
+					<p class="right_part_name">师德师风建设</p>
+					<p class="right_part_tips">Self help query</p>
+				</div>
+				<div class="friendship_link_wrapper">
+				
+					<c:forEach items="${jgxyNoteXFJS}" var="jgxyNote" varStatus="status">
+						<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="friendship_link">
+							${jgxyNote.title}
 						</a>
 					</c:forEach>
 				</div>
@@ -552,6 +534,16 @@
 			interval : 5000,
 		});
 
+		$('#jnsc').bind('keyup', function(event) {
+			　　if (event.keyCode == "13") {
+			　　　　//回车执行查询
+			　　　　//$('#search_button').click();
+				toList();
+			　　}
+			});
+		//控制标题的字数显示
+		$('.news_tittle').addClass('test');
+		$('.test').removeClass('news_tittle');
 		// 学院新闻
 		/*$('.news_list .single_news_wrapper a.single_news').hover(function (e) {
 		    $(this).removeClass('hover_before').addClass('hover_this');
@@ -583,7 +575,7 @@
 					//clickable :true,
 					},
 					on : {
-						progress : function(progress) {
+						/* progress : function(progress) {
 							for (i = 0; i < this.slides.length; i++) {
 								var slide = this.slides.eq(i);
 								var slideProgress = this.slides[i].progress;
@@ -610,7 +602,7 @@
 								slide.transition(transition);
 							}
 
-						}
+						} */
 					}
 
 				});
@@ -646,6 +638,9 @@
 			//     },
 			// });
 		});
+		
+
+		$('.test').addClass('news_tittle');
 	}
 </script>
 </html>

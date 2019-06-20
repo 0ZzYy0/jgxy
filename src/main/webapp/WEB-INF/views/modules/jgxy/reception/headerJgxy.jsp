@@ -18,7 +18,7 @@
             <!--<span class="big_font">能武</span>-->
             <!--<span class="big_font">又红</span>-->
             <span>又</span>
-            <span class="big_font">红</span>
+            <span class="big_font" style="color: red">红</span>
             <span class="">又</span>
             <span class="big_font">专</span>
         </div>
@@ -69,7 +69,7 @@
 
             <li class="nav_ul_li">
                 <a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=3946981313027664138">
-                    <span class="nav_name">学风建设</span>
+                    <span class="nav_name">师德师风建设</span>
                     <span class="nav_tips">Build</span>
                 </a>
             </li>

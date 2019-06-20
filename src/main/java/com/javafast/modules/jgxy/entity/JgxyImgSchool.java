@@ -58,7 +58,7 @@ public class JgxyImgSchool extends DataEntity<JgxyImgSchool> {
 		this.imgTitle = imgTitle;
 	}
 	
-	@Length(min=1, max=10, message="图片类型长度必须介于 1 和 10 之间")
+
 	@ExcelField(title="图片类型", align=2, sort=4)
 	public String getImgType() {
 		return imgType;

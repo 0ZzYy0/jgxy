@@ -65,18 +65,19 @@ body{background-image:url("../images/index_bg3.png");background-image:none;backg
 @media screen and (min-width: 1201px) { 
 .index_wrapper {width: 1200px}  
 } 
-/* css注释：设置了浏览器宽度不小于1201px时 abc 显示1200px宽度 */ 
+/* css娉ㄩ噴锛氳缃簡娴忚鍣ㄥ搴︿笉灏忎簬1201px鏃� abc 鏄剧ず1200px瀹藉害 */ 
  
 @media screen and (max-width: 1200px) { 
 .index_wrapper {width: 900px}  
 } 
-/* 设置了浏览器宽度不大于1200px时 abc 显示900px宽度 */ 
+/* 璁剧疆浜嗘祻瑙堝櫒瀹藉害涓嶅ぇ浜�1200px鏃� abc 鏄剧ず900px瀹藉害 */ 
  
 @media screen and (max-width: 901px) { 
 .index_wrapper {width: 200px;}  
 } 
-/* 设置了浏览器宽度不大于901px时 abc 显示200px宽度 */ 
+/* 璁剧疆浜嗘祻瑙堝櫒瀹藉害涓嶅ぇ浜�901px鏃� abc 鏄剧ず200px瀹藉害 */ 
  
 @media screen and (max-width: 500px) { 
 .index_wrapper {width: 100px;}  
 } 
+.footer_wrapper .friendship_link{color: #0b4782;margin: 0 20px;}

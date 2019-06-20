@@ -141,7 +141,6 @@ public class JgxyNoteController extends BaseController {
 	/**
 	 * 保存文章
 	 */
-	@RequiresPermissions(value={"jgxy:jgxyNote:add","jgxy:jgxyNote:edit"},logical=Logical.OR)
 	@RequestMapping(value = "save")
 	public String save(JgxyNote jgxyNote, Model model, RedirectAttributes redirectAttributes) {
 		if (!beanValidator(model, jgxyNote)){
