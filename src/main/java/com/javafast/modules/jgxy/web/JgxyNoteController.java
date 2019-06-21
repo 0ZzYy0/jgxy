@@ -80,7 +80,7 @@ public class JgxyNoteController extends BaseController {
 
 		
 		String menuType = (String)request.getParameter("jgxySysMenu.menuType");
-		if (menuType == null || menuType.equals("1")) {
+		if (menuType == null || menuType.equals("1") || "null".equals(menuType)) {
 			//menuType == 1  为新闻列表
 			Page<JgxyNote> page = jgxyNoteService.findPage(new Page<JgxyNote>(request, response), jgxyNote);
 			model.addAttribute("page", page);
