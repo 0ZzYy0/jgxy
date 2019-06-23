@@ -115,14 +115,14 @@
 					<c:forEach items="${jiList}" var="ji" varStatus="status">
 						<c:if test="${status.index == 0}">
 							<div class="item active">
-								<a href="javascript:void(0);">
+								<a href="${ji.imgHref}">
 									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" alt="">
 								</a>
 							</div>
 						</c:if>
 						<c:if test="${status.index > 0}">
 							<div class="item">
-								<a href="javascript:void(0);">
+								<a href="${ji.imgHref}">
 									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" alt="">
 								</a>
 							</div>

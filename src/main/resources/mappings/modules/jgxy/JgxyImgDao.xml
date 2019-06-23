@@ -8,6 +8,7 @@
 		a.img_path AS "imgPath",
 		a.img_title AS "imgTitle",
 		a.img_type AS "imgType",
+		a.img_href AS "imgHref",
 		a.sort AS "sort",
 		a.remark AS "remark"
 	</sql>
@@ -32,12 +33,6 @@
 			
 			<if test="imgTitle != null and imgTitle != ''">
 				AND a.img_title = #{imgTitle}
-			</if>
-			<if test="imgType != null and imgType != ''">
-				AND a.img_type = #{imgType}
-			</if>
-			<if test="isRelease != null and isRelease != ''">
-				AND a.is_release = #{isRelease}
 			</if>
 		</where>
 		<choose>
@@ -73,6 +68,7 @@
 			img_path,
 			img_title,
 			img_type,
+			img_href,
 			sort,
 			remark
 		) VALUES (
@@ -81,6 +77,7 @@
 			#{imgPath},
 			#{imgTitle},
 			#{imgType},
+			#{imgHref},
 			#{sort},
 			#{remark}
 		)
@@ -91,6 +88,7 @@
 						is_release = #{isRelease},
 			img_path = #{imgPath},
 			img_title = #{imgTitle},
+			img_href = #{imgHref},
 			sort = #{sort},
 			remark = #{remark}
 		WHERE id = #{id}

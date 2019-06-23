@@ -15,7 +15,7 @@ import com.javafast.modules.jgxy.dao.JgxyImgDao;
 /**
  * jgxy_imgService
  * @author javafast
- * @version 2019-06-09
+ * @version 2019-06-23
  */
 @Service
 @Transactional(readOnly = true)

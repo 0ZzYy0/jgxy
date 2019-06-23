@@ -8,7 +8,7 @@ import com.javafast.common.utils.excel.annotation.ExcelField;
 /**
  * jgxy_imgEntity
  * @author javafast
- * @version 2019-06-09
+ * @version 2019-06-23
  */
 public class JgxyImg extends DataEntity<JgxyImg> {
 	
@@ -17,6 +17,7 @@ public class JgxyImg extends DataEntity<JgxyImg> {
 	private String imgPath;		// 图片
 	private String imgTitle;		// 图片标题
 	private String imgType;		// 图片类型
+	private String imgHref;		// 超链接
 	private String sort;		// 排序
 	private String remark;		// 备注
 	
@@ -58,7 +59,7 @@ public class JgxyImg extends DataEntity<JgxyImg> {
 		this.imgTitle = imgTitle;
 	}
 	
-	
+	@Length(min=1, max=10, message="图片类型长度必须介于 1 和 10 之间")
 	@ExcelField(title="图片类型", align=2, sort=4)
 	public String getImgType() {
 		return imgType;
@@ -68,8 +69,18 @@ public class JgxyImg extends DataEntity<JgxyImg> {
 		this.imgType = imgType;
 	}
 	
+	@Length(min=0, max=255, message="超链接长度必须介于 0 和 255 之间")
+	@ExcelField(title="超链接", align=2, sort=5)
+	public String getImgHref() {
+		return imgHref;
+	}
+
+	public void setImgHref(String imgHref) {
+		this.imgHref = imgHref;
+	}
+	
 	@Length(min=0, max=10, message="排序长度必须介于 0 和 10 之间")
-	@ExcelField(title="排序", align=2, sort=5)
+	@ExcelField(title="排序", align=2, sort=6)
 	public String getSort() {
 		return sort;
 	}
@@ -79,7 +90,7 @@ public class JgxyImg extends DataEntity<JgxyImg> {
 	}
 	
 	@Length(min=0, max=500, message="备注长度必须介于 0 和 500 之间")
-	@ExcelField(title="备注", align=2, sort=6)
+	@ExcelField(title="备注", align=2, sort=7)
 	public String getRemark() {
 		return remark;
 	}
@@ -87,5 +98,12 @@ public class JgxyImg extends DataEntity<JgxyImg> {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+
+	@Override
+	public String toString() {
+		return "JgxyImg [isRelease=" + isRelease + ", imgPath=" + imgPath + ", imgTitle=" + imgTitle + ", imgType=" + imgType + ", imgHref=" + imgHref + ", sort=" + sort
+				+ ", remark=" + remark + "]";
+	}
+	
 	
 }

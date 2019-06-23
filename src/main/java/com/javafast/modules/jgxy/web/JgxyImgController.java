@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -36,7 +35,7 @@ import com.javafast.modules.jgxy.service.JgxyImgService;
 /**
  * jgxy_imgController
  * @author javafast
- * @version 2019-06-09
+ * @version 2019-06-23
  */
 @Controller
 @RequestMapping(value = "${adminPath}/jgxy/jgxyImg")
@@ -103,9 +102,17 @@ public class JgxyImgController extends BaseController {
 			if(!jgxyImg.getIsNewRecord()){//编辑表单保存				
 				JgxyImg t = jgxyImgService.get(jgxyImg.getId());//从数据库取出记录的值
 				MyBeanUtils.copyBeanNotNull2Bean(jgxyImg, t);//将编辑表单中的非NULL值覆盖数据库记录中的值
+				
+				//超链接为空的时候 存储为  javascript:void(0)  省的每次点击刷新网页
+				if(t.getImgHref() == null || "".equals(t.getImgHref()) || "null".equals(t.getImgHref())){
+					t.setImgHref("javascript:void(0)");
+				}
 				jgxyImgService.save(t);//保存
 			}else{//新增表单保存
-				//jgxyImg.setImgType("0");//轮播图
+				//超链接为空的时候 存储为  javascript:void(0)  省的每次点击刷新网页
+				if(jgxyImg.getImgHref() == null || "".equals(jgxyImg.getImgHref()) || "null".equals(jgxyImg.getImgHref())){
+					jgxyImg.setImgHref("javascript:void(0)");
+				}
 				jgxyImgService.save(jgxyImg);//保存
 			}
 			addMessage(redirectAttributes, "保存轮播图成功");

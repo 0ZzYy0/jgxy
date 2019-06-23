@@ -52,6 +52,18 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="view-group">
+						<label class="col-sm-4 control-label">超链接：</label>
+						<div class="col-sm-8">
+							<p class="form-control-static">
+							${jgxyImg.imgHref}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="view-group">
 						<label class="col-sm-4 control-label">排序：</label>
 						<div class="col-sm-8">
 							<p class="form-control-static">
@@ -60,8 +72,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
 				<div class="col-sm-6">
 					<div class="view-group">
 						<label class="col-sm-4 control-label">备注：</label>

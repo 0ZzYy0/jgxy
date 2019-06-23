@@ -10,7 +10,7 @@ import com.javafast.modules.jgxy.entity.JgxyImg;
 /**
  * jgxy_imgDAO接口
  * @author javafast
- * @version 2019-06-09
+ * @version 2019-06-23
  */
 @MyBatisDao
 public interface JgxyImgDao extends CrudDao<JgxyImg> {

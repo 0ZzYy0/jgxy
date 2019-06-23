@@ -78,14 +78,22 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
+						<label class="col-sm-4 control-label"> 超链接：</label>
+						<div class="col-sm-8">
+							<form:input path="imgHref" htmlEscape="false" maxlength="255" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
 						<label class="col-sm-4 control-label"> 排序：</label>
 						<div class="col-sm-8">
 							<form:input path="sort" htmlEscape="false" maxlength="10" class="form-control"/>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label class="col-sm-4 control-label"> 备注：</label>
