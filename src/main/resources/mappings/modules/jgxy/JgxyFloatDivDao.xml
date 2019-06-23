@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javafast.modules.jgxy.dao.JgxyFloatDivDao">
+
+	<sql id="jgxyFloatDivColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.state AS "state",
+		a.img_path AS "imgPath",
+		a.href AS "href",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy.id"
+	</sql>
+
+	<sql id="jgxyFloatDivJoins">
+	</sql>
+
+	<select id="get" resultType="JgxyFloatDiv">
+		SELECT
+		<include refid="jgxyFloatDivColumns" />
+		FROM jgxy_float_div a
+		<include refid="jgxyFloatDivJoins" />
+		WHERE a.id = #{id}
+	</select>
+
+	<select id="findList" resultType="JgxyFloatDiv">
+		SELECT
+		<include refid="jgxyFloatDivColumns" />
+		FROM jgxy_float_div a
+		<include refid="jgxyFloatDivJoins" />
+		<where>
+
+			<if test="name != null and name != ''">
+				AND a.name LIKE
+				<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+				<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+				<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="findAllList" resultType="JgxyFloatDiv">
+		SELECT
+		<include refid="jgxyFloatDivColumns" />
+		FROM jgxy_float_div a
+		<include refid="jgxyFloatDivJoins" />
+		<where>
+
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+
+	<insert id="insert">
+		INSERT INTO jgxy_float_div(
+		id,
+		name,
+		state,
+		img_path,
+		href,
+		create_date,
+		create_by
+		) VALUES (
+		#{id},
+		#{name},
+		#{state},
+		#{imgPath},
+		#{href},
+		#{createDate},
+		#{createBy.id}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE jgxy_float_div SET
+		name = #{name},
+		state = #{state},
+		img_path = #{imgPath},
+		href = #{href}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		DELETE FROM jgxy_float_div
+		WHERE id = #{id}
+	</update>
+
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="JgxyFloatDiv" statementType="STATEMENT">
+		select * FROM jgxy_float_div where ${propertyName} = '${value}'
+	</select>
+
+
+	<select id="getJgxyFloatDiv" resultType="JgxyFloatDiv">
+		SELECT
+		<include refid="jgxyFloatDivColumns" />
+		FROM jgxy_float_div a
+		<include refid="jgxyFloatDivJoins" />
+		WHERE a.state = '1' limit 1
+	</select>
+
+	<update id="updateState">
+		UPDATE jgxy_float_div SET
+		state = '0'
+		WHERE id != #{id}
+	</update>
+</mapper>

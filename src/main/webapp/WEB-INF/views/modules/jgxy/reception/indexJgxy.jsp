@@ -45,17 +45,51 @@
 }
 
 #certify .swiper-slide{height: auto;margin: 0 1%;}
+
+#cxtfdck {
+	border: 1px solid #c0c0c0;
+	margin: 0 auto;
+	padding: 5px;
+	background: #f0f0f0
+}
 </style>
 </head>
 <body>
+<!-- 浮动广告 div -->
+<div id="floatDiv" style="z-index:999;position: absolute; left: 311; top: 815; visibility: hidden;" onmouseover="clearInterval(interval)" onmouseout="interval = setInterval('changePos()', delay)" align="middle">
+	<span style="CURSOR: hand; color: red; font-weight: bold; font-size: 12px" onclick="clearInterval(interval);floatDiv.style.visibility = 'hidden'">关闭</span>
+	<div id="cxtfdck">
+		<a id="floatA" href="">
+			<img id="floatImg" src="${pageContext.request.contextPath}/jgxy/resources/images/jingpinkecheng.jpg" style="width: 100px;" alt="" class="">
+		</a>
+	</div>
+</div>
+
+<!-- 自动弹出广告 div-->
+<div id="modalDiv" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body text-center">
+				<a id="modalA" href="">
+					<img id="modalImg" alt="" src="" style="width: 100%">
+				</a>
+				<br><br>
+				<span id="modalSpan" style="font-size: 20px"></span>
+			</div>
+			<div class="modal-footer">
+				<span id="modalSpan"></span>
+			</div>
+		</div>
+	</div>
+</div>
 
 
-	<!--<div class="index_bg"></div>-->
-	<!--<img src="${pageContext.request.contextPath}/jgxy/resources/images/index_bg3.jpg" alt="" class="index_bg" draggable="false"/>-->
+
 	<div class="index_wrapper">
 		<!--header.html 头部-->
-		<!--<#include "/headerJgxy.html">-->
-
 		<div class="header">
 			<%@ include file="headerJgxy.jsp"%>
 		</div>
@@ -94,12 +128,6 @@
 							</div>
 						</c:if>
 					</c:forEach>
-						<!-- <div class="item active">
-							<a href="javascript:void(0);">
-								<img src="${pageContext.request.contextPath}/jgxy/resources/images/banner_img_1.jpg" alt="First slide">
-								<div class="carousel-caption">优美的校园环境  完善的教学设施  雄厚的师资力量  独具一格的涉警专业</div>
-							</a>
-						</div> -->
 					</div>
 				</div>
 			</div>
@@ -213,11 +241,6 @@
 									</c:forEach>
 								</ul>
 							</div>
-							<!--  <div id="tab-4" class="tab-pane">
-                                    <ul class="news_list">
-
-                                    </ul>
-                                </div>-->
 						</div>
 					</div>
 				</div>
@@ -235,36 +258,8 @@
 				<div class="col-sm-12">
 					<div class="tabs-container">
 						<ul class="nav nav-tabs">
-							<!-- <li>
-								<a data-toggle="tab" href="#tab-6" aria-expanded="true">信息公开</a>
-							</li>-->
-							<li class="active">
-								<a data-toggle="tab" href="#tab-7" aria-expanded="false">公示公告</a>
-							</li>
-							<!-- <li>
-                                    <a data-toggle="tab" href="#tab-8" aria-expanded="false">简章下载</a>
-                                </li> -->
 						</ul>
 						<div class="tab-content">
-										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
-							<!-- <div id="tab-6" class="tab-pane active">
-								<ul class="news_list">
-									<c:forEach items="${jgxyNoteXXGK}" var="jgxyNote" varStatus="status">
-											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
-													<span class="news_points"></span>
-													<c:if test="${fn:length(jgxyNote.title) gt 10}">
-														<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 10)}...</span> 
-													</c:if>
-													<c:if test="${fn:length(jgxyNote.title) le 10}">
-														<span class="news_tittle">${jgxyNote.title}</span> 
-													</c:if>
-													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
-												</a>
-											</li>
-									</c:forEach>
-								</ul>
-							</div>-->
 							<div id="tab-7" class="tab-pane active">
 								<ul class="news_list">
 									<c:forEach items="${jgxyNoteGSGG}" var="jgxyNote" varStatus="status">
@@ -279,28 +274,9 @@
 									</c:forEach>
 								</ul>
 							</div>
-							<!-- <div id="tab-8" class="tab-pane">
-                                    <ul class="news_list">
-                                        
-                                    </ul>
-                                </div>-->
 						</div>
 					</div>
 				</div>
-				<!--  <div class="right_part_tittle">
-                        <p class="right_part_name">友情链接</p>
-                        <p class="right_part_tips">Friendship link</p>
-                    </div>
-                    <div class="friendship_link_wrapper">
-                        <a href="javascript:void(0);" class="friendship_link">黑龙江省司法厅</a>
-                        <a href="javascript:void(0);" class="friendship_link">教育部阳光高考信息平台</a>
-                        <a href="javascript:void(0);" class="friendship_link">黑龙江政法管理干部学院</a>
-                        <a href="javascript:void(0);" class="friendship_link">黑龙江招生考试信息港</a>
-                        <a href="javascript:void(0);" class="friendship_link">职业技术网</a>
-                        <a href="javascript:void(0);" class="friendship_link">培训网</a>
-                        <a href="javascript:void(0);" class="friendship_link">就业网</a>
-                        <a href="javascript:void(0);" class="friendship_link">办公网</a>
-                    </div>-->
 			</div>
 		</div>
 
@@ -311,78 +287,6 @@
 
 		<!--main_part_3_wrapepr-->
 		<div class="main_part main_part_3_wrapepr fadeInUp" style="visibility: hidden; animation-name: none;">
-			<!-- <div class="col-sm-4 quick_access_wrapper other_news_list_wrapper">
-				<div class="other_news_tittle">
-					<span class="other_news_tittle_big">快速</span>
-					<span class="">入口</span>
-				</div>
-
-				<div class="quick_access_btn_wrapper clearfix">
-					<a href="javascript:void(0);" class="quick_access_btn clearfix">
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_1.png" alt="" class="quick_access_btn_img">
-						<span class="quick_access_btn_text">校园风采</span>
-					</a>
-					<a href="javascript:void(0);" class="quick_access_btn clearfix">
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_2.png" alt="" class="quick_access_btn_img">
-						<span class="quick_access_btn_text">校园视频</span>
-					</a>
-					<a href="http://www.hljsfjy.org.cn/zs/search.php" target="_blank" class="quick_access_btn clearfix">
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_3.png" alt="" class="quick_access_btn_img">
-						<span class="quick_access_btn_text">录取查询</span>
-					</a>
-
-					<a href="http://www.hljsfjy.org.cn/zs/xz_mx.php?id=98" target="_blank" class="quick_access_btn clearfix">
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_4.png" alt="" class="quick_access_btn_img">
-						<span class="quick_access_btn_text">简章下载</span>
-					</a>
-					<a href="http://www.hljsfjy.org.cn/zs/jh.php" target="_blank" class="quick_access_btn clearfix">
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_5.png" alt="" class="quick_access_btn_img">
-						<span class="quick_access_btn_text">招生计划</span>
-					</a>
-					<a href="javascript:void(0);" class="quick_access_btn clearfix">
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/shortcut_icon_6.png" alt="" class="quick_access_btn_img">
-						<span class="quick_access_btn_text">继续教育</span>
-					</a>
-					<div class="select-menu">
-							<div class="select-menu-div">
-								<input id="No1" readonly="" class="select-menu-input" value="友情链接">
-								<i class="fa fa-down select-menu-i"></i>
-							</div>
-							<ul class="select-menu-ul">
-								<li class="friendship_link_hide select-this">
-									<a href="http://www.hljsf.gov.cn/" target="_blank"  class="friendship_link">黑龙江省司法厅</a>
-								</li>
-								<li class="friendship_link_hide">
-									<a href="https://gaokao.chsi.com.cn/" target="_blank"  class="friendship_link">教育部阳光高考信息平台</a>
-								</li>
-								<li class="friendship_link_hide">
-									<a href="http://www.hljzfxy.org.cn/" target="_blank"  class="friendship_link">黑龙江政法管理干部学院</a>
-								</li>
-								<li class="friendship_link_hide">
-									<a href="https://www.lzk.hl.cn/" target="_blank"  class="friendship_link">黑龙江招生考试信息港</a>
-								</li>
-							</ul>
-						</div>
-						
-						<script type="text/javascript">
-							$('#No1').on('click',function(){
-								var 	this_ = $(this),
-										sib_i = this_.siblings('.select-menu-i');
-								if(sib_i.hasClass('fa-down')){
-									sib_i.removeClass('fa-down').addClass('fa-up');
-									$('.select-menu-ul').animate({'display':'block','margin-top':'5px','opacity':'1'},500).show();
-								}else if(sib_i.hasClass('fa-up')){
-									sib_i.removeClass('fa-up').addClass('fa-down');
-									$('.select-menu-ul').animate({'display':'none','margin-top':'50px','opacity':'0'},500).hide();
-								}
-							});
-
-							$('.select-menu .friendship_link').on('click',function () {
-								$('#No1').trigger('click');
-							});
-						</script>
-				</div>
-			</div>-->
 			<div class="col-sm-4 right_part_wrapper">
 				<div class="right_part_tittle">
 					<p class="right_part_name">党建工作</p>
@@ -410,25 +314,6 @@
 						</a>
 					</c:forEach>
 				</div>
-				<!--<div class="selfHelp_query_wrapper">
-				
-					 <a href="http://www.hljsfjy.org.cn/zs/news.php?nclass=%D7%A8%C9%FD%B1%BE" target="_blank" class="selfHelp_query clearfix">
-						<span class="selfHelp_query_text">专升本</span>
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
-					</a>
-					<a href="http://www.hljsfjy.org.cn/zs/zyjs.php" target="_blank" class="selfHelp_query clearfix">
-						<span>专业介绍</span>
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
-					</a>
-					<a href="http://www.hljsfjy.org.cn/dz/index.php" target="_blank" class="selfHelp_query clearfix">
-						<span>单独招生</span>
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
-					</a>
-					<a href="http://www.hljsfjy.org.cn/zs/answer.php?nclass=%BF%BC%C9%FA%CE%CA%B4%F0" target="_blank" class="selfHelp_query clearfix">
-						<span>在线咨询</span>
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
-					</a>
-				</div> -->
 			</div>
 			<div class="col-sm-4 right_part_wrapper">
 				<div class="right_part_tittle">
@@ -473,13 +358,150 @@
 		<!--footer.html 底部-->
 		<!--<#include "/footerJgxy.html">-->
 
-		<div class="footer">
+		<div class="">
 			<%@ include file="footerJgxy.jsp"%>
+			
 		</div>
 	</div>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jgxy/resources/js/common.js"></script>
 <script type="text/javascript">
+	var xPos;
+	var yPos;
+	var step;
+	var delay;
+	var height;
+	var Hoffset;
+	var Woffset;
+	var yon;
+	var xon;
+	var pause;
+	var interval;
+	$(function() {
+		//模态广告代码↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+		$("#modalDiv").hide();
+		$.ajax({
+			url:"${ctx}/jgxy/jgxyReception/getModalDivJgxy",
+			type:"POST",
+			async:true,    //或false,是否异步
+			dataType:'json',
+			success:function(data){
+				if(data.id != null && data.id != ""){
+					$("#modalDiv").show();
+					$('#modalDiv').modal();
+					$('#modalImg').attr('src',data.imgPath);
+					$('#modalA').attr('href',data.href);
+					$('#modalSpan').append(data.text);
+				}
+			},
+			error:function(){
+				//alert("出错");
+			}
+		});
+		//模态广告代码↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+		
+		
+		//悬浮广告代码↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+		$("#floatDiv").hide();
+		$.ajax({
+			url:"${ctx}/jgxy/jgxyReception/getFloatDivJgxy",
+			type:"POST",
+			async:true,    //或false,是否异步
+			dataType:'json',
+			success:function(data){
+				if(data.id != null && data.id != ""){
+					$("#floatDiv").show();
+					xPos = 20;
+					yPos = document.body.clientHeight;
+					step = 1;
+					delay = 30;
+					height = 0;
+					Hoffset = 0;
+					Woffset = 0;
+					yon = 0;
+					xon = 0;
+					pause = true;
+					interval;
+					floatDiv.style.top = yPos;
+					$("#floatA").attr('href',data.href);
+					$("#floatImg").attr('src',data.imgPath);
+					start();
+				}else{
+					
+				}
+			},
+			error:function(){
+				//alert("出错");
+			}
+		});
+		//悬浮广告代码↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+		
+		
+		// 请求头部字符串 公共部分
+		header_str();
+
+		// 请求底部字符串 公共部分
+		footer_str();
+
+		// banner
+		$('#myCarousel').carousel({
+			interval : 5000,
+		});
+
+		$('#jnsc').bind('keyup', function(event) {
+			　　if (event.keyCode == "13") {
+			　　　　//回车执行查询
+			　　　　//$('#search_button').click();
+				toList();
+			　　}
+			});
+		//控制标题的字数显示
+		$('.news_tittle').addClass('test');
+		$('.test').removeClass('news_tittle');
+
+
+		// 滑动显示各个部分
+		$(window).on('scroll', function() {
+			// 滚动动画
+			window_scroll();
+		});
+
+		certifySwiper = new Swiper(
+				'#certify .swiper-container',
+				{
+					watchSlidesProgress : true,
+					slidesPerView : 'auto',
+					centeredSlides : true,
+					loop : true,
+					loopedSlides : 5,
+					autoplay : true,
+					navigation : {
+						nextEl : '.swiper-button-next',
+						prevEl : '.swiper-button-prev',
+					},
+					pagination : {
+						el : '.swiper-pagination',
+					},
+					on : {
+					}
+
+				});
+	});
+
+	window.onload = function() {
+
+		// 滚动动画
+		window_scroll();
+
+		// 搜索事件
+		$('.search_btn').on('click', function() {
+			var search_val = $('.search_input').val();
+		});
+		
+
+		$('.test').addClass('news_tittle');
+	}
+	
 	// 滚动动画
 	function window_scroll() {
 		var window_top = $(window).scrollTop();
@@ -522,125 +544,44 @@
 			}).addClass('animated');
 		}
 	}
-	$(function() {
-		// 请求头部字符串 公共部分
-		header_str();
-
-		// 请求底部字符串 公共部分
-		footer_str();
-
-		// banner
-		$('#myCarousel').carousel({
-			interval : 5000,
-		});
-
-		$('#jnsc').bind('keyup', function(event) {
-			　　if (event.keyCode == "13") {
-			　　　　//回车执行查询
-			　　　　//$('#search_button').click();
-				toList();
-			　　}
-			});
-		//控制标题的字数显示
-		$('.news_tittle').addClass('test');
-		$('.test').removeClass('news_tittle');
-		// 学院新闻
-		/*$('.news_list .single_news_wrapper a.single_news').hover(function (e) {
-		    $(this).removeClass('hover_before').addClass('hover_this');
-		},function (e) {
-		 $(this).removeClass('hover_this').addClass('hover_before');
-		});*/
-
-		// 滑动显示各个部分
-		$(window).on('scroll', function() {
-			// 滚动动画
-			window_scroll();
-		});
-
-		certifySwiper = new Swiper(
-				'#certify .swiper-container',
-				{
-					watchSlidesProgress : true,
-					slidesPerView : 'auto',
-					centeredSlides : true,
-					loop : true,
-					loopedSlides : 5,
-					autoplay : true,
-					navigation : {
-						nextEl : '.swiper-button-next',
-						prevEl : '.swiper-button-prev',
-					},
-					pagination : {
-						el : '.swiper-pagination',
-					//clickable :true,
-					},
-					on : {
-						/* progress : function(progress) {
-							for (i = 0; i < this.slides.length; i++) {
-								var slide = this.slides.eq(i);
-								var slideProgress = this.slides[i].progress;
-								modify = 1;
-								if (Math.abs(slideProgress) > 1) {
-									modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
-								}
-								translate = slideProgress * modify * 260 + 'px';
-								scale = 1 - Math.abs(slideProgress) / 5;
-								zIndex = 999 - Math.abs(Math
-										.round(10 * slideProgress));
-								slide.transform('translateX(' + translate
-										+ ') scale(' + scale + ')');
-								slide.css('zIndex', zIndex);
-								slide.css('opacity', 1);
-								if (Math.abs(slideProgress) > 3) {
-									slide.css('opacity', 0);
-								}
-							}
-						},
-						setTransition : function(transition) {
-							for ( var i = 0; i < this.slides.length; i++) {
-								var slide = this.slides.eq(i)
-								slide.transition(transition);
-							}
-
-						} */
-					}
-
-				});
-	});
-
-	window.onload = function() {
-/*          $.ajax({
-            url : "${ctx}/jgxy/jgxyReception/getNote",
-            type : "POST",
-            async : true,//或false,是否异步
-            dataType : 'json',
-            success : function(data) {
-                alert(data);
-            },
-            error : function() {
-                alert("出错");
-            }
-        }); */
-		// 滚动动画
-		window_scroll();
-
-		// 搜索事件
-		$('.search_btn').on('click', function() {
-			var search_val = $('.search_input').val();
-			console.log(search_val);
-			console.log("-------");
-			// $.ajax({
-			//     url : "header.html",
-			//     type : "POST",
-			//     data : {},
-			//     success : function(data){
-			//         console.log(data);
-			//     },
-			// });
-		});
-		
-
-		$('.test').addClass('news_tittle');
+	
+	function changePos() {
+		width = document.body.clientWidth;
+		height = document.body.clientHeight;
+		Hoffset = floatDiv.offsetHeight;
+		Woffset = floatDiv.offsetWidth;
+		floatDiv.style.left = xPos + document.body.scrollLeft;
+		floatDiv.style.top = yPos + document.body.scrollTop;
+		if (yon) {
+			yPos = yPos + step;
+		} else {
+			yPos = yPos - step;
+		}
+		if (yPos < 0) {
+			yon = 1;
+			yPos = 0;
+		}
+		if (yPos >= (height - Hoffset)) {
+			yon = 0;
+			yPos = (height - Hoffset);
+		}
+		if (xon) {
+			xPos = xPos + step;
+		} else {
+			xPos = xPos - step;
+		}
+		if (xPos < 0) {
+			xon = 1;
+			xPos = 0;
+		}
+		if (xPos >= (width - Woffset)) {
+			xon = 0;
+			xPos = (width - Woffset);
+		}
+	}
+	function start() {
+		floatDiv.style.visibility = "visible";
+		interval = setInterval('changePos()', delay);
 	}
 </script>
 </html>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javafast.modules.jgxy.dao.JgxyFooterDao">
+    
+	<sql id="jgxyFooterColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.state AS "state",
+		a.contents AS "contents",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy.id"
+	</sql>
+	
+	<sql id="jgxyFooterJoins">
+	</sql>
+    
+	<select id="get" resultType="JgxyFooter">
+		SELECT 
+			<include refid="jgxyFooterColumns"/>
+		FROM jgxy_footer a
+		<include refid="jgxyFooterJoins"/>
+		WHERE a.id = #{id}
+	</select>
+
+	<select id="getJgxyFooter" resultType="JgxyFooter">
+		SELECT 
+		<include refid="jgxyFooterColumns"/>
+		FROM jgxy_footer a
+		<include refid="jgxyFooterJoins"/>
+		WHERE a.state = '1' limit 1
+	</select>
+	
+	<select id="findList" resultType="JgxyFooter">
+		SELECT 
+			<include refid="jgxyFooterColumns"/>
+		FROM jgxy_footer a
+		<include refid="jgxyFooterJoins"/>
+		<where>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="state != null and state != ''">
+				AND a.state = #{state}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="JgxyFooter">
+		SELECT 
+			<include refid="jgxyFooterColumns"/>
+		FROM jgxy_footer a
+		<include refid="jgxyFooterJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO jgxy_footer(
+			id,
+			name,
+			state,
+			contents,
+			create_date,
+			create_by
+		) VALUES (
+			#{id},
+			#{name},
+			#{state},
+			#{contents},
+			#{createDate},
+			#{createBy.id}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE jgxy_footer SET
+						name = #{name},
+			state = #{state},
+			contents = #{contents}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateState">
+		UPDATE jgxy_footer SET
+			state = '0'
+		WHERE id != #{id}
+	</update>
+
+	<update id="delete">
+		DELETE FROM jgxy_footer
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="JgxyFooter" statementType="STATEMENT">
+		select * FROM jgxy_footer  where ${propertyName} = '${value}'
+	</select>
+
+</mapper>
