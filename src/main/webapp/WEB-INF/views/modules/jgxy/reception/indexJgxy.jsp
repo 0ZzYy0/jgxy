@@ -77,13 +77,28 @@
 					<img id="modalImg" alt="" src="" style="width: 100%">
 				</a>
 				<br><br>
-				<span id="modalSpan" style="font-size: 20px"></span>
+				<span id="modalSpan" style="font-size: 20px;word-warp:break-word;word-break:break-all" ></span>
 			</div>
 			<div class="modal-footer">
 				<span id="modalSpan"></span>
 			</div>
 		</div>
 	</div>
+</div>
+
+
+<!-- 校园风采展示 div-->
+<div id="schoolDiv" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-body text-center">
+            <a id="schoolA" href="">
+                <img id="schoolImg" src="" alt=""  style="width:auto;height:auto;max-width:100%;max-height:100%;"/>
+            </a>
+            <br>
+            <br>
+            <span id="schoolSpan" style="font-size: 20px;color: white;word-warp:break-word;word-break:break-all"></span>
+        </div>
+    </div>
 </div>
 
 
@@ -342,7 +357,7 @@
 					<div class="swiper-wrapper">
 						<c:forEach items="${jiList1}" var="ji" varStatus="status">
 							<div class="swiper-slide">
-								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" width="520" height="310" />
+								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="520" height="310" />
 								<!-- <p class="">非常难得又值钱的认证证书</p> -->
 							</div>
 					</c:forEach>
@@ -583,5 +598,16 @@
 		floatDiv.style.visibility = "visible";
 		interval = setInterval('changePos()', delay);
 	}
+	
+	//校园风采  点击变大
+	function showImg(imgTitle,imgPath){
+        $("#schoolSpan").append(imgTitle);
+        $("#schoolImg").attr('src',imgPath);
+		$('#schoolDiv').modal();
+	}
+	
+	
+	
+	
 </script>
 </html>

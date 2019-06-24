@@ -221,7 +221,7 @@ public class JgxyReceptionController {
 		request.setAttribute("jgxyNoteGSGG", jgxyNoteGSGG);
 		request.setAttribute("jgxyNoteXFJS", jgxyNoteXFJS);
 		request.setAttribute("jgxyNoteDJGZ", jgxyNoteDJGZ);
-		// return "modules/jgxy/reception/NewFile";
+		//return "modules/jgxy/reception/NewFile1";
 		return "modules/jgxy/reception/indexJgxy";
 	}
 
