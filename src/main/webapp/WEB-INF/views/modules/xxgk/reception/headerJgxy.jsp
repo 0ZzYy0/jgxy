@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li class="nav_ul_li">
-            	<!-- 学院概况直接跳转详情,写死了文章的id -->
+                <!-- 学院概况直接跳转详情,写死了文章的id -->
                 <a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=6181818762216150313">
                     <span class="nav_name">学院概况</span>
                     <span class="nav_tips">College</span>
@@ -110,9 +110,9 @@
 <script type="text/javascript">
 var cctx = "${ctx}";
 function toList(){
-	var title = $("#jnsc").val();
-	//console.log(title);
-	window.location.href=cctx+"/jgxy/jgxyReception/list?jgxyNoteTitle="+encodeURI(title);//encodeURIComponent(title)
+    var title = $("#jnsc").val();
+    //console.log(title);
+    window.location.href=cctx+"/jgxy/jgxyReception/list?jgxyNoteTitle="+encodeURI(title);//encodeURIComponent(title)
 }
 
 </script>

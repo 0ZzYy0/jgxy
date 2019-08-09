@@ -17,6 +17,7 @@
 				/static/** = anon
 				/userfiles/** = anon
 				${adminPath}/jgxy/jgxyReception/** = anon
+				${adminPath}/xxgk/xxgkReception/** = anon
 				${adminPath}/sys/user/infoCareStatus = anon
 				${adminPath}/sys/user/validateLoginName = anon
 				${adminPath}/sys/user/validateMobile = anon
