@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javafast.modules.xxgk.dao.XxgkNoteDao">
+    
+	<sql id="xxgkNoteColumns">
+		a.id AS "id",
+		a.create_by AS "createBy.id",
+		a.release_date AS "releaseDate",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "xxgkSysMenu.id",
+		t.name AS "xxgkSysMenu.name",
+		t.id AS "xxgkSysMenu.id",
+		t.parent_id AS "xxgkSysMenu.parent.id",
+		t.parent_ids AS "xxgkSysMenu.parent_ids",
+		a.del_flag AS "delFlag",
+		a.title AS "title",
+		a.contents AS "contents",
+		a.click_throughput AS "clickThroughput"
+	</sql>
+	
+	<sql id="xxgkNoteJoins">
+	    LEFT JOIN xxgk_sys_menu t ON t.id = a.remarks
+        LEFT JOIN sys_user u13 ON u13.id = a.update_by
+	</sql>
+    
+	<select id="get" resultType="XxgkNote">
+		SELECT 
+			<include refid="xxgkNoteColumns"/>
+		FROM xxgk_note a
+		<include refid="xxgkNoteJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="XxgkNote">
+		SELECT 
+			<include refid="xxgkNoteColumns"/>
+		FROM xxgk_note a
+		<include refid="xxgkNoteJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="xxgkSysMenu != null and xxgkSysMenu.id != null and xxgkSysMenu.id != ''">
+				AND (a.remarks = #{xxgkSysMenu.id} or t.parent_ids like concat('%',#{xxgkSysMenu.id},'%'))
+			</if>
+			<if test="title != null and title != ''">
+				AND a.title LIKE 
+					<if test="dbName == 'oracle'">'%'||#{title}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{title}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{title},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="XxgkNote">
+		SELECT 
+			<include refid="xxgkNoteColumns"/>
+		FROM xxgk_note a
+		<include refid="xxgkNoteJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO xxgk_note(
+			id,
+			create_by,
+			release_date,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag,
+			title,
+			contents,
+			click_throughput
+		) VALUES (
+			#{id},
+			#{createBy.id},
+			#{releaseDate},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{xxgkSysMenu.id},
+			#{delFlag},
+			#{title},
+			#{contents},
+			#{clickThroughput}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE xxgk_note SET
+		    release_Date = #{releaseDate},
+		    update_date = #{updateDate},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{xxgkSysMenu.id},
+			title = #{title},
+			contents = #{contents},
+			click_throughput = #{clickThroughput}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		UPDATE xxgk_note SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 根据实体名称和字段名称和字段值获取唯一记录 -->
+	<select id="findUniqueByProperty" resultType="XxgkNote" statementType="STATEMENT">
+		select * FROM xxgk_note  where ${propertyName} = '${value}'
+	</select>
+
+</mapper>
