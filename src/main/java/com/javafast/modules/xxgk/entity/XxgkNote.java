@@ -21,7 +21,7 @@ import com.javafast.common.utils.excel.annotation.ExcelField;
 public class XxgkNote extends DataEntity<XxgkNote> {
 
 	private static final long serialVersionUID = 1L;
-	private XxgkSysMenu xxgkSysMenu; // 备注信息
+	private XxgkSysMenu xxgkSysMenu;
 	private String title; // 标题
 	private String contents; // 内容
 	private Date releaseDate; // 可以调整的发布时间

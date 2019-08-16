@@ -1,6 +1,8 @@
 package com.javafast.modules.xxgk.web;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,17 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javafast.common.persistence.Page;
-import com.javafast.modules.jgxy.entity.JgxyImg;
-import com.javafast.modules.jgxy.entity.JgxyImgSchool;
-import com.javafast.modules.jgxy.entity.JgxyNote;
-import com.javafast.modules.jgxy.entity.JgxySysMenu;
-import com.javafast.modules.jgxy.service.JgxyFloatDivService;
-import com.javafast.modules.jgxy.service.JgxyFooterService;
-import com.javafast.modules.jgxy.service.JgxyImgSchoolService;
-import com.javafast.modules.jgxy.service.JgxyImgService;
-import com.javafast.modules.jgxy.service.JgxyModalDivService;
-import com.javafast.modules.jgxy.service.JgxyNoteService;
-import com.javafast.modules.jgxy.service.JgxySysMenuService;
+import com.javafast.modules.xxgk.entity.XxgkNote;
+import com.javafast.modules.xxgk.entity.XxgkSysMenu;
+import com.javafast.modules.xxgk.service.XxgkNoteService;
+import com.javafast.modules.xxgk.service.XxgkSysMenuService;
 
 /**
  * 信息公开前台控制类
@@ -33,98 +28,131 @@ import com.javafast.modules.jgxy.service.JgxySysMenuService;
 @Controller
 @RequestMapping(value = "${adminPath}/xxgk/xxgkReception")
 public class XxgkReceptionController {
+
 	@Autowired
-	private JgxyNoteService jgxyNoteService;
+	private XxgkSysMenuService xxgkSysMenuService;
 	@Autowired
-	private JgxySysMenuService jgxySysMenuService;
-	@Autowired
-	private JgxyImgService jgxyImgService;
-	@Autowired
-	private JgxyImgSchoolService jgxyImgSchoolService;
-	@Autowired
-	private JgxyFooterService jgxyFooterService;
-	@Autowired
-	private JgxyFloatDivService jgxyFloatDivService;
-	@Autowired
-	private JgxyModalDivService jgxyModalDivService;
+	private XxgkNoteService xxgkNoteService;
 
 	@RequestMapping(value = "index")
-	public String index(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
 
-		// 获取菜单
-		List<JgxySysMenu> jgxySysMenuList = jgxySysMenuService.findList(jgxySysMenu);
+		// 左侧导航
+		// 用最顶级的菜单名称来锁定 ,写死了
+		XxgkSysMenu xxgkSysMenu = xxgkSysMenuService.getByName("左侧导航");
+		List<XxgkSysMenu> liftXxgkSysMenuList = xxgkSysMenuService.findListByPid(xxgkSysMenu.getId());
 
-		// 获取全部新闻
-		// 每个类别最多5条,学院新闻12条
-		Page<JgxyNote> page = jgxyNoteService.findPage(new Page<JgxyNote>(1, 12), new JgxyNote());
+		// 页面下方的按钮
+		// 用最顶级的菜单名称来锁定 ,写死了
+		XxgkSysMenu xxgksxSysMenu = xxgkSysMenuService.getByName("信息公开事项");
+		List<XxgkSysMenu> xxgksxXxgkSysMenuList = xxgkSysMenuService.findListByPid(xxgksxSysMenu.getId());
 
-		JgxyImg ji = new JgxyImg();
-		ji.setIsRelease("1");
-		List<JgxyImg> jiList = jgxyImgService.findList(ji);
+		// 获取十条最新信息公开新闻
+		Page<XxgkNote> page = xxgkNoteService.findPage(new Page<XxgkNote>(1, 12), new XxgkNote());
 
-		JgxyImgSchool jis = new JgxyImgSchool();
-		jis.setIsRelease("1");
-		List<JgxyImgSchool> jiList1 = jgxyImgSchoolService.findList(jis);
+		request.setAttribute("xxgkNoteList", page.getList());
+		request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
+		request.setAttribute("xxgksxXxgkSysMenuList", xxgksxXxgkSysMenuList);
 
-		// 用来做条件
-		JgxySysMenu jsm = new JgxySysMenu();
-		JgxyNote jn = new JgxyNote();
-
-		// 新闻种类暂时按照 id 来对比
-		jsm.setId("71864634419527302");
-		jn.setJgxySysMenu(jsm);
-		List<JgxyNote> jgxyNoteJXDT = jgxyNoteService.findPage(new Page<JgxyNote>(1, 5), jn).getList();
-
-		jsm.setId("1517093218844555186");
-		jn.setJgxySysMenu(jsm);
-		List<JgxyNote> jgxyNoteKYZX = jgxyNoteService.findPage(new Page<JgxyNote>(1, 5), jn).getList();
-
-		jsm.setId("2664446703223844603");
-		jn.setJgxySysMenu(jsm);
-		List<JgxyNote> jgxyNoteGZXY = jgxyNoteService.findPage(new Page<JgxyNote>(1, 5), jn).getList();
-
-		jsm.setId("7868304688644257636");
-		jn.setJgxySysMenu(jsm);
-		List<JgxyNote> jgxyNoteXXGK = jgxyNoteService.findPage(new Page<JgxyNote>(1, 5), jn).getList();
-
-		jsm.setId("1406319674601422774");
-		jn.setJgxySysMenu(jsm);
-		List<JgxyNote> jgxyNoteGSGG = jgxyNoteService.findPage(new Page<JgxyNote>(1, 5), jn).getList();
-
-		jsm.setId("3946981313027664138");
-		jn.setJgxySysMenu(jsm);
-		List<JgxyNote> jgxyNoteXFJS = jgxyNoteService.findPage(new Page<JgxyNote>(1, 5), jn).getList();
-
-		jsm.setId("4672773914173395715");
-		jn.setJgxySysMenu(jsm);
-		List<JgxyNote> jgxyNoteDJGZ = jgxyNoteService.findPage(new Page<JgxyNote>(1, 5), jn).getList();
-
-		request.setAttribute("jiList", jiList);
-		request.setAttribute("jiList1", jiList1);
-		request.setAttribute("jgxySysMenuList", jgxySysMenuList);
-		request.setAttribute("jgxyNoteList", page.getList());
-		request.setAttribute("jgxyNoteJXDT", jgxyNoteJXDT);
-		request.setAttribute("jgxyNoteKYZX", jgxyNoteKYZX);
-		request.setAttribute("jgxyNoteGZXY", jgxyNoteGZXY);
-		request.setAttribute("jgxyNoteXXGK", jgxyNoteXXGK);
-		request.setAttribute("jgxyNoteGSGG", jgxyNoteGSGG);
-		request.setAttribute("jgxyNoteXFJS", jgxyNoteXFJS);
-		request.setAttribute("jgxyNoteDJGZ", jgxyNoteDJGZ);
-		// request.setAttribute("jgxyNoteDJGZ", jgxyNoteDJGZ);
-		// return "modules/jgxy/reception/NewFile1";
 		return "modules/xxgk/reception/indexXxgk";
 	}
 
+	@RequestMapping(value = "buttonList")
+	public String buttonList(HttpServletRequest request, HttpServletResponse response, Model model) {
+		// 左侧导航
+		// 用最顶级的菜单名称来锁定 ,写死了
+		XxgkSysMenu xxgkSysMenu = xxgkSysMenuService.getByName("左侧导航");
+		List<XxgkSysMenu> liftXxgkSysMenuList = xxgkSysMenuService.findListByPid(xxgkSysMenu.getId());
+
+		// 接收 id
+		String xxgkSysMenuId = request.getParameter("xxgkSysMenuId");
+
+		// 查询该id 为多少菜单的pid ,来查看他是不是 叶子菜单
+		List<XxgkSysMenu> xxgksysMenuList = xxgkSysMenuService.findListByPid(xxgkSysMenuId);
+
+		// 查询菜单单名称
+		String xxgkSysMenuName = xxgkSysMenuService.get(xxgkSysMenuId).getName();
+		request.setAttribute("xxgkSysMenuName", xxgkSysMenuName);
+
+		if (xxgksysMenuList.size() == 0) {
+			// 是叶子菜单,跳转到新闻列表
+			XxgkNote xxgkNote = new XxgkNote();
+			XxgkSysMenu pXxgkSysMenu = new XxgkSysMenu();
+			pXxgkSysMenu.setId(xxgkSysMenuId);
+			xxgkNote.setXxgkSysMenu(pXxgkSysMenu);
+
+			List<XxgkNote> xxgkNoteList = xxgkNoteService.findList(xxgkNote);
+			request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
+			request.setAttribute("xxgkNoteList", xxgkNoteList);
+			return "modules/xxgk/reception/listXxgk";
+		} else {
+			// 还有 子菜单,继续显示子菜单
+			request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
+			request.setAttribute("xxgksysMenuList", xxgksysMenuList);
+			return "modules/xxgk/reception/indexXxgk";
+		}
+	}
+
+	// 新闻详情
+	@RequestMapping(value = "get")
+	public String get(HttpServletRequest request, HttpServletResponse response, Model model) {
+		// 获取菜单
+		// 左侧导航
+		// 用最顶级的菜单名称来锁定 ,写死了
+		XxgkSysMenu sysMenu = xxgkSysMenuService.getByName("左侧导航");
+		List<XxgkSysMenu> liftXxgkSysMenuList = xxgkSysMenuService.findListByPid(sysMenu.getId());
+
+		String id = (String) request.getParameter("id");
+		XxgkNote xxgkNote = xxgkNoteService.get(id);
+		addClickThroughput(xxgkNote);
+
+		request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
+		request.setAttribute("xxgkNote", xxgkNote);
+		return "modules/xxgk/reception/listXxgk";
+	}
+
 	@RequestMapping(value = "list")
-	public String list(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) {
-		
-		//String xxgkSXId = (String) request.getParameter("jgxySysMenuId");
-		
-		System.out.println("list方法近来了!");
-		System.out.println("list方法近来了!");
-		System.out.println("list方法近来了!");
-		System.out.println("list方法近来了!");
-		System.out.println("list方法近来了!");
-		return "modules/xxgk/reception/list_Xxgk";
+	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
+		// 左侧导航
+		// 用最顶级的菜单名称来锁定 ,写死了
+		XxgkSysMenu xxgkSysMenu = xxgkSysMenuService.getByName("左侧导航");
+		List<XxgkSysMenu> liftXxgkSysMenuList = xxgkSysMenuService.findListByPid(xxgkSysMenu.getId());
+
+
+			List<XxgkNote> xxgkNoteList = xxgkNoteService.findList(new XxgkNote());
+			request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
+			request.setAttribute("xxgkNoteList", xxgkNoteList);
+			request.setAttribute("xxgkSysMenuName", "信息公开");
+			return "modules/xxgk/reception/listXxgk";
+	}
+
+	// 更新点击量 点击量+1
+	public void addClickThroughput(XxgkNote xxgkNote) {
+		int clickThroughput;
+		// 如果不是整整数 则默认为0
+		if (isMatches(xxgkNote.getClickThroughput())) {
+			clickThroughput = Integer.parseInt(xxgkNote.getClickThroughput());
+		} else {
+			clickThroughput = 0;
+		}
+		xxgkNote.setClickThroughput(String.valueOf(++clickThroughput));
+		xxgkNoteService.save(xxgkNote);
+	}
+
+	// 判断一个字符串 是否为正整数
+	public boolean isMatches(String bot) {
+		if (bot != null && !bot.equals("")) {
+			String regex = "^[1-9]+[0-9]*$";
+			// ^[1-9]+\\d*$
+			Pattern p = Pattern.compile(regex);
+			Matcher m = p.matcher(bot);
+			if (m.find()) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 }

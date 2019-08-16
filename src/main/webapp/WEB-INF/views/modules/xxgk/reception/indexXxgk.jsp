@@ -112,52 +112,66 @@
 			<%@ include file="headerJgxy.jsp"%>
 		</div>
 
-		<!--main_part_1_wrapepr-->
-
-
-
-		<!--main_part_3_wrapepr-->
-		<div class="main_part main_part_1_wrapepr fadeInUp" style="visibility: hidden; animation-name: none;">
+		<div class="main_part main_part_1_wrapepr fadeInUp" style="; animation-name: none;">
 
 			<div class="col-sm-3 xxgk_right_part_wrapper">
-
 				<div class="right_part_tittle">
 					<p class="right_part_name"></p>
 				</div>
 				<div class="friendship_link_wrapper">
-					<a href="" class="friendship_link"> 信息公开指南 </a>
-					<a href="" class="friendship_link"> 信息公开目录 </a>
-					<a href="" class="friendship_link"> 信息公开年度报告 </a>
-					<a href="" class="friendship_link"> 规章制度 </a>
-					<a href="" class="friendship_link"> 学院机构设置 </a>
+					<c:forEach items="${liftXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
+					   <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" class="friendship_link">${xxgkSysMenu.name} </a>
+					</c:forEach>
 				</div>
 			</div>
-
-
+			
 			<div class="col-sm-9 news_list_wrapper">
-				<p class="news_list_tittle clearfix" style="text-align: center">
-					<span style="">最新公开信息</span>
-					<a href="${ctx}/jgxy/jgxyReception/list" class="more_info_btn pull-right">
-						<span>更多</span>
-						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
-					</a>
-				</p>
-				<ul class="news_list">
-					<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
-						<li class="single_news_wrapper">
-							<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
-								<span class="news_points"></span>
-								<span class="news_tittle">${jgxyNote.title}</span>
-								<c:if test="${status.index lt 3}">
-									<span class="news_state">[New]</span>
-								</c:if>
-								<span class="news_time">
-									<fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd" />
-								</span>
-							</a>
-						</li>
-					</c:forEach>
-				</ul>
+				<c:if test="${not empty xxgkNoteList && !(xxgkNoteList eq null)}">
+	                <p class="news_list_tittle clearfix" style="text-align: center">
+                        <c:if test="${not empty xxgkSysMenuName && !(xxgkSysMenuName eq null) }">
+		                    <span style="">${xxgkSysMenuName}</span>
+                        </c:if>
+                        <c:if test="${empty xxgkSysMenuName || (xxgkSysMenuName eq null) }">
+                            <span style="">最新公开信息</span>
+                            <a href="${ctx}/xxgk/xxgkReception/list" class="more_info_btn pull-right">
+                                <span>更多111111111</span>
+                                <img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
+                            </a>
+                        </c:if>
+	                </p>
+	                <ul class="news_list">
+	                    <c:forEach items="${xxgkNoteList}" var="xxgkNote" varStatus="status">
+	                        <li class="single_news_wrapper">
+	                            <a href="${ctx}/xxgk/xxgkReception/get?id=${xxgkNote.id}&add=1" class="single_news hover_before">
+	                                <span class="news_points"></span>
+	                                <span class="news_tittle">${xxgkNote.title}</span>
+	                                <c:if test="${status.index lt 3}">
+	                                    <span class="news_state">[New]</span>
+	                                </c:if>
+	                                <span class="news_time">
+	                                    <fmt:formatDate value="${xxgkNote.releaseDate}" pattern="yyyy-MM-dd" />
+	                                </span>
+	                            </a>
+	                        </li>
+	                    </c:forEach>
+	                </ul>
+				</c:if>
+				
+				<c:if test="${not empty xxgksysMenuList && !(xxgksysMenuList eq null) }">
+				    <p class="news_list_tittle clearfix" style="text-align: center">
+                        <span style="">${xxgkSysMenuName}</span>
+                    </p>
+                    <ul class="news_list">
+                        <c:forEach items="${xxgksysMenuList}" var="xxgksysMenu" varStatus="status">
+                            <li class="single_news_wrapper">
+                                <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}" class="single_news hover_before">
+                                    <span class="news_points"></span>
+                                    <span class="news_tittle">${xxgksysMenu.name}</span>
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+				</c:if>
 			</div>
 
 		</div>
@@ -166,6 +180,27 @@
 			<div class="col-sm-9 pull-right">
 
 
+
+				<c:forEach items="${xxgksxXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
+
+					<c:if test="${(status.index % 4) eq 0}">
+					    <div class="main_part main_part_3_wrapepr fadeInUp text-center" style="; animation-name: none;">
+					</c:if>
+                    
+					    <div class="col-sm-3 xxgk_right_part_wrapper">
+							<div class="right_part_tittle">
+							    <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}">
+							        <span class="right_part_name">${xxgkSysMenu.name}</span>
+							    </a>
+							</div>
+	                    </div>
+
+                    <c:if test="${(status.index % 4) eq 3}">
+                        </div>
+                    </c:if>
+				</c:forEach>
+
+<%-- 
 				<div class="main_part main_part_3_wrapepr fadeInUp text-center" style="visibility: hidden; animation-name: none;">
 					<div class="col-sm-3 xxgk_right_part_wrapper">
 						<div class="right_part_tittle">
@@ -226,7 +261,7 @@
 
 						</div>
 					</div>
-				</div>
+				</div> --%>
 
 
 
@@ -255,9 +290,9 @@
     var pause;
     var interval;
     $(function() {
-        //模态广告代码↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-        $("#modalDiv").hide();
-        $.ajax({
+/*      //模态广告代码↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+       $("#modalDiv").hide();
+         $.ajax({
             url:"${ctx}/jgxy/jgxyReception/getModalDivJgxy",
             type:"POST",
             async:true,    //或false,是否异步
@@ -311,7 +346,7 @@
                 //alert("出错");
             }
         });
-        //悬浮广告代码↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+        //悬浮广告代码↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ */
         
         
         // 请求头部字符串 公共部分
@@ -361,14 +396,13 @@
                     },
                     on : {
                     }
-
                 });
     });
 
     window.onload = function() {
 
         // 滚动动画
-        window_scroll();
+       //window_scroll();
 
         // 搜索事件
         $('.search_btn').on('click', function() {

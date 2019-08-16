@@ -46,7 +46,7 @@ public class XxgkSysMenu extends TreeEntity<XxgkSysMenu> {
 		this.parentIds = parentIds;
 	}
 
-	@Length(min = 1, max = 50, message = "菜单名称长度必须介于 1 和 200 之间")
+	@Length(min = 1, max = 200, message = "菜单名称长度必须介于 1 和 200 之间")
 	public String getName() {
 		return name;
 	}

@@ -63,7 +63,7 @@
 					<div class="form-group">
 						<label class="col-sm-4 control-label"><font color="red">*</font> 菜单名称：</label>
 						<div class="col-sm-8">
-							<form:input path="name" htmlEscape="false" maxlength="50" class="form-control required"/>
+							<form:input path="name" htmlEscape="false" maxlength="200" class="form-control required"/>
 						</div>
 					</div>
 				</div>
