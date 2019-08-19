@@ -63,6 +63,7 @@ public class XxgkReceptionController {
 		// 用最顶级的菜单名称来锁定 ,写死了
 		XxgkSysMenu xxgkSysMenu = xxgkSysMenuService.getByName("左侧导航");
 		List<XxgkSysMenu> liftXxgkSysMenuList = xxgkSysMenuService.findListByPid(xxgkSysMenu.getId());
+		request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
 
 		// 接收 id
 		String xxgkSysMenuId = request.getParameter("xxgkSysMenuId");
@@ -70,24 +71,40 @@ public class XxgkReceptionController {
 		// 查询该id 为多少菜单的pid ,来查看他是不是 叶子菜单
 		List<XxgkSysMenu> xxgksysMenuList = xxgkSysMenuService.findListByPid(xxgkSysMenuId);
 
-		// 查询菜单单名称
+		// 查询菜单名称
 		String xxgkSysMenuName = xxgkSysMenuService.get(xxgkSysMenuId).getName();
+
+		// 查询菜单类型
+		String xxgkSysMenuMenuType = xxgkSysMenuService.get(xxgkSysMenuId).getMenuType();
 		request.setAttribute("xxgkSysMenuName", xxgkSysMenuName);
 
 		if (xxgksysMenuList.size() == 0) {
-			// 是叶子菜单,跳转到新闻列表
+			// 是叶子菜单
+
+			// 菜单的类型是 详细 ,直接跳转到新闻详细
+			if (xxgkSysMenuMenuType != null && "2".equals(xxgkSysMenuMenuType)) {
+				// 取出菜单id
+				XxgkNote xn = new XxgkNote();
+				xn.setXxgkSysMenu(xxgkSysMenuService.get(xxgkSysMenuId));
+				List<XxgkNote> xnList = xxgkNoteService.findList(xn);
+				if (xnList != null && xnList.size() > 0) {
+					xn = xnList.get(0);
+					addClickThroughput(xn);
+					request.setAttribute("xxgkNote", xn);
+					return "modules/xxgk/reception/listXxgk";
+				}
+			}
+
+			// 菜单的类型是 列表
 			XxgkNote xxgkNote = new XxgkNote();
 			XxgkSysMenu pXxgkSysMenu = new XxgkSysMenu();
 			pXxgkSysMenu.setId(xxgkSysMenuId);
 			xxgkNote.setXxgkSysMenu(pXxgkSysMenu);
-
 			List<XxgkNote> xxgkNoteList = xxgkNoteService.findList(xxgkNote);
-			request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
 			request.setAttribute("xxgkNoteList", xxgkNoteList);
 			return "modules/xxgk/reception/listXxgk";
 		} else {
 			// 还有 子菜单,继续显示子菜单
-			request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
 			request.setAttribute("xxgksysMenuList", xxgksysMenuList);
 			return "modules/xxgk/reception/indexXxgk";
 		}
@@ -118,12 +135,11 @@ public class XxgkReceptionController {
 		XxgkSysMenu xxgkSysMenu = xxgkSysMenuService.getByName("左侧导航");
 		List<XxgkSysMenu> liftXxgkSysMenuList = xxgkSysMenuService.findListByPid(xxgkSysMenu.getId());
 
-
-			List<XxgkNote> xxgkNoteList = xxgkNoteService.findList(new XxgkNote());
-			request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
-			request.setAttribute("xxgkNoteList", xxgkNoteList);
-			request.setAttribute("xxgkSysMenuName", "信息公开");
-			return "modules/xxgk/reception/listXxgk";
+		List<XxgkNote> xxgkNoteList = xxgkNoteService.findList(new XxgkNote());
+		request.setAttribute("liftXxgkSysMenuList", liftXxgkSysMenuList);
+		request.setAttribute("xxgkNoteList", xxgkNoteList);
+		request.setAttribute("xxgkSysMenuName", "信息公开");
+		return "modules/xxgk/reception/listXxgk";
 	}
 
 	// 更新点击量 点击量+1
