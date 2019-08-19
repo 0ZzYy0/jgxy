@@ -70,6 +70,9 @@ public class XxgkReceptionController {
 
 		// 查询该id 为多少菜单的pid ,来查看他是不是 叶子菜单
 		List<XxgkSysMenu> xxgksysMenuList = xxgkSysMenuService.findListByPid(xxgkSysMenuId);
+		for(XxgkSysMenu s : xxgksysMenuList){
+			System.out.println(s);
+		}
 
 		// 查询菜单名称
 		String xxgkSysMenuName = xxgkSysMenuService.get(xxgkSysMenuId).getName();

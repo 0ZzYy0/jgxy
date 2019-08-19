@@ -109,7 +109,7 @@
 	<div class="index_wrapper">
 		<!--header.html 头部-->
 		<div class="header">
-			<%@ include file="headerJgxy.jsp"%>
+			<%@ include file="headerXxgk.jsp"%>
 		</div>
 
 		<div class="main_part main_part_1_wrapepr fadeInUp" style="; animation-name: none;">

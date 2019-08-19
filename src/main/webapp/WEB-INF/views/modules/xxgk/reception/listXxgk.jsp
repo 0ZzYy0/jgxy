@@ -414,7 +414,7 @@ a:hover{color:blue;}
         <!--header.html 头部-->
         <!--<#include "/headerJgxy.html">-->
         <div class="header">
-            <%@ include file="headerJgxy.jsp"%>
+            <%@ include file="headerXxgk.jsp"%>
         </div>
 
         <!--main_part_3_wrapepr-->
