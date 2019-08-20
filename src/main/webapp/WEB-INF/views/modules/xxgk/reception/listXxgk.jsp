@@ -338,18 +338,6 @@
     display: block;
     text-align: right;
 }
-/*friendship_link_wrapper*/
-.friendship_link_wrapper .friendship_link_content {
-    border-bottom: none;
-}
-
-.friendship_link_wrapper .friendship_link_content:last-child {
-    border-bottom: none;
-}
-
-.friendship_link_wrapper .friendship_link {
-    border-bottom: none;
-}
 
 .friendship_link_content {
     
@@ -418,12 +406,12 @@ a:hover{color:blue;}
         </div>
 
         <!--main_part_3_wrapepr-->
-        <div class="main_part main_part_1_wrapepr fadeInUp ">
-            <div class="col-sm-3 xxgk_right_part_wrapper" >
+        <div class="row main_part main_part_1_wrapepr fadeInUp ">
+            <div class="col-sm-3 xxgk_right_part_wrapper">
                 <div class="right_part_tittle">
                     <p class="right_part_name"></p>
                 </div>
-                <div class="friendship_link_wrapper">
+                <div class="friendship_link_wrapper"  style="height: 92%" >
                     <c:forEach items="${liftXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
                        <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" class="friendship_link">${xxgkSysMenu.name} </a>
                     </c:forEach>
@@ -491,6 +479,7 @@ a:hover{color:blue;}
 
         <!--footer.html 底部-->
         <!--<#include "/footerJgxy.html">-->
+        </br></br>
         <div class="footer">
             <%@ include file="footerJgxy.jsp"%>
         </div>
