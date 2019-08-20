@@ -406,7 +406,7 @@ a:hover{color:blue;}
         </div>
 
         <!--main_part_3_wrapepr-->
-        <div class="row main_part main_part_1_wrapepr fadeInUp ">
+        <div class="main_part main_part_3_wrapepr">
             <div class="col-sm-3 xxgk_right_part_wrapper">
                 <div class="right_part_tittle">
                     <p class="right_part_name"></p>
