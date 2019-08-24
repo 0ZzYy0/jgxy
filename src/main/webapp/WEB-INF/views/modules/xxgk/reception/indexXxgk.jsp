@@ -206,26 +206,15 @@ color:white;
 		                    <c:if test="${(status.index % 4) eq 3}">
 		                        </div>
 		                    </c:if>
+		                    <c:if test="${(status.index % 4) ne 3}">
+			                    <c:if test="${xxgksxXxgkSysMenuList.size() == (status.index +1 )}">
+			                    	</div>
+			                    </c:if>
+		                    </c:if>
 		                </c:forEach>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			</div>
-			
-			
-
-
 		</div>
-
-
-
+		
 		<!--footer.html 底部-->
 		<!--<#include "/footerJgxy.html">-->
 		</br></br>
