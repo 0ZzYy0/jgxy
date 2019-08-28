@@ -77,7 +77,7 @@
 					<img id="modalImg" alt="" src="" style="width: 100%">
 				</a>
 				<br><br>
-				<span id="modalSpan" style="font-size: 20px;word-warp:break-word;word-break:break-all" ></span>
+				<span id="modalSpan" style="font-size: 25px;word-warp:break-word;word-break:break-all;color: red;font-family: KaiTi;" ></span>
 			</div>
 			<div class="modal-footer">
 				<span id="modalSpan"></span>
