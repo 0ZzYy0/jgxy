@@ -121,7 +121,6 @@ color:white;
 
 
 	<div class="index_wrapper">
-		<!--header.html 头部-->
 		<div class="header">
 			<%@ include file="headerXxgk.jsp"%>
 		</div>
@@ -215,8 +214,6 @@ color:white;
 			</div>
 		</div>
 		
-		<!--footer.html 底部-->
-		<!--<#include "/footerJgxy.html">-->
 		</br></br>
 		<div class="">
 			<%@ include file="footerJgxy.jsp"%>
@@ -294,13 +291,7 @@ color:white;
             }
         });
         //悬浮广告代码↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ */
-        
-        
-        // 请求头部字符串 公共部分
-        header_str();
 
-        // 请求底部字符串 公共部分
-        footer_str();
 
         // banner
         $('#myCarousel').carousel({

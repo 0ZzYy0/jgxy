@@ -411,8 +411,6 @@ a:hover{color:blue;}
 	<!--<div class="index_bg"></div>-->
 	<!--<img src="${pageContext.request.contextPath}/jgxy/resources/images/index_bg3.jpg" alt="" class="index_bg" draggable="false"/>-->
 	<div class="index_wrapper">
-		<!--header.html 头部-->
-		<!--<#include "/headerJgxy.html">-->
 		<div class="header">
 			<%@ include file="headerJgxy.jsp"%>
 		</div>
@@ -529,8 +527,6 @@ a:hover{color:blue;}
 			</div>
 		</div>
 
-		<!--footer.html 底部-->
-		<!--<#include "/footerJgxy.html">-->
 		<div class="footer">
 			<%@ include file="footerJgxy.jsp"%>
 		</div>
@@ -540,11 +536,7 @@ a:hover{color:blue;}
 <script type="text/javascript" src="${pageContext.request.contextPath}/jgxy/resources/js/common.js"></script>
 <script type="text/javascript">
 	$(function() {
-		// 请求头部字符串 公共部分
-		header_str();
 
-		// 请求底部字符串 公共部分
-		footer_str();
 
 		// 学院新闻
 		/*$('.news_list .single_news_wrapper a.single_news').hover(function (e) {
