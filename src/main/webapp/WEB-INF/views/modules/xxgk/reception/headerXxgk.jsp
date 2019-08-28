@@ -61,13 +61,13 @@
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="http://www.hljsfjy.org.cn/zs/index_zs.php" target="_blank">
+                <a href="http://218.7.10.11/zs/index_zs.php" target="_blank">
                     <span class="nav_name">招生网</span>
                     <span class="nav_tips">Supply</span>
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="http://www.hljsfjy.org.cn/jy/index_jy.php" target="_blank">
+                <a href="http://218.7.10.11/jy/index_jy.php" target="_blank">
                     <span class="nav_name">就业网</span>
                     <span class="nav_tips">Jobs</span>
                 </a>
