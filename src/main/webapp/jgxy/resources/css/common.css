@@ -62,22 +62,47 @@ body{background-image:url("../images/index_bg3.png");background-image:none;backg
 .nav_wrapper .nav_ul .nav_ul_li a:before{content: '';width: 1px;height: 30px;position: absolute;right: 0;background: -webkit-linear-gradient(bottom,#079ce1 0%,rgba(255,255,255,0.6) 50%, #079ce1 100%);background: -webkit-linear-gradient(bottom,#079ce1 0%, rgba(255,255,255,0.6) 50%, #079ce1 100%);background: -o-linear-gradient(bottom,#079ce1 0%, rgba(255,255,255,0.6) 50%, #079ce1 100%);background: -moz-linear-gradient(bottom,#079ce1 0%, rgba(255,255,255,0.6) 50%, #079ce1 100%);background: linear-gradient(bottom,#079ce1 0%, rgba(255,255,255,0.6) 50%, #079ce1 100%);}
 /*footer_wrapper*/.footer_wrapper{ border-top: 3px solid #2a9cd8;padding: 15px 0;text-align: center;color: #0b4782;margin-top: 1em;line-height: 30px;}
 .footer_wrapper p{}
-@media screen and (min-width: 1201px) { 
-.index_wrapper {width: 1200px}  
-} 
-/* css娉ㄩ噴锛氳缃簡娴忚鍣ㄥ搴︿笉灏忎簬1201px鏃� abc 鏄剧ず1200px瀹藉害 */ 
- 
-@media screen and (max-width: 1200px) { 
-.index_wrapper {width: 900px}  
-} 
-/* 璁剧疆浜嗘祻瑙堝櫒瀹藉害涓嶅ぇ浜�1200px鏃� abc 鏄剧ず900px瀹藉害 */ 
- 
-@media screen and (max-width: 901px) { 
-.index_wrapper {width: 200px;}  
-} 
-/* 璁剧疆浜嗘祻瑙堝櫒瀹藉害涓嶅ぇ浜�901px鏃� abc 鏄剧ず200px瀹藉害 */ 
- 
-@media screen and (max-width: 500px) { 
-.index_wrapper {width: 100px;}  
-} 
 .footer_wrapper .friendship_link{color: #0b4782;margin: 0 20px;}
+
+#floatDiv{
+	background:#fff;
+	box-shadow: 0 0 4px #808080;
+	border-radius: 8px;
+}
+@media (min-width:1200px){
+	.index_wrapper {width: 1200px}  
+}
+@media (min-width:992px) and (max-width:1199px){
+	.index_wrapper {width: 900px}  
+}
+@media (min-width:768px) and (max-width:991px){
+	.index_wrapper{width: 100%;}
+	.school_logo_wrapper .school_logo{width: 90%;display: block;height: auto;margin: 0 auto;float: none !important;}
+	.head_right_wrapper{width:100%;text-align: right;padding: 0 15px 15px;}
+	.search_wrapper .search_input{width: 400px;margin-left: 10%;}
+	.nav_wrapper .nav_ul .nav_ul_li a .nav_name{font-size: 12px;}
+	.nav_wrapper .nav_ul .nav_ul_li a::before{height: 20px;}
+	.main_part_2_wrapepr,.main_part_3_wrapepr{flex-wrap: wrap;}
+	#modalDiv .modal-dialog{width: 80%;left: 10%;top: 10%;}
+	#modalSpan{font-size:14px;}
+	.footer_link{display: flex;flex-wrap: wrap;}
+}
+@media (max-width:767px){
+	.index_wrapper{width: 100%;}
+	.school_logo_wrapper .school_logo{width: 90%;display: block;height: auto;margin: 0 auto;float: none !important;}
+	.head_right_wrapper{width:100%;text-align: right;padding: 0 15px 15px;}
+	.search_wrapper .search_input{width: 400px;margin-left: 10%;}
+	.nav_wrapper .nav_ul .nav_ul_li a .nav_name{font-size: 12px;}
+	.nav_wrapper .nav_ul .nav_ul_li a::before{height: 20px;}
+	.main_part_2_wrapepr,.main_part_3_wrapepr{flex-wrap: wrap;}
+	#modalDiv .modal-dialog{width: 80%;left: 10%;top: 10%;}
+	#modalSpan{font-size:14px;}
+	.footer_link{display: flex;flex-wrap: wrap;}
+	.width_100{
+		width:100%;
+	}
+}
+
+
+
+

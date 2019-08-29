@@ -10,7 +10,7 @@
         <!--<p class="school_name_tips">司法行政系统所属院校</p>-->
     </div>
     <div class="head_right_wrapper pull-right">
-        <div class="right_text_wrapper text-right">
+        <div class="right_text_wrapper text-right hidden-xs">
             <span>能</span>
             <span class="big_font">文</span>
             <span class="">能</span>
@@ -24,8 +24,8 @@
         </div>
         <!--<div class="right_text_wrapper_2">UNITY INTEGRITY</div>-->
         <!--<div class="right_text_wrapper_2">WE CAN DO BETTER</div>-->
-        <div class="right_text_wrapper_3">Practical Idea of Running Schools</div>
-        <div class="right_text_wrapper_4">切合实际的办学理念</div>
+        <div class="right_text_wrapper_3 hidden-xs">Practical Idea of Running Schools</div>
+        <div class="right_text_wrapper_4 hidden-xs">切合实际的办学理念</div>
         <!--<div class="right_text_wrapper_4">又红又专</div>-->
         <div class="search_wrapper">
             <!--<span class="search_text">局内搜索：</span>-->
@@ -69,7 +69,8 @@
 
             <li class="nav_ul_li">
                 <a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=3946981313027664138">
-                    <span class="nav_name">师德师风建设</span>
+                    <span class="nav_name hidden-xs">师德师风建设</span>
+					<span class="nav_name visible-xs">师风建设</span>
                     <span class="nav_tips">Build</span>
                 </a>
             </li>

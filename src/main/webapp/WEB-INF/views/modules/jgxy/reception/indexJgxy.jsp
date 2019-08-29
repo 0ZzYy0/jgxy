@@ -23,35 +23,32 @@
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/common.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/index.css" rel="stylesheet" type="text/css" />
 <style>
-#certify {
-	width: 100% !important;
-	height: 310px;
-}
+	#certify{width: 100% !important;height: 310px;}
+	#certify .swiper-slide p{display: none !important;}
+	#certify .swiper-pagination{display: none !important;}
+	#certify .swiper-button-prev{display: none !important;}
+	#certify .swiper-button-next{display: none !important;}
+	#certify .swiper-slide{height: auto;margin: 0 1%;}
+	#cxtfdck{border: 1px solid #c0c0c0;margin: 0 auto;padding: 5px;background: #f0f0f0}
+	
+	@media (min-width:768px) and (max-width:991px){
+		.news_list .single_news_wrapper .single_news.hover_before{font-size: 13px;}
+		.main_part_1_wrapepr .news_list_wrapper{width:90%;margin: 0 auto 15px;}
+		.main_part_2_wrapepr .other_news_list_wrapper{width:90%;margin: 0 auto 15px;}
+		.main_part_2_wrapepr .other_news_list_wrapper .col-sm-6{margin-bottom:15px;}
+		.main_part_3_wrapepr .right_part_wrapper{width: 90%;margin: 0 auto 15px;}
+		.friendship_link_wrapper .friendship_link{padding: 8px 2em;font-size: 14px;}
+	}
 
-#certify .swiper-slide p {
-	display: none !important;
-}
-
-#certify .swiper-pagination {
-	display: none !important;
-}
-
-#certify .swiper-button-prev {
-	display: none !important;
-}
-
-#certify .swiper-button-next {
-	display: none !important;
-}
-
-#certify .swiper-slide{height: auto;margin: 0 1%;}
-
-#cxtfdck {
-	border: 1px solid #c0c0c0;
-	margin: 0 auto;
-	padding: 5px;
-	background: #f0f0f0
-}
+	
+	@media (max-width:767px){
+		.news_list .single_news_wrapper .single_news.hover_before{font-size: 13px;}
+		.main_part_1_wrapepr .news_list_wrapper{width:90%;margin: 0 auto 15px;}
+		.main_part_2_wrapepr .other_news_list_wrapper{width:90%;margin: 0 auto 15px;}
+		.main_part_2_wrapepr .other_news_list_wrapper .col-sm-6{margin-bottom:15px;}
+		.main_part_3_wrapepr .right_part_wrapper{width: 90%;margin: 0 auto 15px;}
+		.friendship_link_wrapper .friendship_link{padding: 8px 2em;font-size: 14px;}
+	}
 </style>
 </head>
 <body>
@@ -77,7 +74,7 @@
 					<img id="modalImg" alt="" src="" style="width: 100%">
 				</a>
 				<br><br>
-				<span id="modalSpan" style="font-size: 25px;word-warp:break-word;word-break:break-all;color: red;font-family: KaiTi;" ></span>
+				<span id="modalSpan" style="font-size: 20px;word-warp:break-word;word-break:break-all" ></span>
 			</div>
 			<div class="modal-footer">
 				<span id="modalSpan"></span>
@@ -110,7 +107,7 @@
 
 		<!--main_part_1_wrapepr-->
 		<div class="main_part main_part_1_wrapepr clearfix fadeInUp" style="visibility: hidden; animation-name: none; margin-top: 0px;">
-			<div class="col-sm-7 banner_wrapper">
+			<div class="col-sm-7 banner_wrapper hidden-xs">
 				<div id="myCarousel" class="carousel slide">
 					<!-- 轮播（Carousel）指标 -->
 					<ol class="carousel-indicators">

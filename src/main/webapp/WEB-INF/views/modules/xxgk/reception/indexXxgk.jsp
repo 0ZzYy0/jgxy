@@ -22,54 +22,40 @@
 <!--index-->
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/common.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/index.css" rel="stylesheet" type="text/css" />
-<style>
-#certify {
-	width: 100% !important;
-	height: 310px;
-}
-
-#certify .swiper-slide p {
-	display: none !important;
-}
-
-#certify .swiper-pagination {
-	display: none !important;
-}
-
-#certify .swiper-button-prev {
-	display: none !important;
-}
-
-#certify .swiper-button-next {
-	display: none !important;
-}
-
-#certify .swiper-slide {
-	height: auto;
-	margin: 0 1%;
-}
-
-#cxtfdck {
-	border: 1px solid #c0c0c0;
-	margin: 0 auto;
-	padding: 5px;
-	background: #f0f0f0
-}
-.zxDiv{
-	display: block;
-	padding: 5px;
-	background: -webkit-linear-gradient(right, #02B4FF , #3090FE);
-	background: -o-linear-gradient(right, #02B4FF, #3090FE);
-	background: -moz-linear-gradient(right, #02B4FF, #3090FE);
-	background: linear-gradient(to right, #02B4FF , #3090FE);
-	color: #fff;
-	border-radius: 8px;
-	margin: 5px 5px 5px 0;
-}
-a:link{
-color:white;
-}
-</style>
+	<style>
+	#certify{width: 100% !important;height: 310px;}
+	#certify .swiper-slide p{display: none !important;}
+	#certify .swiper-pagination{display: none !important;}
+	#certify .swiper-button-prev{display: none !important;}
+	#certify .swiper-button-next{display: none !important;}
+	#certify .swiper-slide{height: auto;margin: 0 1%;}
+	#cxtfdck{border: 1px solid #c0c0c0;margin: 0 auto;padding: 5px;background: #f0f0f0}
+	.zxDiv{display: block;padding: 5px;background: -webkit-linear-gradient(right, #02B4FF , #3090FE);background: -o-linear-gradient(right, #02B4FF, #3090FE);background: -moz-linear-gradient(right, #02B4FF, #3090FE);background: linear-gradient(to right, #02B4FF , #3090FE);color: #fff;border-radius: 8px;margin: 5px 5px 5px 0;}
+	a:link{color:white;}
+	.friendship_link_wrapper{height:88%;}
+	@media (min-width:768px) and (max-width:991px){
+		.main_part_1_wrapepr {
+			flex-wrap: wrap;
+		}
+		.main_part_1_wrapepr .xxgk_right_part_wrapper{
+			width: 100%;
+			margin-bottom: 15px;
+		}
+		.main_part_1_wrapepr .xxgk_right2_part_wrapper{width:100%;}
+		.friendship_link_wrapper{height:auto;}
+	}
+	@media (max-width:767px){
+		.main_part_1_wrapepr {
+			flex-wrap: wrap;
+		}
+		.main_part_1_wrapepr .xxgk_right_part_wrapper{
+			width: 100%;
+			margin-bottom: 15px;
+		}
+		.main_part_1_wrapepr .xxgk_right2_part_wrapper{width:100%;}
+		.friendship_link_wrapper{height:auto;}
+	}
+	</style>
 </head>
 <body>
 	<%-- <!-- 浮动广告 div -->
@@ -124,21 +110,21 @@ color:white;
 		<div class="header">
 			<%@ include file="headerXxgk.jsp"%>
 		</div>
-
+		
 		<div class="main_part main_part_1_wrapepr fadeInUp" style="; animation-name: none;">
 
 			<div class="col-sm-3 xxgk_right_part_wrapper">
 				<div class="right_part_tittle">
-					<p class="right_part_name"></p>
+					<p class="right_part_name">信息公开</p>
 				</div>
-				<div class="friendship_link_wrapper"  style="height: 88%">
+				<div class="friendship_link_wrapper">
 					<c:forEach items="${liftXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
 					   <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" class="friendship_link">${xxgkSysMenu.name} </a>
 					</c:forEach>
 				</div>
 			</div>
 			
-			<div class="col-sm-9">
+			<div class="col-sm-9 xxgk_right2_part_wrapper">
 	            <div class="news_list_wrapper">
 	                <c:if test="${not empty xxgkNoteList && !(xxgkNoteList eq null)}">
 	                    <p class="news_list_tittle clearfix" style="text-align: center">

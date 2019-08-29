@@ -74,7 +74,8 @@
             </li>
             <li class="nav_ul_li">
                 <a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=3946981313027664138">
-                    <span class="nav_name">师德师风建设</span>
+					<span class="nav_name hidden-xs">师德师风建设</span>
+					<span class="nav_name visible-xs">师风建设</span>
                     <span class="nav_tips">Build</span>
                 </a>
             </li>
