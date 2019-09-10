@@ -36,7 +36,7 @@
         </div>
         
         <div class="search_wrapper hide">
-            <input type="text" class="search_input form-control" placeholder="局内搜索"/>
+            <input type="text" class="search_input form-control" placeholder="站内搜索"/>
             <a href="javascript:void(0);" class="search_btn">
                 <img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_search.png" alt="" class="search_img"/>
             </a>

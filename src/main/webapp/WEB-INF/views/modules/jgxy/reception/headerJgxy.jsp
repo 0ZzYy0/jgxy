@@ -29,7 +29,7 @@
         <!--<div class="right_text_wrapper_4">又红又专</div>-->
         <div class="search_wrapper">
             <!--<span class="search_text">局内搜索：</span>-->
-            <input id="jnsc" type="text" class="search_input form-control" placeholder="局内搜索"/>
+            <input id="jnsc" type="text" class="search_input form-control" placeholder="站内搜索"/>
             <a href="javascript:void(0);" onclick="toList()" class="search_btn">
                 <img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_search.png" alt="" class="search_img"/>
             </a>    
