@@ -31,6 +31,7 @@
 	#certify .swiper-slide{height: auto;margin: 0 1%;}
 	#cxtfdck{border: 1px solid #c0c0c0;margin: 0 auto;padding: 5px;background: #f0f0f0}
 	.zxDiv{display: block;padding: 5px;background: -webkit-linear-gradient(right, #02B4FF , #3090FE);background: -o-linear-gradient(right, #02B4FF, #3090FE);background: -moz-linear-gradient(right, #02B4FF, #3090FE);background: linear-gradient(to right, #02B4FF , #3090FE);color: #fff;border-radius: 8px;margin: 5px 5px 5px 0;}
+    
 	a:link{color:white;}
 	.friendship_link_wrapper{height:88%;}
 	@media (min-width:768px) and (max-width:991px){
@@ -124,7 +125,7 @@
 				</div>
 			</div>
 			
-			<div class="col-sm-9 xxgk_right2_part_wrapper">
+			<div class="col-sm-9 xxgk_right2_part_wrapper" style="height:100%;">
 	            <div class="news_list_wrapper">
 	                <c:if test="${not empty xxgkNoteList && !(xxgkNoteList eq null)}">
 	                    <p class="news_list_tittle clearfix" style="text-align: center">
@@ -132,7 +133,7 @@
 	                            <span style="">${xxgkSysMenuName}</span>
 	                        </c:if>
 	                        <c:if test="${empty xxgkSysMenuName || (xxgkSysMenuName eq null) }">
-	                            <span style="">最新公开信息</span>
+	                            <span style="font-size: 22px">最新公开信息</span>
 	                            <a href="${ctx}/xxgk/xxgkReception/list" class="more_info_btn pull-right">
 	                                <span style="color: #2a6496">更多</span>
 	                                <img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
@@ -158,21 +159,42 @@
 	                </c:if>
 	                
 	                <c:if test="${not empty xxgksysMenuList && !(xxgksysMenuList eq null) }">
-	                    <p class="news_list_tittle clearfix" style="text-align: center">
-	                        <span style="">${xxgkSysMenuName}</span>
-	                    </p>
-	                    <ul class="news_list">
-	                        <c:forEach items="${xxgksysMenuList}" var="xxgksysMenu" varStatus="status">
-	                            <li class="single_news_wrapper">
-	                                <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}" class="single_news hover_before">
-	                                    <span class="news_points"></span>
-	                                    <span class="news_tittle">${xxgksysMenu.name}</span>
-	                                </a>
-	                            </li>
-	                        </c:forEach>
-	                    </ul>
+		                    <p class="news_list_tittle clearfix" style="text-align: center">
+		                    <!-- <p class="news_list_tittle clearfix" style=""> -->
+		                        <span style="font-size: 22px">${xxgkSysMenuName}</span>
+		                    </p>
+		                    <ul class="">
+		                        <c:forEach items="${xxgksysMenuList}" var="xxgksysMenu" varStatus="status">
+		                        
+		                               <!-- 列表样式 -->
+				                            <c:if test="${(status.index % 2) eq 0}">
+				                                <div class="main_part main_part_3_wrapepr fadeInUp text-center" style="; animation-name: none;">
+				                            </c:if>
+				                            
+				                                <div class="col-sm-6 zxDiv" style="height: 70px; text-align:center; line-height:15px;">
+				                                        <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}">
+                                                                </br><span class="color:#F00;">${xxgksysMenu.name}</span>
+				                                        </a>
+				                                </div>
+				        
+				                            <c:if test="${(status.index % 2) eq 1}">
+				                                </div>
+				                            </c:if>
+				                            <c:if test="${(status.index % 2) ne 1}">
+				                                <c:if test="${xxgksysMenuList.size() == (status.index +1 )}">
+				                                    </div>
+				                                </c:if>
+				                            </c:if>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+		                        </c:forEach>
+		                    </ul>
 	                </c:if>
-	            </div>
+	             </div>
 			
 		                <c:forEach items="${xxgksxXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
 		
