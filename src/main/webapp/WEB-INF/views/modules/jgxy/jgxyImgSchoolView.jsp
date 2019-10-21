@@ -32,8 +32,8 @@
 						<label class="col-sm-4 control-label">图片：</label>
 						<div class="col-sm-8">
 							<p class="form-control-static">
-							<input type="hidden" id="imgPath" value="${jgxyImgSchool.}"/>
-							<sys:ckfinder id="imgPath" type="images" uploadPath="/jgxy" readonly="true"/>
+							<input type="hidden" id="imgPath" value="${jgxyImgSchool.imgPath}"/>
+							<sys:ckfinder input="imgPath" type="images" uploadPath="/jgxy" readonly="true"/>
 							</p>
 						</div>
 					</div>
