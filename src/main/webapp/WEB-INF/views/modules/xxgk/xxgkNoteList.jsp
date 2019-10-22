@@ -11,7 +11,7 @@
 	<div class="">
 		<div class="">
 			<div class="ibox-header">
-				<h5>文章列表 </h5>
+				<h5>文章列表</h5>
 				<div class="pull-right">
 					<button id="searchBtn" class="btn btn-default btn-sm" title="搜索"><i class="fa fa-search"></i> 搜索</button><!-- 搜索按钮 -->
 					<shiro:hasPermission name="xxgk:xxgkNote:add">
@@ -39,6 +39,10 @@
 						<form:form id="searchForm" modelAttribute="xxgkNote" action="${ctx}/xxgk/xxgkNote/" method="post" class="form-inline">
 							<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 							<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
+							
+							<input id="xxgkSysMenuId" name="xxgkSysMenuId" type="hidden" value="${xxgkSysMenuId}"/>
+							
+							
 							<table:sortColumn id="orderBy" name="orderBy" value="${page.orderBy}" callback="sortOrRefresh();"/><!-- 支持排序 -->
 							<table:searchRow></table:searchRow>
 								<div class="form-group"><span>文章分类：</span>

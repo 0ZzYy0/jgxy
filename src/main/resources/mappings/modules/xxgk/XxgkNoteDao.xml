@@ -55,7 +55,7 @@
 				ORDER BY ${page.orderBy}
 			</when>
 			<otherwise>
-				ORDER BY a.release_Date DESC
+				ORDER BY a.release_date DESC
 			</otherwise>
 		</choose>
 	</select>
@@ -73,7 +73,7 @@
 				ORDER BY ${page.orderBy}
 			</when>
 			<otherwise>
-				ORDER BY a.update_date DESC
+				ORDER BY a.release_date DESC
 			</otherwise>
 		</choose>
 	</select>

@@ -80,7 +80,7 @@
                         <div class="col-sm-8">
                             <div class="input-group date datepicker">
                                 <input name="releaseDate" path="releaseDate" type="text" readonly="readonly" class="form-control" 
-                                    value="<fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/>" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:true});" >
+                                    value="<fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/>" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',isShowClear:true});" >
                                 <span class="input-group-addon">
                                     <span class="fa fa-calendar"></span>
                                 </span>

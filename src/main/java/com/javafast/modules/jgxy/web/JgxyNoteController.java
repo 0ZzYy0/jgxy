@@ -82,7 +82,22 @@ public class JgxyNoteController extends BaseController {
 		String menuType = (String)request.getParameter("jgxySysMenu.menuType");
 		if (menuType == null || menuType.equals("1") || "null".equals(menuType)) {
 			//menuType == 1  为新闻列表
+			String jgxySysMenuId = "";
+			if (jgxyNote.getJgxySysMenu() != null) {
+				if (jgxyNote.getJgxySysMenu().getId() != null && !("").equals(jgxyNote.getJgxySysMenu().getId())) {
+					jgxySysMenuId = jgxyNote.getJgxySysMenu().getId();
+				} else {
+					jgxySysMenuId = request.getParameter("jgxySysMenuId");
+				}
+			} else {
+				jgxySysMenuId = request.getParameter("jgxySysMenuId");
+			}
+			jgxyNote.setJgxySysMenu(new JgxySysMenu());
+			jgxyNote.getJgxySysMenu().setId(jgxySysMenuId);
+			
+			
 			Page<JgxyNote> page = jgxyNoteService.findPage(new Page<JgxyNote>(request, response), jgxyNote);
+			request.setAttribute("jgxySysMenuId",jgxyNote.getJgxySysMenu().getId());
 			model.addAttribute("page", page);
 			return "modules/jgxy/jgxyNoteList";
 		} else {

@@ -22,7 +22,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.javafast.modules.xxgk.entity.XxgkSysMenu;
-
 import com.google.common.collect.Lists;
 import com.javafast.common.utils.DateUtils;
 import com.javafast.common.utils.MyBeanUtils;
@@ -79,7 +78,25 @@ public class XxgkNoteController extends BaseController {
 		String menuType = (String) request.getParameter("xxgkSysMenu.menuType");
 		if (menuType == null || menuType.equals("1") || "null".equals(menuType)) {
 			// menuType == 1 为新闻列表
+			String xxgkSysMenuId = "";
+			if (xxgkNote.getXxgkSysMenu() != null) {
+				if (xxgkNote.getXxgkSysMenu().getId() != null && !("").equals(xxgkNote.getXxgkSysMenu().getId())) {
+					xxgkSysMenuId = xxgkNote.getXxgkSysMenu().getId();
+				} else {
+					xxgkSysMenuId = request.getParameter("xxgkSysMenuId");
+				}
+			} else {
+				xxgkSysMenuId = request.getParameter("xxgkSysMenuId");
+			}
+			System.out.println(xxgkSysMenuId);
+			System.out.println(xxgkSysMenuId);
+			System.out.println(xxgkSysMenuId);
+			System.out.println(xxgkSysMenuId);
+			xxgkNote.setXxgkSysMenu(new XxgkSysMenu());
+			xxgkNote.getXxgkSysMenu().setId(xxgkSysMenuId);
+			
 			Page<XxgkNote> page = xxgkNoteService.findPage(new Page<XxgkNote>(request, response), xxgkNote);
+			request.setAttribute("xxgkSysMenuId",xxgkNote.getXxgkSysMenu().getId());
 			model.addAttribute("page", page);
 			return "modules/xxgk/xxgkNoteList";
 		} else {
