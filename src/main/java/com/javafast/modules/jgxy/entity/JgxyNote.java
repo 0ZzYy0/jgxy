@@ -22,6 +22,7 @@ public class JgxyNote extends DataEntity<JgxyNote> {
 	private String contents;		// 内容
 	private Date releaseDate;		//可以调整的发布时间
 	private String clickThroughput; //点击量
+	private String newState; //New 图标显示状态
 	
 	public JgxyNote() {
 		super();
@@ -80,10 +81,19 @@ public class JgxyNote extends DataEntity<JgxyNote> {
 		this.clickThroughput = clickThroughput;
 	}
 
+	public String getNewState() {
+		return newState;
+	}
+
+	public void setNewState(String newState) {
+		this.newState = newState;
+	}
+
 	@Override
 	public String toString() {
 		return "JgxyNote [jgxySysMenu=" + jgxySysMenu + ", title=" + title + ", contents=" + contents + ", releaseDate=" + releaseDate
-				+ ", clickThroughput=" + clickThroughput + "]";
+				+ ", clickThroughput=" + clickThroughput + ", newState=" + newState + "]";
 	}
+	
 	
 }

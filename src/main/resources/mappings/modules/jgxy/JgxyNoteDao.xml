@@ -17,7 +17,8 @@
 		a.del_flag AS "delFlag",
 		a.title AS "title",
 		a.contents AS "contents",
-		a.click_throughput AS "clickThroughput"
+		a.click_throughput AS "clickThroughput",
+		a.new_state AS "newState"
 	</sql>
 	
 	<sql id="jgxyNoteJoins">
@@ -90,7 +91,8 @@
 			del_flag,
 			title,
 			contents,
-			click_throughput
+			click_throughput,
+			new_state
 		) VALUES (
 			#{id},
 			#{createBy.id},
@@ -102,7 +104,8 @@
 			#{delFlag},
 			#{title},
 			#{contents},
-			#{clickThroughput}
+			#{clickThroughput},
+			#{newState}
 		)
 	</insert>
 
@@ -115,7 +118,8 @@
 			remarks = #{jgxySysMenu.id},
 			title = #{title},
 			contents = #{contents},
-			click_throughput = #{clickThroughput}
+			click_throughput = #{clickThroughput},
+			new_state = #{newState}
 		WHERE id = #{id}
 	</update>
 
