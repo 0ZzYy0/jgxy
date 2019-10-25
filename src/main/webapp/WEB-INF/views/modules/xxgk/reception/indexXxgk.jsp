@@ -33,6 +33,7 @@
 	.zxDiv{display: block;padding: 5px;background: -webkit-linear-gradient(right, #02B4FF , #3090FE);background: -o-linear-gradient(right, #02B4FF, #3090FE);background: -moz-linear-gradient(right, #02B4FF, #3090FE);background: linear-gradient(to right, #02B4FF , #3090FE);color: #fff;border-radius: 8px;margin: 5px 5px 5px 0;}
     
 	a:link{color:white;}
+	a:visited{color:white;}
 	.friendship_link_wrapper{height:88%;}
 	@media (min-width:768px) and (max-width:991px){
 		.main_part_1_wrapepr {
