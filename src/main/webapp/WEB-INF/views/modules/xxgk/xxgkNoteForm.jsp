@@ -99,6 +99,22 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"> 是否标记为New：</label>
+                        <div class="col-sm-8">
+                            <form:select path="newState" cssClass="form-control">
+                                <form:option value="" label=""/>
+                                <form:options items="${fns:getDictList('newState')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
+                            </form:select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group">

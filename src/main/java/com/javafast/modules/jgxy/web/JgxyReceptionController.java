@@ -167,7 +167,15 @@ public class JgxyReceptionController {
 
 		// 获取全部新闻
 		// 每个类别最多5条,学院新闻12条
-		Page<JgxyNote> page = jgxyNoteService.findPage(new Page<JgxyNote>(1, 12), new JgxyNote());
+		JgxyNote jgxyNote  = new JgxyNote();
+		
+		//首页只能看见学院新闻
+		//条件
+		JgxySysMenu js = new JgxySysMenu();
+		js.setName("学院新闻");
+		JgxySysMenu jgxySysMenuXyxw = jgxySysMenuService.findList(js).get(0);
+		jgxyNote.setJgxySysMenu(jgxySysMenuXyxw);
+		Page<JgxyNote> page = jgxyNoteService.findPage(new Page<JgxyNote>(1, 12),jgxyNote);
 
 		JgxyImg ji = new JgxyImg();
 		ji.setIsRelease("1");

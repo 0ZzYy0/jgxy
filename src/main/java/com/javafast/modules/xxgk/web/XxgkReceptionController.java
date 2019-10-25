@@ -81,6 +81,12 @@ public class XxgkReceptionController {
 		String xxgkSysMenuMenuType = xxgkSysMenuService.get(xxgkSysMenuId).getMenuType();
 		request.setAttribute("xxgkSysMenuName", xxgkSysMenuName);
 
+		
+		// 用最顶级的菜单名称来锁定 ,写死了
+		XxgkSysMenu xxgksxSysMenu = xxgkSysMenuService.getByName("信息公开事项");
+		List<XxgkSysMenu> xxgksxXxgkSysMenuList = xxgkSysMenuService.findListByPid(xxgksxSysMenu.getId());
+		request.setAttribute("xxgksxXxgkSysMenuList", xxgksxXxgkSysMenuList);
+		
 		if (xxgksysMenuList.size() == 0) {
 			// 是叶子菜单
 

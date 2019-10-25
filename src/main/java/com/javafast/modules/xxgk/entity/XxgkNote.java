@@ -26,6 +26,7 @@ public class XxgkNote extends DataEntity<XxgkNote> {
 	private String contents; // 内容
 	private Date releaseDate; // 可以调整的发布时间
 	private String clickThroughput; // 点击量
+	private String newState; //New 图标显示状态
 
 	public XxgkNote() {
 		super();
@@ -84,10 +85,18 @@ public class XxgkNote extends DataEntity<XxgkNote> {
 		this.clickThroughput = clickThroughput;
 	}
 
+	public String getNewState() {
+		return newState;
+	}
+
+	public void setNewState(String newState) {
+		this.newState = newState;
+	}
+
 	@Override
 	public String toString() {
-		return "xxgkNote [xxgkSysMenu=" + xxgkSysMenu + ", title=" + title + ", contents=" + contents + ", releaseDate=" + releaseDate + ", clickThroughput=" + clickThroughput
-				+ "]";
+		return "XxgkNote [xxgkSysMenu=" + xxgkSysMenu + ", title=" + title + ", contents=" + contents + ", releaseDate=" + releaseDate
+				+ ", clickThroughput=" + clickThroughput + ", newState=" + newState + "]";
 	}
 
 }

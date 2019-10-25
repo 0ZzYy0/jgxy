@@ -156,9 +156,10 @@
 							<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
 								<span class="news_points"></span>
 								<span class="news_tittle">${jgxyNote.title}</span> 
-								<c:if test="${status.index lt 3}">
+								<c:if test="${jgxyNote.newState eq '1'}">
 									<span class="news_state">[New]</span> 
 								</c:if>
+								
 								<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 							</a>
 						</li>
