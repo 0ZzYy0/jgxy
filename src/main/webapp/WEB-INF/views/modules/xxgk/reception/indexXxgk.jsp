@@ -30,10 +30,39 @@
 	#certify .swiper-button-next{display: none !important;}
 	#certify .swiper-slide{height: auto;margin: 0 1%;}
 	#cxtfdck{border: 1px solid #c0c0c0;margin: 0 auto;padding: 5px;background: #f0f0f0}
-	.zxDiv{display: block;padding: 5px;background: -webkit-linear-gradient(right, #02B4FF , #3090FE);background: -o-linear-gradient(right, #02B4FF, #3090FE);background: -moz-linear-gradient(right, #02B4FF, #3090FE);background: linear-gradient(to right, #02B4FF , #3090FE);color: #fff;border-radius: 8px;margin: 5px 5px 5px 0;}
+	.zxDiv{}
+    /*.news_list_wrapper .main_part_3_wrapepr .zxDiv_w {display: flex;}*/
+	.news_list_wrapper .main_part_3_wrapepr .zxDiv .star_img{width: 25px;height:25px;float: left;position: relative;top: -3px;}
+    .news_list_wrapper .main_part_3_wrapepr .zxDiv{
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 150px;
+		padding: 10px 15px;
+		margin: 0px 10px;
+		background-color: #4388fc;
+		background-image:url('${pageContext.request.contextPath}/jgxy/resources/images/zxDiv_bg7.png');
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		background-size: cover;
+		text-decoration: none;
+		text-align: center;
+		border-radius: 8px;
+		-moz-border-radius: 8px;
+		-webkit-border-radius: 8px;
+		box-shadow: inset 0px -4px 5px rgba(255,255,255,0.2), inset 0px 1px 5px rgba(255,255,255,0.2), /**/ 0px 2px 0px #1e4766, 0px 4px 0px #1e4766, 0px 6px 0px #1e4766, /**/ 0px 8px 5px rgba(0,0,0,0.5);
+		-moz-box-shadow: inset 0px -4px 5px rgba(255,255,255,0.2), inset 0px 1px 5px rgba(255,255,255,0.2), /**/ 0px 2px 0px #1e4766, 0px 4px 0px #1e4766, 0px 6px 0px #1e4766, /**/ 0px 8px 5px rgba(0,0,0,0.5);
+		-webkit-box-shadow: inset 0px -4px 5px rgba(255,255,255,0.2), inset 0px 1px 5px rgba(255,255,255,0.2), 0px 2px 0px rgba(230, 233, 234, 0.5), 0px 4px 0px rgba(228, 234, 239, 0.5), 0px 6px 0px rgba(186, 195, 202, 0.5), 0px 8px 5px rgba(183, 183, 183, 0.09);
+		color: #fff;
+		width: 48%;
+	}
+	.news_list_wrapper .main_part_3_wrapepr .zxDiv a{color:#fff;display: block; width: 100%;}
     
-	a:link{color:white;}
-	a:visited{color:white;}
+	.xxgk_right2_part_wrapper>.main_part_3_wrapepr .zxDiv{display: block;padding: 5px;background: -webkit-linear-gradient(right, #02B4FF , #3090FE);background: -o-linear-gradient(right, #02B4FF, #3090FE);background: -moz-linear-gradient(right, #02B4FF, #3090FE);background: linear-gradient(to right, #02B4FF , #3090FE);color: #fff;border-radius: 8px;margin: 5px 5px 5px 0;}
+	.xxgk_right2_part_wrapper>.main_part_3_wrapepr .zxDiv a{color:#fff;}
+	/*a:link{color:white;}
+	a:visited{color:white;}*/
 	.friendship_link_wrapper{height:88%;}
 	@media (min-width:768px) and (max-width:991px){
 		.main_part_1_wrapepr {
@@ -172,11 +201,12 @@
 				                                <div class="main_part main_part_3_wrapepr fadeInUp text-center" style="; animation-name: none;">
 				                            </c:if>
 				                            
-				                                <div class="col-sm-6 zxDiv" style="height: 70px; text-align:center; line-height:15px;">
-				                                        <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}">
-                                                                </br><span class="color:#F00;">${xxgksysMenu.name}</span>
-				                                        </a>
-				                                </div>
+				                                <div class="col-sm-6 zxDiv">
+											<a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}">
+												<img src="${pageContext.request.contextPath}/jgxy/resources/images/star.gif" alt="" class="star_img">
+												<span class="color:#F00;">${xxgksysMenu.name}</span>
+											</a>
+										</div>
 				        
 				                            <c:if test="${(status.index % 2) eq 1}">
 				                                </div>
@@ -186,17 +216,11 @@
 				                                    </div>
 				                                </c:if>
 				                            </c:if>
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
 		                        </c:forEach>
 		                    </ul>
 	                </c:if>
 	             </div>
-			
+			<div style="height: 60px;"></div>
 		                <c:forEach items="${xxgksxXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
 		
 		                    <c:if test="${(status.index % 4) eq 0}">
@@ -204,11 +228,11 @@
 		                    </c:if>
 		                    
 		                        <div class="col-sm-3 zxDiv">
-		                            <div class="right_part_tittle">
 		                                <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}">
-		                                    <span class="color:#F00">${xxgkSysMenu.name}</span>
+				                            <div class="right_part_tittle">
+				                                    <span class="color:#F00">${xxgkSysMenu.name}</span>
+				                            </div>
 		                                </a>
-		                            </div>
 		                        </div>
 		
 		                    <c:if test="${(status.index % 4) eq 3}">

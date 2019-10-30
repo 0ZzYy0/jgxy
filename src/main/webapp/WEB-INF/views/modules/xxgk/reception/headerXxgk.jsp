@@ -4,7 +4,10 @@
     .head_right_wrapper .right_text_wrapper_3 {
         font-size: 16px;
         text-align: right;
-    }
+		color: #09f;
+		font-weight: bold;
+		text-shadow: 1px 1px 1px rgba(128, 128, 128, 0.3686274509803922);
+	}
 </style>
 <div class="head_wrapper clearfix">
     <div class="school_logo_wrapper pull-left clearfix" style="margin-bottom: 1em;">
@@ -30,7 +33,7 @@
         
         <div class="">
             <div class="right_text_wrapper text-right" style="margin-top: 1em;">
-                <img src="${pageContext.request.contextPath}/jgxy/resources/images/school_logo6.png" alt="" class="school_logo" style="height: 30px;margin: 5px 0;"/>
+                <img src="${pageContext.request.contextPath}/jgxy/resources/images/school_logo7.1.png" alt="" class="school_logo" style="height: 60px;margin: 5px 0;"/>
             </div>
             <div class="right_text_wrapper_3">Information Disclosure Column</div>
         </div>
