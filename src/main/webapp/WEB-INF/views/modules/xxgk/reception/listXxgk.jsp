@@ -186,10 +186,10 @@ a:hover{color:blue;}
                                     <tr class="row">
                                         <td class="col-sm-9">
                                             <a href="${ctx}/xxgk/xxgkReception/get?id=${xxgkNote.id}&add=1" class="single_news hover_before">
-                                                <c:if test="${fn:length(xxgkNote.title) gt 20}">
-                                                    <span class="news_tittle" title="${xxgkNote.title}">${fn:substring(xxgkNote.title, 0, 20)}...</span> 
+                                                <c:if test="${fn:length(xxgkNote.title) gt 40}">
+                                                    <span class="news_tittle" title="${xxgkNote.title}">${fn:substring(xxgkNote.title, 0, 40)}...</span> 
                                                 </c:if>
-                                                <c:if test="${fn:length(xxgkNote.title) le 20}">
+                                                <c:if test="${fn:length(xxgkNote.title) le 40}">
                                                     <span class="news_tittle">${xxgkNote.title}</span> 
                                                 </c:if>
                                             </a>
