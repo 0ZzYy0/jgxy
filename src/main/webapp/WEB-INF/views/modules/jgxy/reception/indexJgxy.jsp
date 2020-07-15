@@ -145,7 +145,7 @@
 			<div class="col-sm-5 news_list_wrapper">
 				<p class="news_list_tittle clearfix">
 					<span>学院新闻</span>
-					<a href="${ctx}/jgxy/jgxyReception/list" class="more_info_btn pull-right">
+					<a href="${ctx}/jgxy/jgxyReception/list" target="_blank" class="more_info_btn pull-right">
 						<span>更多</span>
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 					</a>
@@ -153,7 +153,7 @@
 				<ul class="news_list">
 					<c:forEach items="${jgxyNoteList}" var="jgxyNote" varStatus="status">
 						<li class="single_news_wrapper">
-							<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
+							<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank" class="single_news hover_before">
 								<span class="news_points"></span>
 								<span class="news_tittle">${jgxyNote.title}</span> 
 								<c:if test="${jgxyNote.newState eq '1'}">
@@ -176,7 +176,7 @@
 						<span class="other_news_tittle_big">教科研</span>
 						<span class="">工作</span>
 
-						<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=3910232656710862337" class="more_info_btn pull-right">
+						<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=3910232656710862337" target="_blank" class="more_info_btn pull-right">
 							<span>更多</span>
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 						</a>
@@ -195,7 +195,7 @@
 								<ul class="news_list">
 									<c:forEach items="${jgxyNoteJXDT}" var="jgxyNote" varStatus="status">
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank" class="single_news hover_before">
 													<span class="news_points"></span>
 													<span class="news_tittle">${jgxyNote.title}</span> 
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
@@ -209,7 +209,7 @@
 									<c:forEach items="${jgxyNoteKYZX}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank" class="single_news hover_before">
 													<span class="news_points"></span>
 													<span class="news_tittle">${jgxyNote.title}</span> 
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
@@ -227,7 +227,7 @@
 						<span class="other_news_tittle_big">工作</span>
 						<span class="">动态</span>
 
-						<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=8292706150830458832" class="more_info_btn pull-right">
+						<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=8292706150830458832" target="_blank"  class="more_info_btn pull-right">
 							<span>更多</span>
 							<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 						</a>
@@ -243,7 +243,7 @@
 								<ul class="news_list">
 									<c:forEach items="${jgxyNoteGZXY}" var="jgxyNote" varStatus="status">
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank"  class="single_news hover_before">
 													<span class="news_points"></span>
 													<span class="news_tittle">${jgxyNote.title}</span> 
 
@@ -262,7 +262,7 @@
 					<span class="other_news_tittle_big">通知</span>
 					<span class="">公告</span>
 
-					<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=1105405848443694891" class="more_info_btn pull-right">
+					<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=1105405848443694891" target="_blank" class="more_info_btn pull-right">
 						<span>更多</span>
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 					</a>
@@ -277,9 +277,12 @@
 									<c:forEach items="${jgxyNoteGSGG}" var="jgxyNote" varStatus="status">
 										<!-- 这里需要注意,直接用菜单的id做的比较,因为菜单名称有重复的 -->
 											<li class="single_news_wrapper">
-												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
+												<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank"  class="single_news hover_before">
 													<span class="news_points"></span>
 													<span class="news_tittle">${jgxyNote.title}</span> 
+													<c:if test="${jgxyNote.newState eq '1'}">
+														<span class="news_state">[New]</span> 
+													</c:if>
 													<span class="news_time"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 												</a>
 											</li>
@@ -307,7 +310,7 @@
 				<div class="friendship_link_wrapper">
 				
 					<c:forEach items="${jgxyNoteDJGZ}" var="jgxyNote" varStatus="status">
-						<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="friendship_link">
+						<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank"  class="friendship_link">
 							${jgxyNote.title}
 						</a>
 					</c:forEach>
@@ -321,7 +324,7 @@
 				<div class="friendship_link_wrapper">
 				
 					<c:forEach items="${jgxyNoteXFJS}" var="jgxyNote" varStatus="status">
-						<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="friendship_link">
+						<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank"  class="friendship_link">
 							${jgxyNote.title}
 						</a>
 					</c:forEach>

@@ -150,7 +150,7 @@
 				</div>
 				<div class="friendship_link_wrapper">
 					<c:forEach items="${liftXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
-					   <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" class="friendship_link">${xxgkSysMenu.name} </a>
+					   <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" target="_blank"  class="friendship_link">${xxgkSysMenu.name} </a>
 					</c:forEach>
 				</div>
 			</div>
@@ -164,7 +164,7 @@
 	                        </c:if>
 	                        <c:if test="${empty xxgkSysMenuName || (xxgkSysMenuName eq null) }">
 	                            <span style="font-size: 22px">最新公开信息</span>
-	                            <a href="${ctx}/xxgk/xxgkReception/list" class="more_info_btn pull-right">
+	                            <a href="${ctx}/xxgk/xxgkReception/list" target="_blank" class="more_info_btn pull-right">
 	                                <span style="color: #2a6496">更多</span>
 	                                <img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 	                            </a>
@@ -173,7 +173,7 @@
 	                    <ul class="news_list">
 	                        <c:forEach items="${xxgkNoteList}" var="xxgkNote" varStatus="status">
 	                            <li class="single_news_wrapper">
-	                                <a href="${ctx}/xxgk/xxgkReception/get?id=${xxgkNote.id}&add=1" class="single_news hover_before">
+	                                <a href="${ctx}/xxgk/xxgkReception/get?id=${xxgkNote.id}&add=1" target="_blank" class="single_news hover_before">
 	                                    <span class="news_points"></span>
 	                                    <span class="news_tittle">${xxgkNote.title}</span>
 	                                    <c:if test="${xxgkNote.newState eq '1'}">
@@ -202,7 +202,7 @@
 				                            </c:if>
 				                            
 				                                <div class="col-sm-6 zxDiv">
-											<a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}">
+											<a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}" target="_blank" >
 												<img src="${pageContext.request.contextPath}/jgxy/resources/images/star.gif" alt="" class="star_img">
 												<span class="color:#F00;">${xxgksysMenu.name}</span>
 											</a>
@@ -228,7 +228,7 @@
 		                    </c:if>
 		                    
 		                        <div class="col-sm-3 zxDiv">
-		                                <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}">
+		                                <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" target="_blank" >
 				                            <div class="right_part_tittle">
 				                                    <span class="color:#F00">${xxgkSysMenu.name}</span>
 				                            </div>

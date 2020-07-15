@@ -163,7 +163,7 @@ a:hover{color:blue;}
                 </div>
                 <div class="friendship_link_wrapper" >
                     <c:forEach items="${liftXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
-                       <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" class="friendship_link">${xxgkSysMenu.name} </a>
+                       <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" target="_blank" class="friendship_link">${xxgkSysMenu.name} </a>
                     </c:forEach>
                 </div>
             </div>
@@ -185,7 +185,7 @@ a:hover{color:blue;}
                                 <c:forEach items="${xxgkNoteList}" var="xxgkNote">
                                     <tr class="row">
                                         <td class="col-sm-9">
-                                            <a href="${ctx}/xxgk/xxgkReception/get?id=${xxgkNote.id}&add=1" class="single_news hover_before">
+                                            <a href="${ctx}/xxgk/xxgkReception/get?id=${xxgkNote.id}&add=1" target="_blank" class="single_news hover_before">
                                                 <c:if test="${fn:length(xxgkNote.title) gt 40}">
                                                     <span class="news_tittle" title="${xxgkNote.title}">${fn:substring(xxgkNote.title, 0, 40)}...</span> 
                                                 </c:if>

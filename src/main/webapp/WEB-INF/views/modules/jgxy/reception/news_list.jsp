@@ -158,7 +158,7 @@
 						<c:forEach items="${jgxySysMenuList}" var="jgxySysMenu">
 							<c:if test="${jgxySysMenu.parentId eq '0'}">
 								<div class="selfHelp_query_content">
-									<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu.id}" class="selfHelp_query clearfix">
+									<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu.id}" target="_blank"  class="selfHelp_query clearfix">
 										<span class="selfHelp_query_text">${jgxySysMenu.name}</span>
 										<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
 									</a>
@@ -167,7 +167,7 @@
 											<c:if test="${jgxySysMenu1.parentId eq jgxySysMenu.id}">
 												<li class="selfHelp_query_li selfHelp_query_content">
 												<!-- end用来表示节点末梢 -->
-													<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu1.id}&jgxySysMenuPId=${jgxySysMenu1.parentId}" class="selfHelp_query clearfix">
+													<a href="${ctx}/jgxy/jgxyReception/list?jgxySysMenuId=${jgxySysMenu1.id}&jgxySysMenuPId=${jgxySysMenu1.parentId}" target="_blank"  class="selfHelp_query clearfix">
 														<span class="selfHelp_query_text">${jgxySysMenu1.name}</span>
 														<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="icon_more">
 													</a>
@@ -199,7 +199,7 @@
 								<c:forEach items="${jgxyNoteList}" var="jgxyNote">
 									<tr class="row">
 										<td class="col-sm-9">
-											<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" class="single_news hover_before">
+											<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank" class="single_news hover_before">
 												<c:if test="${fn:length(jgxyNote.title) gt 20}">
 													<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 20)}...</span> 
 												</c:if>
