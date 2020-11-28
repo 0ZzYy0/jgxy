@@ -17,15 +17,14 @@ body{background-image:url("../images/index_bg3.png");background-image:none;backg
 .index_bg{width: 100%;position: absolute;z-index: 0;left: 0;top: 0;}
 .index_wrapper{width: 1100px;margin: 0 auto;    position: relative;}
 @font-face {
-        font-family: 'hwxk';
-        src: url('../font/hwxk.ttf');
-        src: url('../font/hwxk.ttf') format('embedded-opentype'),
-        url('../font/hwxk.ttf') format('woff'),
-        url('../font/hwxk.ttf') format('truetype'),
-        url('../font/hwxk.ttf') format('svg');
-        font-weight: normal;
-        font-style: normal;
-
+	/*font-family: 'hwxk';
+	src: url('../font/hwxk.ttf');
+	src: url('../font/hwxk.ttf') format('embedded-opentype'),
+	url('../font/hwxk.ttf') format('woff'),
+	url('../font/hwxk.ttf') format('truetype'),
+	url('../font/hwxk.ttf') format('svg');
+	font-weight: normal;
+	font-style: normal;*/
 }
 .head_wrapper{padding-top: 1em;}
 /*school_logo_wrapper*/
@@ -57,7 +56,9 @@ body{background-image:url("../images/index_bg3.png");background-image:none;backg
 	background: linear-gradient(bottom,#0f72ae 0%,#1174af 25%, #0c82bf 50%, #0c8fd0 75%, #03a6ee 100%);
 	background-color:#03a6ee;
 	border-radius: 5px 5px 0 0;border: 2px solid #1095CD;border-bottom-color: #033F81;
+	position:relative;
 	}
+.nav_wrapper .nav_bg_img{position:absolute;z-index:0;width:100%;height:100%;}
 .nav_wrapper .nav_ul{display: flex;}
 .nav_wrapper .nav_ul .nav_ul_li{flex: 1;padding: 10px 0;position: relative;transition: all 0.5s linear;}
 .nav_wrapper .nav_ul .nav_ul_li:hover{background: #fff;}

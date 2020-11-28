@@ -11,21 +11,22 @@
     </div>
     <div class="head_right_wrapper pull-right">
         <div class="right_text_wrapper text-right hidden-xs">
-            <span>能</span>
+			<img src="${pageContext.request.contextPath}/jgxy/resources/images/top_right.png" alt="" class=""/>
+            <!--<span>能</span>
             <span class="big_font">文</span>
             <span class="">能</span>
-            <span class="big_font">武</span>
+            <span class="big_font">武</span>-->
             <!--<span class="big_font">能武</span>-->
             <!--<span class="big_font">又红</span>-->
-            <span>又</span>
+            <!--<span>又</span>
             <span class="big_font" style="color: red">红</span>
             <span class="">又</span>
-            <span class="big_font">专</span>
+            <span class="big_font">专</span>-->
         </div>
         <!--<div class="right_text_wrapper_2">UNITY INTEGRITY</div>-->
         <!--<div class="right_text_wrapper_2">WE CAN DO BETTER</div>-->
-        <div class="right_text_wrapper_3 hidden-xs">Practical Idea of Running Schools</div>
-        <div class="right_text_wrapper_4 hidden-xs">切合实际的办学理念</div>
+        <!--<div class="right_text_wrapper_3 hidden-xs">Practical Idea of Running Schools</div>
+        <div class="right_text_wrapper_4 hidden-xs">切合实际的办学理念</div>-->
         <!--<div class="right_text_wrapper_4">又红又专</div>-->
         <div class="search_wrapper">
             <!--<span class="search_text">局内搜索：</span>-->
@@ -39,6 +40,7 @@
 
 <div class="nav_fixed_wrapper">
     <div class="nav_wrapper">
+		<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
         <ul class="nav_ul clearfix">
             <li class="nav_ul_li">
                 <a href="${ctx}/jgxy/jgxyReception/index">
@@ -54,13 +56,13 @@
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="http://218.7.10.11/zs/index_zs.php" target="_blank">
+                <a href="http://218.7.10.11:88/zs/index_zs.php" target="_blank">
                     <span class="nav_name">招生网</span>
                     <span class="nav_tips">Supply</span>
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="http://218.7.10.11/jy/index_jy.php" target="_blank">
+                <a href="http://218.7.10.11:88/jy/index_jy.php" target="_blank">
                     <span class="nav_name">就业网</span>
                     <span class="nav_tips">Jobs</span>
                 </a>

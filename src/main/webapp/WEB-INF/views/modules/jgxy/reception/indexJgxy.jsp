@@ -1,11 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <meta charset="utf-8">
 <title>黑龙江司法警官职业学院</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/jgxy/resources/images/favicon.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
 <!-- Jquery -->
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/jquery-1.11.1.min.js"></script>
 <!-- Bootstrap core CSS -->
@@ -16,19 +19,29 @@
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/bootstrap.min.js"></script>
 
 <!--swiper-->
-<link href="${pageContext.request.contextPath}/jgxy/resources/css/swiper.min.css" rel="stylesheet" type="text/css" />
+
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/certify.css" rel="stylesheet" type="text/css" />
-<script src="${pageContext.request.contextPath}/jgxy/resources/js/swiper.min.js"></script>
+
 <!--index-->
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/common.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/index.css" rel="stylesheet" type="text/css" />
+
+<!–[if !IE]><!–> 
+<link href="${pageContext.request.contextPath}/jgxy/resources/css/swiper.min.css" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/jgxy/resources/js/swiper.min.js"></script>
+<!–<![endif]–>
+<!–[if IE]>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/jgxy/resources/css/idangerous.swiper.css">
+<script src="${pageContext.request.contextPath}/jgxy/resources/js/idangerous.swiper.min.js"></script>
+ <![endif]–>
 <style>
-	#certify{width: 100% !important;height: 310px;}
+	#certify{width: 100% !important;height: 200px;overflow: hidden;}
 	#certify .swiper-slide p{display: none !important;}
 	#certify .swiper-pagination{display: none !important;}
 	#certify .swiper-button-prev{display: none !important;}
 	#certify .swiper-button-next{display: none !important;}
-	#certify .swiper-slide{height: auto;margin: 0 1%;}
+	#certify .swiper-slide{height: auto;margin: 0 10px;}
+	#certify .swiper-slide img{width: 100%;object-fit: cover;}
 	#cxtfdck{border: 1px solid #c0c0c0;margin: 0 auto;padding: 5px;background: #f0f0f0}
 	
 	@media (min-width:768px) and (max-width:991px){
@@ -106,7 +119,7 @@
 		</div>
 
 		<!--main_part_1_wrapepr-->
-		<div class="main_part main_part_1_wrapepr clearfix fadeInUp" style="visibility: hidden; animation-name: none; margin-top: 0px;">
+		<div class="main_part main_part_1_wrapepr clearfix">
 			<div class="col-sm-7 banner_wrapper hidden-xs">
 				<div id="myCarousel" class="carousel slide">
 					<!-- 轮播（Carousel）指标 -->
@@ -169,7 +182,7 @@
 		</div>
 
 		<!--main_part_2_wrapepr-->
-		<div class="main_part main_part_2_wrapepr fadeInUp" style="visibility: hidden; animation-name: none;">
+		<div class="main_part main_part_2_wrapepr">
 			<div class="col-sm-8 other_news_list_wrapper">
 				<div class="col-sm-6">
 					<div class="other_news_tittle clearfix">
@@ -296,12 +309,12 @@
 		</div>
 
 		<!--index_banner_1-->
-		<div class="index_banner_wrapper index_banner_wrapper_1 fadeInUp" style="visibility: hidden; animation-name: none;">
+		<div class="index_banner_wrapper index_banner_wrapper_1">
 			<img src="${pageContext.request.contextPath}/jgxy/resources/images/index_banner_1.jpg" alt="" class="index_banner_img" />
 		</div>
 
 		<!--main_part_3_wrapepr-->
-		<div class="main_part main_part_3_wrapepr fadeInUp" style="visibility: hidden; animation-name: none;">
+		<div class="main_part main_part_3_wrapepr">
 			<div class="col-sm-4 right_part_wrapper">
 				<div class="right_part_tittle">
 					<p class="right_part_name">党建工作</p>
@@ -341,37 +354,69 @@
 		</div>
 
 		<!--index_banner_2-->
-		<div class="index_banner_wrapper c fadeInUp hide" style="visibility: hidden; animation-name: none;">
+		<div class="index_banner_wrapper c">
 			<img src="${pageContext.request.contextPath}/jgxy/resources/images/index_banner_2.jpg" alt="" class="index_banner_img" />
 		</div>
 
-		<div class="main_part_4_wrapepr index_banner_wrapper_2 clearfix " style="visibility: hidden; animation-name: none;">
+		<div class="main_part_4_wrapepr index_banner_wrapper_2 clearfix ">
 			<div class="col-sm-12 right_part_wrapper m-b" style="margin-bottom: 15px;">
 				<div class="right_part_tittle">
 					<p class="right_part_name">校园风采</p>
 					<p class="right_part_tips">Self help query</p>
 				</div>
-			</div>
-			<div id="certify" class="col-sm-12 fadeInUp">
+			</div>			
+
+			<div id="certify" class="col-sm-12">
+			
+				
+			
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
 						<c:forEach items="${jiList1}" var="ji" varStatus="status">
 							<div class="swiper-slide">
-								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="520" height="310" />
-								<!-- <p class="">非常难得又值钱的认证证书</p> -->
+								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
 							</div>
+							<div class="swiper-slide">
+								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
+							</div>
+							<div class="swiper-slide">
+								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
+							</div>
+						</c:forEach>
+					</div>
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				
+				<div id="certify2" class="carousel slide">					
+					<!-- 轮播（Carousel）项目 -->
+					<div class="carousel-inner">
+					
+					<c:forEach items="${jiList1}" var="ji" varStatus="status">
+						<c:if test="${status.index == 0}">							
+							<div class="item active">
+								<a>
+									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
+								</a>
+							</div>
+						</c:if>
+						<c:if test="${status.index > 0}">
+							<div class="item">
+								<a>
+									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
+								</a>
+							</div>
+						</c:if>
 					</c:forEach>
 					</div>
 				</div>
-				<div class="swiper-pagination"></div>
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
+				
 			</div>
 		</div>
 
 		<div class="">
-			<%@ include file="footerJgxy.jsp"%>
-			
+			<%@ include file="footerJgxy.jsp"%>			
 		</div>
 	</div>
 </body>
@@ -452,7 +497,26 @@
 		$('#myCarousel').carousel({
 			interval : 5000,
 		});
-
+		
+		
+		
+		/*var mySwiper = new Swiper('.swiper-container',{
+			autoplay: 3000,
+			watchSlidesProgress : true,
+			slidesPerView : 'auto',
+			centeredSlides : true,
+			loop : true,
+			loopedSlides : 5,
+			autoplay : true,
+			navigation : {
+				nextEl : '.swiper-button-next',
+				prevEl : '.swiper-button-prev',
+			},
+			pagination : {
+				el : '.swiper-pagination',
+			},
+		}); */
+  
 		$('#jnsc').bind('keyup', function(event) {
 			　　if (event.keyCode == "13") {
 			　　　　//回车执行查询
@@ -468,35 +532,32 @@
 		// 滑动显示各个部分
 		$(window).on('scroll', function() {
 			// 滚动动画
-			window_scroll();
+			// window_scroll();
 		});
-
-		certifySwiper = new Swiper(
-				'#certify .swiper-container',
-				{
-					watchSlidesProgress : true,
-					slidesPerView : 'auto',
-					centeredSlides : true,
-					loop : true,
-					loopedSlides : 5,
-					autoplay : true,
-					navigation : {
-						nextEl : '.swiper-button-next',
-						prevEl : '.swiper-button-prev',
-					},
-					pagination : {
-						el : '.swiper-pagination',
-					},
-					on : {
-					}
-
-				});
+		
+		if(IEVersion() == -1){
+			$('#certify2').remove();			
+			var mySwiper = new Swiper('.swiper-container',{
+				watchSlidesProgress : true,
+				slidesPerView : 'auto',
+				centeredSlides : true,
+				loop : true,
+				loopedSlides : 5,
+				autoplay : 3000,
+			  });  
+		}else{
+			$('.swiper-container').remove();
+			$('#certify2').carousel({
+				interval : 3000,
+			});
+		}
+		
 	});
 
 	window.onload = function() {
 
 		// 滚动动画
-		window_scroll();
+		// window_scroll();
 
 		// 搜索事件
 		$('.search_btn').on('click', function() {
@@ -510,7 +571,7 @@
 	// 滚动动画
 	function window_scroll() {
 		var window_top = $(window).scrollTop();
-		$('.main_part_1_wrapepr,.header,.main_part_2_wrapepr').css({
+		$('.main_part_2_wrapepr').css({
 			'visibility' : 'visible',
 			'animation-name' : 'fadeInUp'
 		}).addClass('animated');
@@ -550,6 +611,43 @@
 		}
 	}
 	
+	// 1、判断IE浏览器的具体版本
+	function IEVersion() {
+      var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+      var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+      var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
+      var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+      if(isIE) {
+          var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+          reIE.test(userAgent);
+          var fIEVersion = parseFloat(RegExp["$1"]);
+          if(fIEVersion == 7) {
+              return 7;
+          } else if(fIEVersion == 8) {
+              return 8;
+          } else if(fIEVersion == 9) {
+              return 9;
+          } else if(fIEVersion == 10) {
+              return 10;
+          } else {
+              return 6;//IE版本<=7
+          }   
+      } else if(isEdge) {
+          return 'edge';//edge
+      } else if(isIE11) {
+          return 11; //IE11  
+      }else{
+          return -1;//不是ie浏览器
+      }
+	}
+	// 2、判断是否是IE 11及以下或者其他(其他里包括IE edge)
+	function isIE() {
+		if(!!window.ActiveXObject || "ActiveXObject" in window){
+		  return true;
+		}else{
+		  return false;
+	　　 }
+	}
 	function changePos() {
 		width = document.body.clientWidth;
 		height = document.body.clientHeight;
