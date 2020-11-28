@@ -35,14 +35,27 @@
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/idangerous.swiper.min.js"></script>
  <![endif]–>
 <style>
-	#certify{width: 100% !important;height: 200px;overflow: hidden;}
+	#certify{width: 100% !important;height: 200px;height: 300px\9;overflow: hidden;}
 	#certify .swiper-slide p{display: none !important;}
 	#certify .swiper-pagination{display: none !important;}
 	#certify .swiper-button-prev{display: none !important;}
 	#certify .swiper-button-next{display: none !important;}
 	#certify .swiper-slide{height: auto;margin: 0 10px;}
 	#certify .swiper-slide img{width: 100%;object-fit: cover;}
+	#certify .carousel-inner > .item > a{
+		background-position: center;
+		background-size: 100% 100%;
+		-webkit-background-size: 100% 100%;
+		background-repeat: no-repeat;
+		width: 100%;
+		height:300px\9;display:block;
+	}
+	#certify  .carousel-inner > .item > a > img{height:100%;display:none;
+		
+	}
+	
 	#cxtfdck{border: 1px solid #c0c0c0;margin: 0 auto;padding: 5px;background: #f0f0f0}
+	
 	
 	@media (min-width:768px) and (max-width:991px){
 		.news_list .single_news_wrapper .single_news.hover_before{font-size: 13px;}
@@ -375,13 +388,7 @@
 						<c:forEach items="${jiList1}" var="ji" varStatus="status">
 							<div class="swiper-slide">
 								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
-							</div>
-							<div class="swiper-slide">
-								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
-							</div>
-							<div class="swiper-slide">
-								<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
-							</div>
+							</div>							
 						</c:forEach>
 					</div>
 					<div class="swiper-pagination"></div>
@@ -396,14 +403,14 @@
 					<c:forEach items="${jiList1}" var="ji" varStatus="status">
 						<c:if test="${status.index == 0}">							
 							<div class="item active">
-								<a>
+								<a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
 									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
 								</a>
 							</div>
 						</c:if>
 						<c:if test="${status.index > 0}">
 							<div class="item">
-								<a>
+								<a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
 									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
 								</a>
 							</div>
