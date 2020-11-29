@@ -270,7 +270,10 @@
     var xon;
     var pause;
     var interval;
+
+    
     $(function() {
+    	
 /*      //模态广告代码↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
        $("#modalDiv").hide();
          $.ajax({

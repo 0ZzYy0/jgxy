@@ -552,7 +552,6 @@
 			// window_scroll();
 		});
 		
-		// if(IEVersion() == -1){
 			// $('#certify2').remove();			
 			var mySwiper = new Swiper('.swiper-container',{
 				watchSlidesProgress : true,
@@ -562,12 +561,13 @@
 				loopedSlides : 5,
 				// autoplay : 3000,
 		  	});  
-		// }else{
-		// 	$('.swiper-container').remove();
+		if(IEVersion() == -1){
+			$('.nav_bg_img').remove();
+		}else{
 		// 	$('#certify2').carousel({
 		// 		interval : 3000,
 		// 	});
-		// }
+		}
 		
 	});
 

@@ -14,7 +14,7 @@
 	    <!-- </div> -->
     </div>
     <div class="text-center">
-        <a href="http://www.hljsf.gov.cn/" target="_blank"  class="friendship_link">黑龙江省司法厅</a>
+        <a href="http://sft.hlj.gov.cn/" target="_blank"  class="friendship_link">黑龙江省司法厅</a>
         <a href="https://gaokao.chsi.com.cn/" target="_blank"  class="friendship_link">教育部阳光高考信息平台</a>
         <a href="http://www.hljzfxy.org.cn/" target="_blank"  class="friendship_link">黑龙江政法管理干部学院</a>
         <a href="https://www.lzk.hl.cn/" target="_blank"  class="friendship_link">黑龙江招生考试信息港</a>
