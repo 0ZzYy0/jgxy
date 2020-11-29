@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="http://218.7.10.11:88/jy/index_jy.php" target="_blank">
+                <a href="${ctx}/jgxy/jgxyReception/jiuyewang">
                     <span class="nav_name">就业网</span>
                     <span class="nav_tips">Jobs</span>
                 </a>

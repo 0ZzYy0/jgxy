@@ -82,7 +82,7 @@
 <body>
 <!-- 浮动广告 div -->
 <div id="floatDiv" style="z-index:999;position: absolute; left: 311; top: 815; visibility: hidden;" onmouseover="clearInterval(interval)" onmouseout="interval = setInterval('changePos()', delay)" align="middle">
-	<span style="CURSOR: hand; color: red; font-weight: bold; font-size: 12px" onclick="clearInterval(interval);floatDiv.style.visibility = 'hidden'">关闭</span>
+	<span style="CURSOR: hand; color: red; font-weight: bold; font-size: 12px" onclick="clearInterval(interval);floatDiv.style.visibility='hidden'">关闭</span>
 	<div id="cxtfdck">
 		<a id="floatA" href="">
 			<img id="floatImg" src="${pageContext.request.contextPath}/jgxy/resources/images/jingpinkecheng.jpg" style="width: 100px;" alt="" class="">
@@ -400,36 +400,28 @@
 					<div class="swiper-button-next"></div>
 				</div>
 				
-				<div id="certify2" class="carousel slide">					
-					<!-- 轮播（Carousel）项目 -->
+				<!-- <div id="certify2" class="carousel slide">					
 					<div class="carousel-inner">
 					
 					<c:forEach items="${jiList1}" var="ji" varStatus="status">
 						<c:if test="${status.index == 0}">							
 							<div class="item active">
-								<!-- <a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
+								<a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
 									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
-								</a> -->
-								<a style="background-image:url('http://www.hljsfjy.org.cn:80/userfiles/8/images/jgxy/2019/06/certify03.jpg');">
-									<img src="http://www.hljsfjy.org.cn:80/userfiles/8/images/jgxy/2019/06/certify03.jpg" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
 								</a>
 								
 							</div>
 						</c:if>
 						<c:if test="${status.index > 0}">
 							<div class="item">
-								<!-- <a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
+								<a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
 									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
-								</a> -->
-
-								<a style="background-image:url('http://www.hljsfjy.org.cn:80/userfiles/8/images/jgxy/2019/06/certify03.jpg');">
-									<img src="http://www.hljsfjy.org.cn:80/userfiles/8/images/jgxy/2019/06/certify03.jpg" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
 								</a>
 							</div>
 						</c:if>
 					</c:forEach>
 					</div>
-				</div>
+				</div> -->
 				
 			</div>
 		</div>
@@ -438,8 +430,14 @@
 			<%@ include file="footerJgxy.jsp"%>			
 		</div>
 	</div>
+
+	
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jgxy/resources/js/common.js"></script>
+<script>
+　　 
+</script>
+　　 
 <script type="text/javascript">
 	var xPos;
 	var yPos;
@@ -554,24 +552,90 @@
 			// window_scroll();
 		});
 		
-		if(IEVersion() == -1){
-			$('#certify2').remove();			
+		// if(IEVersion() == -1){
+			// $('#certify2').remove();			
 			var mySwiper = new Swiper('.swiper-container',{
 				watchSlidesProgress : true,
 				slidesPerView : 'auto',
 				centeredSlides : true,
 				loop : true,
 				loopedSlides : 5,
-				autoplay : 3000,
-			  });  
-		}else{
-			$('.swiper-container').remove();
-			$('#certify2').carousel({
-				interval : 3000,
-			});
-		}
+				// autoplay : 3000,
+		  	});  
+		// }else{
+		// 	$('.swiper-container').remove();
+		// 	$('#certify2').carousel({
+		// 		interval : 3000,
+		// 	});
+		// }
 		
 	});
+
+	// 
+	jQuery.fn.imgFloat = function(options) {
+        var own = this;
+        var xD = 0;
+        var yD = 0;
+        var i = 1;
+        var settings = {
+            speed: 15,
+            xPos: 0,
+            yPos: 0
+        };
+        jQuery.extend(settings, options);
+        var ownTop = settings.xPos;
+        var ownLeft = settings.yPos;
+        own.css({
+            position: "absolute",
+            cursor: "pointer"
+        });
+
+        function imgPosition() {
+            var winWidth = $(window).width() - own.width();
+            var winHeight = $(window).height() - own.height();
+            if (xD == 0) {
+                ownLeft += i;
+                own.css({
+                    left: ownLeft
+                });
+                if (ownLeft >= winWidth) {
+                    ownLeft = winWidth;
+                    xD = 1;
+                }
+            }
+            if (xD == 1) {
+                ownLeft -= i;
+                own.css({
+                    left: ownLeft
+                });
+                if (ownLeft <= 0) xD = 0;
+            }
+            if (yD == 0) {
+                ownTop += i;
+                own.css({
+                    top: ownTop
+                });
+                if (ownTop >= winHeight) {
+                    ownTop = winHeight;
+                    yD = 1;
+                }
+            }
+            if (yD == 1) {
+                ownTop -= i;
+                own.css({
+                    top: ownTop
+                });
+                if (ownTop <= 0) yD = 0;
+            }
+        }
+        var imgHover = setInterval(imgPosition, settings.speed);
+        own.hover(function() {
+            clearInterval(imgHover);
+        },
+        function() {
+            imgHover = setInterval(imgPosition, settings.speed);
+        });
+    }
 
 	window.onload = function() {
 
@@ -659,6 +723,7 @@
           return -1;//不是ie浏览器
       }
 	}
+
 	// 2、判断是否是IE 11及以下或者其他(其他里包括IE edge)
 	function isIE() {
 		if(!!window.ActiveXObject || "ActiveXObject" in window){
@@ -667,13 +732,18 @@
 		  return false;
 	　　 }
 	}
+
 	function changePos() {
+		// console.log(floatDiv);
 		width = document.body.clientWidth;
 		height = document.body.clientHeight;
 		Hoffset = floatDiv.offsetHeight;
 		Woffset = floatDiv.offsetWidth;
 		floatDiv.style.left = xPos + document.body.scrollLeft;
 		floatDiv.style.top = yPos + document.body.scrollTop;
+		// $('#floatDiv').css({"left":xPos + document.body.scrollLeft,"top":yPos + document.body.scrollTop});
+		console.log(xPos + document.body.scrollLeft);
+		console.log(yPos + document.body.scrollTop);
 		if (yon) {
 			yPos = yPos + step;
 		} else {
@@ -700,10 +770,18 @@
 			xon = 0;
 			xPos = (width - Woffset);
 		}
+		// console.log(123);
 	}
 	function start() {
+		console.log(delay);
 		floatDiv.style.visibility = "visible";
-		interval = setInterval('changePos()', delay);
+		// interval = setInterval('changePos()', delay);
+		// interval = setInterval('changePos()', 1000);
+		$("#floatDiv").imgFloat({
+		    speed: 30,
+		    xPos: 1,
+		    yPos: 1
+		});
 	}
 	
 	//校园风采  点击变大

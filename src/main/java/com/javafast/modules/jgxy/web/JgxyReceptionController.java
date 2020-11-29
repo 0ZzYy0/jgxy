@@ -73,6 +73,11 @@ public class JgxyReceptionController {
 		return dataList;
 	}
 
+	@RequestMapping(value = "jiuyewang")
+	public String jiuyewang() {
+		return "modules/jgxy/reception/jiuyewang";
+	}
+	
 	@RequestMapping(value = "list")
 	public String list(JgxySysMenu jgxySysMenu, HttpServletRequest request, HttpServletResponse response, Model model) throws UnsupportedEncodingException {
 		// 解决 偶尔的乱码
