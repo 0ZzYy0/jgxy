@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <meta charset="utf-8">
@@ -35,7 +35,7 @@
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/idangerous.swiper.min.js"></script>
  <![endif]–>
 <style>
-	#certify{width: 100% !important;height: 200px;height: 300px\9;overflow: hidden;}
+	#certify{width: 100% !important;height: 200px;height: 300px\9;overflow: hidden;padding: 0;}
 	#certify .swiper-slide p{display: none !important;}
 	#certify .swiper-pagination{display: none !important;}
 	#certify .swiper-button-prev{display: none !important;}
@@ -44,8 +44,8 @@
 	#certify .swiper-slide img{width: 100%;object-fit: cover;}
 	#certify .carousel-inner > .item > a{
 		background-position: center;
-		background-size: 100% 100%;
-		-webkit-background-size: 100% 100%;
+		background-size: 100%;
+		-webkit-background-size: 100%;
 		background-repeat: no-repeat;
 		width: 100%;
 		height:300px\9;display:block;
@@ -328,8 +328,9 @@
 
 		<!--main_part_3_wrapepr-->
 		<div class="main_part main_part_3_wrapepr">
-			<div class="col-sm-4 right_part_wrapper">
+			<div class="col-sm-4 right_part_wrapper" style="padding-left: 0;">
 				<div class="right_part_tittle">
+					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">党建工作</p>
 					<p class="right_part_tips">Self help query</p>
 				</div>
@@ -344,6 +345,7 @@
 			</div>
 			<div class="col-sm-4 right_part_wrapper">
 				<div class="right_part_tittle">
+					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">师德师风建设</p>
 					<p class="right_part_tips">Self help query</p>
 				</div>
@@ -358,6 +360,7 @@
 			</div>
 			<div class="col-sm-4 right_part_wrapper">
 				<div class="right_part_tittle">
+					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">精品课</p>
 				</div>
 				<div class="friendship_link_wrapper">
@@ -372,16 +375,15 @@
 		</div>
 
 		<div class="main_part_4_wrapepr index_banner_wrapper_2 clearfix ">
-			<div class="col-sm-12 right_part_wrapper m-b" style="margin-bottom: 15px;">
+			<div class="col-sm-12 right_part_wrapper m-b" style="margin-bottom: 15px;padding-left:0;">
 				<div class="right_part_tittle">
+					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">校园风采</p>
 					<p class="right_part_tips">Self help query</p>
 				</div>
 			</div>			
 
-			<div id="certify" class="col-sm-12">
-			
-				
+			<div id="certify" class="col-sm-12">				
 			
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
@@ -403,15 +405,23 @@
 					<c:forEach items="${jiList1}" var="ji" varStatus="status">
 						<c:if test="${status.index == 0}">							
 							<div class="item active">
-								<a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
+								<!-- <a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
 									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
+								</a> -->
+								<a style="background-image:url('http://www.hljsfjy.org.cn:80/userfiles/8/images/jgxy/2019/06/certify03.jpg');">
+									<img src="http://www.hljsfjy.org.cn:80/userfiles/8/images/jgxy/2019/06/certify03.jpg" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
 								</a>
+								
 							</div>
 						</c:if>
 						<c:if test="${status.index > 0}">
 							<div class="item">
-								<a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
+								<!-- <a style="background-image:url('http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}');">
 									<img src="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${ji.imgPath}" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
+								</a> -->
+
+								<a style="background-image:url('http://www.hljsfjy.org.cn:80/userfiles/8/images/jgxy/2019/06/certify03.jpg');">
+									<img src="http://www.hljsfjy.org.cn:80/userfiles/8/images/jgxy/2019/06/certify03.jpg" onclick="showImg('${ji.imgTitle}','${ji.imgPath}')" width="335" height="200" />
 								</a>
 							</div>
 						</c:if>

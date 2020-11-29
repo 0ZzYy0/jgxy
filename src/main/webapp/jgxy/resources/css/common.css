@@ -58,7 +58,7 @@ body{background-image:url("../images/index_bg3.png");background-image:none;backg
 	border-radius: 5px 5px 0 0;border: 2px solid #1095CD;border-bottom-color: #033F81;
 	position:relative;
 	}
-.nav_wrapper .nav_bg_img{position:absolute;z-index:0;width:100%;height:100%;}
+.nav_bg_img{position:absolute;z-index:0;width:100%;height:100%;display: none;display: block\9;}
 .nav_wrapper .nav_ul{display: flex;}
 .nav_wrapper .nav_ul .nav_ul_li{flex: 1;padding: 10px 0;position: relative;transition: all 0.5s linear;}
 .nav_wrapper .nav_ul .nav_ul_li:hover{background: #fff;}

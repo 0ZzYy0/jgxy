@@ -1,11 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <title>黑龙江司法警官职业学院</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/jgxy/resources/images/favicon.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
 <!-- Jquery -->
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/jquery-1.11.1.min.js"></script>
 <!-- Bootstrap core CSS -->
@@ -144,8 +147,9 @@
 		
 		<div class="main_part main_part_1_wrapepr fadeInUp" style="; animation-name: none;">
 
-			<div class="col-sm-3 xxgk_right_part_wrapper">
+			<div class="col-sm-3 xxgk_right_part_wrapper" style="padding-left: 0;">
 				<div class="right_part_tittle">
+					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">信息公开</p>
 				</div>
 				<div class="friendship_link_wrapper">
@@ -221,29 +225,29 @@
 	                </c:if>
 	             </div>
 			<div style="height: 60px;"></div>
-		                <c:forEach items="${xxgksxXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
-		
-		                    <c:if test="${(status.index % 4) eq 0}">
-		                        <div class="main_part main_part_3_wrapepr fadeInUp text-center" style="; animation-name: none;">
-		                    </c:if>
-		                    
-		                        <div class="col-sm-3 zxDiv">
-		                                <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" target="_blank" >
-				                            <div class="right_part_tittle">
-				                                    <span class="color:#F00">${xxgkSysMenu.name}</span>
-				                            </div>
-		                                </a>
-		                        </div>
-		
-		                    <c:if test="${(status.index % 4) eq 3}">
-		                        </div>
-		                    </c:if>
-		                    <c:if test="${(status.index % 4) ne 3}">
-			                    <c:if test="${xxgksxXxgkSysMenuList.size() == (status.index +1 )}">
-			                    	</div>
-			                    </c:if>
-		                    </c:if>
-		                </c:forEach>
+                <c:forEach items="${xxgksxXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
+
+                    <c:if test="${(status.index % 4) eq 0}">
+                        <div class="main_part main_part_3_wrapepr fadeInUp text-center" style="; animation-name: none;">
+                    </c:if>
+                    
+                        <div class="col-sm-3 zxDiv">
+                                <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" target="_blank" >
+		                            <div class="right_part_tittle">
+		                                    <span class="color:#F00">${xxgkSysMenu.name}</span>
+		                            </div>
+                                </a>
+                        </div>
+
+                    <c:if test="${(status.index % 4) eq 3}">
+                        </div>
+                    </c:if>
+                    <c:if test="${(status.index % 4) ne 3}">
+	                    <c:if test="${xxgksxXxgkSysMenuList.size() == (status.index +1 )}">
+	                    	</div>
+	                    </c:if>
+                    </c:if>
+                </c:forEach>
 			</div>
 		</div>
 		

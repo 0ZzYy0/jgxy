@@ -49,6 +49,7 @@
 
 <div class="nav_fixed_wrapper">
     <div class="nav_wrapper">
+		<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
         <ul class="nav_ul clearfix">
             <li class="nav_ul_li">
                 <a href="${ctx}/jgxy/jgxyReception/index">
@@ -64,13 +65,13 @@
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="http://218.7.10.11/zs/index_zs.php" target="_blank">
+                <a href="http://218.7.10.11:88/zs/index_zs.php" target="_blank">
                     <span class="nav_name">招生网</span>
                     <span class="nav_tips">Supply</span>
                 </a>
             </li>
             <li class="nav_ul_li">
-                <a href="http://218.7.10.11/jy/index_jy.php" target="_blank">
+                <a href="http://218.7.10.11:88/jy/index_jy.php" target="_blank">
                     <span class="nav_name">就业网</span>
                     <span class="nav_tips">Jobs</span>
                 </a>

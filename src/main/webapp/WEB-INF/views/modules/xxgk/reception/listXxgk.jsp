@@ -1,11 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <title>黑龙江司法警官职业学院</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/jgxy/resources/images/favicon.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
 <!-- Jquery -->
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/jquery-1.11.1.min.js"></script>
 <!-- Bootstrap core CSS -->
@@ -65,7 +68,7 @@
 .news_info .news_list .single_news_wrapper .single_news{margin: 8px;}
 .news_info .news_list .single_news_wrapper .single_news .news_points{position: relative;display: flex;justify-items: center;align-items: center;padding: 0 10px;}
 .news_info .news_list .single_news_wrapper .single_news .news_points:before{content: '';color: #000000;width: 6px;height: 6px;background: #969694;display: block;border-radius: 50%;}
-.news_info .news_list .single_news_wrapper .single_news .news_tittle{color: #000000;text-align: center;font-size: 20px;margin-bottom: 15px;display: block;}
+.news_info .news_list .single_news_wrapper .single_news .news_tittle{color: #000000;text-align: center;font-size: 20px;margin-bottom: 15px;display: block;width:100%;}
 .news_info .news_list .single_news_wrapper .single_news .news_text{color: #969694;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;}
 .news_info .news_list .single_news_wrapper .single_news .news_state{color: #d03539;}
 .news_info .news_list .single_news_wrapper .single_news .news_img{display: none;float: left;width: 100px;height: 64px;margin-right: 15px;}
@@ -159,6 +162,7 @@ a:hover{color:blue;}
         <div class="main_part main_part_3_wrapepr">
             <div class="col-sm-3 xxgk_right_part_wrapper">
                 <div class="right_part_tittle">
+					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
                     <p class="right_part_name">信息公开</p>
                 </div>
                 <div class="friendship_link_wrapper" >
