@@ -6,8 +6,8 @@
 <meta charset="utf-8">
 <title>黑龙江司法警官职业学院</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/jgxy/resources/images/favicon.ico">
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10,IE=9;IE=8" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <!-- Jquery -->
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/jquery-1.11.1.min.js"></script>
@@ -35,7 +35,7 @@
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/idangerous.swiper.min.js"></script>
  <![endif]–>
 <style>
-	#certify{width: 100% !important;height: 200px;height: 300px\9;overflow: hidden;padding: 0;}
+	#certify{width: 100% !important;height: 200px;overflow: hidden;padding: 0;}
 	#certify .swiper-slide p{display: none !important;}
 	#certify .swiper-pagination{display: none !important;}
 	#certify .swiper-button-prev{display: none !important;}
@@ -62,7 +62,7 @@
 		.news_list .single_news_wrapper .single_news.hover_before{font-size: 13px;}
 		.main_part_1_wrapepr .news_list_wrapper{width:95%;margin: 0 auto 15px;}
 		.main_part_2_wrapepr .other_news_list_wrapper{width:95%;margin: 0 auto 15px;}
-		.main_part_2_wrapepr .other_news_list_wrapper .col-sm-6{margin-bottom:15px;}
+		.main_part_2_wrapepr .other_news_list_wrapper .col-xs-6{margin-bottom:15px;}
 		.main_part_3_wrapepr .right_part_wrapper{width: 95%;margin: 0 auto 15px;}
 		.friendship_link_wrapper .friendship_link{padding: 8px 2em;font-size: 14px;}
 	}
@@ -73,7 +73,7 @@
 		.news_list .single_news_wrapper .single_news.hover_before{font-size: 13px;}
 		.main_part_1_wrapepr .news_list_wrapper{width:95%;margin: 0 auto 15px;}
 		.main_part_2_wrapepr .other_news_list_wrapper{width:95%;margin: 0 auto 15px;}
-		.main_part_2_wrapepr .other_news_list_wrapper .col-sm-6{margin-bottom:15px;}
+		.main_part_2_wrapepr .other_news_list_wrapper .col-xs-6{margin-bottom:15px;}
 		.main_part_3_wrapepr .right_part_wrapper{width: 95%;margin: 0 auto 15px;padding-left: 0;}
 		.friendship_link_wrapper .friendship_link{padding: 8px 2em;font-size: 14px;}
 	}
@@ -135,7 +135,7 @@
 
 		<!--main_part_1_wrapepr-->
 		<div class="main_part main_part_1_wrapepr clearfix">
-			<div class="col-sm-7 banner_wrapper hidden-xs">
+			<div class="col-xs-7 banner_wrapper hidden-xs">
 				<div id="myCarousel" class="carousel slide">
 					<!-- 轮播（Carousel）指标 -->
 					<ol class="carousel-indicators">
@@ -170,7 +170,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-5 news_list_wrapper">
+			<div class="col-xs-5 news_list_wrapper">
 				<p class="news_list_tittle clearfix">
 					<span>学院新闻</span>
 					<a href="${ctx}/jgxy/jgxyReception/list" target="_blank" class="more_info_btn pull-right">
@@ -198,8 +198,8 @@
 
 		<!--main_part_2_wrapepr-->
 		<div class="main_part main_part_2_wrapepr">
-			<div class="col-sm-8 other_news_list_wrapper">
-				<div class="col-sm-6">
+			<div class="col-xs-8 other_news_list_wrapper">
+				<div class="col-xs-6">
 					<div class="other_news_tittle clearfix">
 						<span class="other_news_tittle_big">教科研</span>
 						<span class="">工作</span>
@@ -250,7 +250,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6">
+				<div class="col-xs-6">
 					<div class="other_news_tittle clearfix">
 						<span class="other_news_tittle_big">工作</span>
 						<span class="">动态</span>
@@ -285,7 +285,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4 other_news_list_wrapper">
+			<div class="col-xs-4 other_news_list_wrapper">
 				<div class="other_news_tittle clearfix">
 					<span class="other_news_tittle_big">通知</span>
 					<span class="">公告</span>
@@ -295,7 +295,7 @@
 						<img src="${pageContext.request.contextPath}/jgxy/resources/images/icon_more.png" alt="" class="more_info_img">
 					</a>
 				</div>
-				<div class="col-sm-12">
+				<div class="col-xs-12">
 					<div class="tabs-container">
 						<ul class="nav nav-tabs">
 						</ul>
@@ -330,7 +330,7 @@
 
 		<!--main_part_3_wrapepr-->
 		<div class="main_part main_part_3_wrapepr">
-			<div class="col-sm-4 right_part_wrapper" style="padding-left: 0;">
+			<div class="col-xs-4 right_part_wrapper" style="padding-left: 0;">
 				<div class="right_part_tittle">
 					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">党建工作</p>
@@ -345,7 +345,7 @@
 					</c:forEach>
 				</div>
 			</div>
-			<div class="col-sm-4 right_part_wrapper">
+			<div class="col-xs-4 right_part_wrapper">
 				<div class="right_part_tittle">
 					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">师德师风建设</p>
@@ -360,7 +360,7 @@
 					</c:forEach>
 				</div>
 			</div>
-			<div class="col-sm-4 right_part_wrapper">
+			<div class="col-xs-4 right_part_wrapper">
 				<div class="right_part_tittle">
 					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">精品课</p>
@@ -377,7 +377,7 @@
 		</div>
 
 		<div class="main_part_4_wrapepr index_banner_wrapper_2 clearfix ">
-			<div class="col-sm-12 right_part_wrapper m-b" style="margin-bottom: 15px;padding-left:0;">
+			<div class="col-xs-12 right_part_wrapper m-b" style="margin-bottom: 15px;padding-left:0;">
 				<div class="right_part_tittle">
 					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">校园风采</p>
@@ -385,7 +385,7 @@
 				</div>
 			</div>			
 
-			<div id="certify" class="col-sm-12">				
+			<div id="certify" class="col-xs-12">				
 			
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
@@ -561,14 +561,7 @@
 				loopedSlides : 5,
 				// autoplay : 3000,
 		  	});  
-		if(IEVersion() == -1){
-			$('.nav_bg_img').remove();
-		}else{
-		// 	$('#certify2').carousel({
-		// 		interval : 3000,
-		// 	});
-		}
-		
+	
 	});
 
 	// 
@@ -692,45 +685,6 @@
 				'animation-name' : 'fadeInUp'
 			}).addClass('animated');
 		}
-	}
-	
-	// 1、判断IE浏览器的具体版本
-	function IEVersion() {
-      var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
-      var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
-      var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
-      var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
-      if(isIE) {
-          var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
-          reIE.test(userAgent);
-          var fIEVersion = parseFloat(RegExp["$1"]);
-          if(fIEVersion == 7) {
-              return 7;
-          } else if(fIEVersion == 8) {
-              return 8;
-          } else if(fIEVersion == 9) {
-              return 9;
-          } else if(fIEVersion == 10) {
-              return 10;
-          } else {
-              return 6;//IE版本<=7
-          }   
-      } else if(isEdge) {
-          return 'edge';//edge
-      } else if(isIE11) {
-          return 11; //IE11  
-      }else{
-          return -1;//不是ie浏览器
-      }
-	}
-
-	// 2、判断是否是IE 11及以下或者其他(其他里包括IE edge)
-	function isIE() {
-		if(!!window.ActiveXObject || "ActiveXObject" in window){
-		  return true;
-		}else{
-		  return false;
-	　　 }
 	}
 
 	function changePos() {

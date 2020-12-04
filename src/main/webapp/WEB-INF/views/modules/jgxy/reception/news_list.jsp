@@ -7,7 +7,7 @@
 <title>黑龙江司法警官职业学院</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/jgxy/resources/images/favicon.ico">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <!-- Jquery -->
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/jquery-1.11.1.min.js"></script>
@@ -112,7 +112,7 @@
 	a:hover{color:blue;}
 	.news_content img{width:90%;display:block;margin:0 auto;}
 	@media (max-width:767px){
-		.main_part_3_wrapepr>.col-sm-4{
+		.main_part_3_wrapepr>.col-xs-4{
 			width: 90%;
 			padding: 0;
 			margin: 0 auto;
@@ -133,8 +133,8 @@
 		</div>
 
 		<!--main_part_3_wrapepr-->
-		<div class="main_part main_part_3_wrapepr">
-			<div class="col-sm-4" style="padding-left: 0;">
+		<div class="main_part main_part_3_wrapepr clearfix">
+			<div class="col-xs-4" style="padding-left: 0;">
 				<div class="quick_access_wrapper other_news_list_wrapper hide">
 					<div class="other_news_tittle">
 						<span class="other_news_tittle_big">快速</span> <span class="">入口</span>
@@ -185,7 +185,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-8 news_list_wrapper">
+			<div class="col-xs-8 news_list_wrapper">
 				<!--新闻列表-->
 				<c:if test="${jgxyNoteList ne null }">
 					<div class="news_list_1" id="jgxyNoteListDiv">
@@ -202,7 +202,7 @@
 							<tbody>
 								<c:forEach items="${jgxyNoteList}" var="jgxyNote">
 									<tr class="row">
-										<td class="col-sm-9">
+										<td class="col-xs-9">
 											<a href="${ctx}/jgxy/jgxyReception/get?id=${jgxyNote.id}&add=1" target="_blank" class="single_news hover_before">
 												<c:if test="${fn:length(jgxyNote.title) gt 20}">
 													<span class="news_tittle" title="${jgxyNote.title}">${fn:substring(jgxyNote.title, 0, 20)}...</span> 
@@ -212,7 +212,7 @@
 												</c:if>
 											</a>
 										</td>
-										<td class="col-sm-3">
+										<td class="col-xs-3">
 											<span class="label label-info"><fmt:formatDate value="${jgxyNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
 										</td>
 									</tr>

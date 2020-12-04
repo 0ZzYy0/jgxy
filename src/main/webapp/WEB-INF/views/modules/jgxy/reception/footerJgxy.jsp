@@ -2,10 +2,10 @@
 <div class="footer_wrapper">
 
     <div class="row" style="border-bottom: 1px dashed #2282b5;margin-bottom: 6px;padding-bottom: 6px;position: relative;">
-	    <div id="jgxyFooterContents"  class="col-sm-12" >
+	    <div id="jgxyFooterContents"  class="col-xs-12" >
 
 	    </div>
-	    <!-- <div class="col-sm-1"> -->
+	    <!-- <div class="col-xs-1"> -->
 	    	<script type="text/javascript">
 				// document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/10/000/0000/60445220/CA100000000604452200003.js' type='text/javascript'%3E%3C/script%3E"));
 			</script>

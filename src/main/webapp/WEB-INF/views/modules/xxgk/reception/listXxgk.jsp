@@ -7,7 +7,7 @@
 <title>黑龙江司法警官职业学院</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/jgxy/resources/images/favicon.ico">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <!-- Jquery -->
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/jquery-1.11.1.min.js"></script>
@@ -129,7 +129,7 @@ a:hover{color:blue;}
 			padding: 0;
 			margin: 0 auto 15px;
 		}
-		.main_part_3_wrapepr>.col-sm-4{
+		.main_part_3_wrapepr>.col-xs-4{
 			width: 90%;
 			padding: 0;
 			margin: 0 auto;
@@ -159,8 +159,8 @@ a:hover{color:blue;}
         </div>
 
         <!--main_part_3_wrapepr-->
-        <div class="main_part main_part_3_wrapepr">
-            <div class="col-sm-3 xxgk_right_part_wrapper">
+        <div class="main_part main_part_3_wrapepr clearfix">
+            <div class="col-xs-3 xxgk_right_part_wrapper">
                 <div class="right_part_tittle">
 					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
                     <p class="right_part_name">信息公开</p>
@@ -171,7 +171,7 @@ a:hover{color:blue;}
                     </c:forEach>
                 </div>
             </div>
-            <div class="col-sm-9 news_list_wrapper">
+            <div class="col-xs-9 news_list_wrapper">
                 <!--新闻列表-->
                 <c:if test="${xxgkNoteList ne null }">
                     <div class="news_list_1" id="jgxyNoteListDiv">
@@ -188,7 +188,7 @@ a:hover{color:blue;}
                             <tbody>
                                 <c:forEach items="${xxgkNoteList}" var="xxgkNote">
                                     <tr class="row">
-                                        <td class="col-sm-9">
+                                        <td class="col-xs-9">
                                             <a href="${ctx}/xxgk/xxgkReception/get?id=${xxgkNote.id}&add=1" target="_blank" class="single_news hover_before">
                                                 <c:if test="${fn:length(xxgkNote.title) gt 40}">
                                                     <span class="news_tittle" title="${xxgkNote.title}">${fn:substring(xxgkNote.title, 0, 40)}...</span> 
@@ -198,7 +198,7 @@ a:hover{color:blue;}
                                                 </c:if>
                                             </a>
                                         </td>
-                                        <td class="col-sm-3">
+                                        <td class="col-xs-3">
                                             <span class="label label-info"><fmt:formatDate value="${xxgkNote.releaseDate}" pattern="yyyy-MM-dd"/></span>
                                         </td>
                                     </tr>
