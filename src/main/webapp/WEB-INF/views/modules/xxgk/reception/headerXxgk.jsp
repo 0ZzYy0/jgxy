@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
-    .head_wrapper{margin-bottom: 0em\9;margin-bottom: 0em;}
+    .head_wrapper{margin-bottom: 0em;}
+    .nav_fixed_wrapper{margin-top: 1rem\9;}
     .head_right_wrapper .right_text_wrapper_3 {
         font-size: 16px;
         text-align: right;
