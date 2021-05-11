@@ -7,7 +7,7 @@
 <title>黑龙江司法警官职业学院</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/jgxy/resources/images/favicon.ico">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
 <!-- Jquery -->
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/jquery-1.11.1.min.js"></script>
@@ -19,9 +19,9 @@
 <script src="${pageContext.request.contextPath}/jgxy/resources/js/bootstrap.min.js"></script>
 
 <!--swiper-->
-<link href="${pageContext.request.contextPath}/jgxy/resources/css/swiper.min.css" rel="stylesheet" type="text/css" />
+<!-- <link href="${pageContext.request.contextPath}/jgxy/resources/css/swiper.min.css" rel="stylesheet" type="text/css" /> -->
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/certify.css" rel="stylesheet" type="text/css" />
-<script src="${pageContext.request.contextPath}/jgxy/resources/js/swiper.min.js"></script>
+<!-- <script src="${pageContext.request.contextPath}/jgxy/resources/js/swiper.min.js"></script> -->
 <!--index-->
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/common.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/jgxy/resources/css/index.css" rel="stylesheet" type="text/css" />
@@ -62,7 +62,7 @@
 	}
 	.news_list_wrapper .main_part_3_wrapepr .zxDiv a{color:#fff;display: block; width: 100%;}
     
-	.xxgk_right2_part_wrapper>.main_part_3_wrapepr .zxDiv{display: block;padding: 5px;background: -webkit-linear-gradient(right, #02B4FF , #3090FE);background: -o-linear-gradient(right, #02B4FF, #3090FE);background: -moz-linear-gradient(right, #02B4FF, #3090FE);background: linear-gradient(to right, #02B4FF , #3090FE);color: #fff;border-radius: 8px;margin: 5px 5px 5px 0;}
+	.xxgk_right2_part_wrapper>.main_part_3_wrapepr .zxDiv{display: block;padding: 5px;background: -webkit-linear-gradient(right, #02B4FF , #3090FE);background: -o-linear-gradient(right, #02B4FF, #3090FE);background: -moz-linear-gradient(right, #02B4FF, #3090FE);background: linear-gradient(to right, #02B4FF , #3090FE);background:#02B4FF;color: #fff;border-radius: 8px;margin: 5px 5px 5px 0;width:24%\9;}
 	.xxgk_right2_part_wrapper>.main_part_3_wrapepr .zxDiv a{color:#fff;}
 	/*a:link{color:white;}
 	a:visited{color:white;}*/
@@ -145,9 +145,9 @@
 			<%@ include file="headerXxgk.jsp"%>
 		</div>
 		
-		<div class="main_part main_part_1_wrapepr fadeInUp" style="; animation-name: none;">
+		<div class="main_part main_part_1_wrapepr fadeInUp clearfix" style="; animation-name: none;">
 
-			<div class="col-sm-3 xxgk_right_part_wrapper" style="padding-left: 0;">
+			<div class="col-xs-3 xxgk_right_part_wrapper" style="padding-left: 0;">
 				<div class="right_part_tittle">
 					<img src="${pageContext.request.contextPath}/jgxy/resources/images/nav_bg.png" class="nav_bg_img"/>
 					<p class="right_part_name">信息公开</p>
@@ -159,7 +159,7 @@
 				</div>
 			</div>
 			
-			<div class="col-sm-9 xxgk_right2_part_wrapper" style="height:100%;">
+			<div class="col-xs-9 xxgk_right2_part_wrapper" style="height:100%;">
 	            <div class="news_list_wrapper">
 	                <c:if test="${not empty xxgkNoteList && !(xxgkNoteList eq null)}">
 	                    <p class="news_list_tittle clearfix" style="text-align: center">
@@ -193,51 +193,51 @@
 	                </c:if>
 	                
 	                <c:if test="${not empty xxgksysMenuList && !(xxgksysMenuList eq null) }">
-		                    <p class="news_list_tittle clearfix" style="text-align: center">
-		                    <!-- <p class="news_list_tittle clearfix" style=""> -->
-		                        <span style="font-size: 22px">${xxgkSysMenuName}</span>
-		                    </p>
-		                    <ul class="">
-		                        <c:forEach items="${xxgksysMenuList}" var="xxgksysMenu" varStatus="status">
-		                        
-		                               <!-- 列表样式 -->
-				                            <c:if test="${(status.index % 2) eq 0}">
-				                                <div class="main_part main_part_3_wrapepr fadeInUp text-center" style="; animation-name: none;">
-				                            </c:if>
-				                            
-				                                <div class="col-sm-6 zxDiv">
-											<a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}" target="_blank" >
-												<img src="${pageContext.request.contextPath}/jgxy/resources/images/star.gif" alt="" class="star_img">
-												<span class="color:#F00;">${xxgksysMenu.name}</span>
-											</a>
-										</div>
-				        
-				                            <c:if test="${(status.index % 2) eq 1}">
-				                                </div>
-				                            </c:if>
-				                            <c:if test="${(status.index % 2) ne 1}">
-				                                <c:if test="${xxgksysMenuList.size() == (status.index +1 )}">
-				                                    </div>
-				                                </c:if>
-				                            </c:if>
-		                        </c:forEach>
-		                    </ul>
+	                    <p class="news_list_tittle clearfix" style="text-align: center">
+	                    <!-- <p class="news_list_tittle clearfix" style=""> -->
+	                        <span style="font-size: 22px">${xxgkSysMenuName}</span>
+	                    </p>
+	                    <ul class="">
+	                        <c:forEach items="${xxgksysMenuList}" var="xxgksysMenu" varStatus="status">
+                               <!-- 列表样式 -->
+	                            <c:if test="${(status.index % 2) eq 0}">
+	                                <div class="main_part main_part_3_wrapepr fadeInUp text-center clearfix" style="; animation-name: none;">
+	                            </c:if>
+	                            
+                                <div class="col-xs-6 zxDiv" style="width:46%\9;">
+									<a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgksysMenu.id}" target="_blank" >
+										<img src="${pageContext.request.contextPath}/jgxy/resources/images/star.gif" alt="" class="star_img">
+										<span class="color:#F00;">${xxgksysMenu.name}</span>
+									</a>
+								</div>
+	        
+	                            <c:if test="${(status.index % 2) eq 1}">
+	                                </div>
+	                            </c:if>
+	                            <c:if test="${(status.index % 2) ne 1}">
+	                                <c:if test="${xxgksysMenuList.size() == (status.index +1 )}">
+	                                    </div>
+	                                </c:if>
+	                            </c:if>
+	                        </c:forEach>
+	                    </ul>
 	                </c:if>
 	             </div>
-			<div style="height: 60px;"></div>
+				<div style="height: 60px;"></div>
+
                 <c:forEach items="${xxgksxXxgkSysMenuList}" var="xxgkSysMenu" varStatus="status">
 
                     <c:if test="${(status.index % 4) eq 0}">
-                        <div class="main_part main_part_3_wrapepr fadeInUp text-center" style="; animation-name: none;">
+                        <div class="main_part main_part_3_wrapepr fadeInUp text-center clearfix" style="; animation-name: none;">
                     </c:if>
                     
-                        <div class="col-sm-3 zxDiv">
-                                <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" target="_blank" >
-		                            <div class="right_part_tittle">
-		                                    <span class="color:#F00">${xxgkSysMenu.name}</span>
-		                            </div>
-                                </a>
-                        </div>
+                    <div class="col-xs-3 zxDiv">
+                        <a href="${ctx}/xxgk/xxgkReception/buttonList?xxgkSysMenuId=${xxgkSysMenu.id}" target="_blank" >
+                            <div class="right_part_tittle">
+                            	<span class="color:#F00">${xxgkSysMenu.name}</span>
+                            </div>
+                        </a>
+                    </div>
 
                     <c:if test="${(status.index % 4) eq 3}">
                         </div>
@@ -271,7 +271,7 @@
     var pause;
     var interval;
 
-    
+
     $(function() {
     	
 /*      //模态广告代码↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -334,9 +334,9 @@
 
 
         // banner
-        $('#myCarousel').carousel({
-            interval : 5000,
-        });
+        // $('#myCarousel').carousel({
+        //     interval : 5000,
+        // });
 
         $('#jnsc').bind('keyup', function(event) {
             　　if (event.keyCode == "13") {

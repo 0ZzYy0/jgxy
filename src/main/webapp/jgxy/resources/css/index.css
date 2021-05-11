@@ -19,13 +19,13 @@
 .news_list{}
 .news_list .single_news_wrapper{}
 .news_list .single_news_wrapper .single_news{margin: 8px;}
-.news_list .single_news_wrapper .single_news .news_points{position: relative;display: flex;justify-items: center;align-items: center;padding: 0 10px;}
+.news_list .single_news_wrapper .single_news .news_points{position: relative;top:13px\9;display: flex;justify-items: center;align-items: center;padding: 0 10px;}
 .news_list .single_news_wrapper .single_news .news_points:before{content: '';color: #000000;width: 6px;height: 6px;background: #969694;display: block;border-radius: 50%;}
-.news_list .single_news_wrapper .single_news .news_tittle,.news_list .single_news_wrapper .single_news .test{color: #000000;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;flex: 2;display:block\9;width:70%\9;overflow:hidden\9;text-overflow:ellipsis\9;white-space:nowrap\9;}
+.news_list .single_news_wrapper .single_news .news_tittle,.news_list .single_news_wrapper .single_news .test{color: #000000;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;flex: 2;display:inline-block\9;width:65%\9;overflow:hidden\9;text-overflow:ellipsis\9;white-space:nowrap\9;}
 .news_list .single_news_wrapper .single_news .news_text{color: #969694;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;}
-.news_list .single_news_wrapper .single_news .news_state{color: #d03539;}
+.news_list .single_news_wrapper .single_news .news_state{color: #d03539;display: none\9;}
 .news_list .single_news_wrapper .single_news .news_img{display:none;float: left;width: 100px;height: 64px;margin-right: 15px;}
-.news_list .single_news_wrapper .single_news .news_time{color: #969694;margin-left: 5px;width: 80px;text-align: center;}
+.news_list .single_news_wrapper .single_news .news_time{color: #969694;margin-left: 5px;width: 80px;text-align: center;float: right\9;}
 /*hover_before*/
 .news_list .single_news_wrapper .single_news.hover_before{display: flex;font-size: 14px;overflow:hidden\9;color: #969694;}
 /*.news_list .single_news_wrapper .single_news.hover_before:hover{color: #0b4782;}*/
