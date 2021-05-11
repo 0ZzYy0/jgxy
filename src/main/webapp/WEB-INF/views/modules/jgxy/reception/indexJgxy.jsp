@@ -85,7 +85,7 @@
 	<span style="CURSOR: hand; color: red; font-weight: bold; font-size: 12px" onclick="clearInterval(interval);floatDiv.style.visibility='hidden'">关闭</span>
 	<div id="cxtfdck">
 		<a id="floatA" href="">
-			<img id="floatImg" src="${pageContext.request.contextPath}/jgxy/resources/images/jingpinkecheng.jpg" style="width: 100px;" alt="" class="">
+			<img id="floatImg" src="${pageContext.request.contextPath}/jgxy/resources/images/jingpinkecheng.jpg" alt="" class="">
 		</a>
 	</div>
 </div>

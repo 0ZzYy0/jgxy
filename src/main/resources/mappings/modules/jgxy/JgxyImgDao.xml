@@ -40,13 +40,7 @@
             </if>
 			
 		</where>
-		<choose>
-			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
-				ORDER BY ${page.orderBy}
-			</when>
-			<otherwise>
-			</otherwise>
-		</choose>
+				ORDER BY sort
 	</select>
 	
 	<select id="findAllList" resultType="JgxyImg">
